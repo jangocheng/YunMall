@@ -1,0 +1,6 @@
+F:\repository\YunMall\source\YunMall\YunMall.Entity\bin\Debug\YunMall.Entity.dll
+F:\repository\YunMall\source\YunMall\YunMall.Entity\bin\Debug\YunMall.Entity.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Entity\obj\Debug\YunMall.Entity.csprojAssemblyReference.cache
+F:\repository\YunMall\source\YunMall\YunMall.Entity\obj\Debug\YunMall.Entity.csproj.CoreCompileInputs.cache
+F:\repository\YunMall\source\YunMall\YunMall.Entity\obj\Debug\YunMall.Entity.dll
+F:\repository\YunMall\source\YunMall\YunMall.Entity\obj\Debug\YunMall.Entity.pdb
