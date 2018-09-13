@@ -1,5 +1,9 @@
-F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.csprojAssemblyReference.cache
-F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.csproj.CoreCompileInputs.cache
+F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.IO.Compression.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\VBCSCompiler.exe
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\ApplicationInsights.config
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\YunMall.Web.dll.config
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\YunMall.Web.dll
@@ -11,13 +15,9 @@ F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\csi.exe
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\csi.exe.config
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\csi.rsp
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.CSharp.Core.targets
-F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\Microsoft.Win32.Primitives.dll
@@ -27,7 +27,6 @@ F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.Console.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.Diagnostics.Process.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
-F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.IO.Compression.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.IO.FileSystem.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
@@ -50,7 +49,6 @@ F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\System.Xml.XPath.XDo
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\vbc.exe
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\vbc.exe.config
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\vbc.rsp
-F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\VBCSCompiler.exe
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\roslyn\VBCSCompiler.exe.config
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\Antlr3.Runtime.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\Microsoft.AI.Agent.Intercept.dll
@@ -106,6 +104,8 @@ F:\repository\YunMall\source\YunMall\YunMall.Web\bin\zh-Hans\System.Web.WebPages
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\zh-Hans\System.Web.Http.resources.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.csprojAssemblyReference.cache
+F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.csproj.CoreCompileInputs.cache
 F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.csproj.CopyComplete
 F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.pdb

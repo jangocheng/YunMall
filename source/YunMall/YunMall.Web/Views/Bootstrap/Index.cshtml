@@ -1,4 +1,6 @@
-﻿
+﻿@using System.Diagnostics.SymbolStore
+@using YunMall.Entity
+
 @{
     Layout = null;
 }
@@ -8,11 +10,64 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>登录-@(Constants.WEB_TITLE)</title>
+    @Styles.Render("~/Content/layui/css/layui.css")
+    @Styles.Render("~/Content/css/mall_bootstrap.css")
+    @Styles.Render("~/Content/css/style.css")
+    @Styles.Render("~/Content/css/animate.css")
 </head>
 <body>
-<div>
-    hello
-</div>
+    <div class="container">
+        <div class="head">
+            <div class="logo  animated fadeInDown">
+                <img src="~/Content/images/logo.png" oncontextmenu="return false;" ondragstart="return false;" alt="@(Constants.WEB_TITLE)" />
+                <span onselectstart="return false;" onselect="document.selection.empty();">巨浪网络技术有限公司</span>
+            </div>
+        </div>
+        <!-- infinite-->
+        <div class="content animated fadeInRightBig">
+            <div class="center">
+                <div class="ad_pannel"></div>
+                <div class="layui-form user_pannel ">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="username" lay-verify="title" autocomplete="off" required="required" placeholder="请输入标题" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="password" placeholder="请输入密码" required="required" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">验证码</label>
+                        <div class="layui-input-block">
+                            <input style="width: 50% !important; display: inline-block;" type="password" name="password" placeholder="请输入验证码" required="required" maxlength="4" autocomplete="off" class="layui-input">
+                            <img style="margin-left: 5px;height: 38px;border-radius: 5px" src="~/Content/images/lazy-vcode.png" alt="看不清，刷新一下" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button style="width: 80%;" class="layui-btn" lay-submit="" lay-filter="demo1">登&nbsp;录</button>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" style="
+                            position: absolute;
+                            bottom: -40px;
+                            left: 35%;
+                        ">
+                        <a href="#" target="_blank">还没有账号？立刻注册>></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer  animated fadeInLeftBig">
+            <span>© 2018 云商城-巨浪网络技术有限公司</span>
+        </div>
+    </div>
+    @Scripts.Render("~/Content/layui/layui.js")
 </body>
 </html>

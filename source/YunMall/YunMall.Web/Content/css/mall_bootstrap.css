@@ -1,0 +1,109 @@
+﻿* {
+    margin: 0;
+}
+
+html {
+    margin: 0;
+    height: 100%;
+}
+
+
+
+.container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+.head {
+    width: 1200px;
+    height: 110px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+
+.content {
+    position: relative;
+    top: 25px;
+    width: 100%;
+    height: 480px;
+}
+
+.footer {
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.logo {
+    width: 100%;
+    z-index: 999;
+}
+
+.logo, .logo img {
+    height: 100px;
+}
+
+.logo span {
+    position: relative;
+    height: 10px;
+    left: -128px;
+    top: 30px;
+    font-size: 10px;
+    color: rgba(41, 88, 202, 0.37);
+}
+
+.center {
+    width: 1200px;
+    height: 480px;
+    margin: 0 auto;
+    box-shadow: -10px 0px 80px 0px rgba(0, 0, 0, 0.1803921568627451);
+    border-radius: 60px;
+    background-color: #fff;
+}
+
+
+.ad_pannel {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    width: 70%;
+    background-image: url(../images/boostrap_ad.jpg);
+    z-index: 1;
+    border-radius: 60px;
+}
+
+
+.user_pannel {
+    display: block;
+    float: right;
+    z-index: 2;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: relative;
+    left: -43px;
+    padding: 20px;
+    padding-top: 70px;
+    width: 320px;
+}
+
+
+.footer span {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    line-height: 100px;
+    font-size: 12px;
+    color: #909090;
+}
+
+
+body {
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

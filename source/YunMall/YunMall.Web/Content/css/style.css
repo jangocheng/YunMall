@@ -1,0 +1,14 @@
+﻿.layui-input, .layui-textarea {
+    border-radius: 15px;
+}
+
+.layui-btn-primary {
+    border: none;
+    background-color: #fff;
+    color: #d4e0fc;
+}
+
+.layui-btn-primary:hover {
+    border-color: #009688;
+    color: #d4e0fc;
+}
