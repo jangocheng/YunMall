@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "控制台";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    <style>
+        .nav_big_btn {
+            list-style: none;
+        }
+
+        .nav_big_btn li {
+            display: inline-block;
+            float: left;
+            width: 460px;
+            height: 220px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .nav_big_btn li:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            min-height: 950px;
+            background-image: url(/Content/images/welcome_background.png);
+            background-repeat: no-repeat;
+            background-position-x: 120px;
+            background-position-y: 110px;
+        }
+    </style>
+}
+
+@section current_page {
+    <a><cite>控制台</cite></a>
+}
+
+
+<div class="layui-row">
+    <div class="layui-col-md12 container">
+        <!--主体 begin-->
+        <ul class="nav_big_btn">
+            <li style="background-image: url(/Content/images/bigButton1.png);"></li>
+            <li style="background-image: url(/Content/images/bigButton2.png);"></li>
+            <li style="background-image: url(/Content/images/bigButton3.png);"></li>
+        </ul>
+        <!--主体 end-->
+    </div>
+</div>

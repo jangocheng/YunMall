@@ -10,9 +10,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>登录-@(Constants.WEB_TITLE)</title>
-    @Styles.Render("~/Content/layui/css/layui.css")
-    @Styles.Render("~/Content/css/mall_bootstrap.css")
+    <title>登录-@(Constants.Title)</title>
+    @Styles.Render("~/Content/frame/layui/css/layui.css")
+    @Styles.Render("~/Content/css/module/bootstrap.css")
     @Styles.Render("~/Content/css/style.css")
     @Styles.Render("~/Content/css/animate.css")
 </head>
@@ -20,19 +20,47 @@
     <div class="container">
         <div class="head">
             <div class="logo  animated fadeInDown">
-                <img src="~/Content/images/logo.png" oncontextmenu="return false;" ondragstart="return false;" alt="@(Constants.WEB_TITLE)" />
-                <span onselectstart="return false;" onselect="document.selection.empty();">巨浪网络技术有限公司</span>
+                <img src="~/Content/images/logo.png" oncontextmenu="return false;" ondragstart="return false;" alt="@(Constants.Title)" />
+                <span onselectstart="return false;" onselect="document.selection.empty();">@(Constants.Brand)</span>
             </div>
         </div>
         <!-- infinite-->
         <div class="content animated fadeInRightBig">
-            <div class="center">
+            <form id="login" class="center">
                 <div class="ad_pannel"></div>
                 <div class="layui-form user_pannel ">
                     <div class="layui-form-item">
                         <label class="layui-form-label">用户名</label>
                         <div class="layui-input-block">
-                            <input type="text" name="username" lay-verify="title" autocomplete="off" required="required" placeholder="请输入标题" class="layui-input">
+                            <input type="text" name="username" lay-verify="username" autocomplete="off" placeholder="请输入用户名" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="password" lay-verify="password" placeholder="请输入密码"autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="line-height: 70px;">
+                        <div class="layui-input-block">
+                            <button id="loginBtn" style="width: 100%;" class="layui-btn" lay-submit="" lay-filter="login">登&nbsp;录</button>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" style="position: absolute;bottom: -20px;left: 50%;">
+                        <a id="toReg" href="javascript:void(0);">还没有账号？立刻注册>></a>
+                    </div>
+                </div>
+            </form>
+
+
+            <form id="reg" class="reg_center">
+                <div class="ad_pannel"></div>
+                <div class="layui-form user_pannel ">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="username" lay-verify="title" autocomplete="off" required="required" placeholder="请输入用户名" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -42,32 +70,40 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">验证码</label>
+                        <label class="layui-form-label">重复密码</label>
                         <div class="layui-input-block">
-                            <input style="width: 50% !important; display: inline-block;" type="password" name="password" placeholder="请输入验证码" required="required" maxlength="4" autocomplete="off" class="layui-input">
-                            <img style="margin-left: 5px;height: 38px;border-radius: 5px" src="~/Content/images/lazy-vcode.png" alt="看不清，刷新一下" />
+                            <input type="password" name="password2" placeholder="请输入重复密码" required="required" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
+                        <label class="layui-form-label">联系方式</label>
                         <div class="layui-input-block">
-                            <button style="width: 80%;" class="layui-btn" lay-submit="" lay-filter="demo1">登&nbsp;录</button>
+                            <input type="text" name="contact" lay-verify="title" autocomplete="off" required="required" placeholder="请输入手机/QQ/邮箱" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="line-height: 70px;">
+                        <div class="layui-input-block">
+                            <button id="regBtn" style="width: 100%;" class="layui-btn button_bg_green" lay-submit="" lay-filter="reg">注&nbsp;册</button>
                         </div>
                     </div>
 
                     <div class="layui-form-item" style="
                             position: absolute;
                             bottom: -40px;
-                            left: 35%;
+                            left: 20%;
                         ">
-                        <a href="#" target="_blank">还没有账号？立刻注册>></a>
+                        <a id="toLogin" href="javascript:void(0);">已有账号？</a>
                     </div>
                 </div>
-            </div>
+            </form>
+
         </div>
         <div class="footer  animated fadeInLeftBig">
-            <span>© 2018 云商城-巨浪网络技术有限公司</span>
+            <span>© 2018 云商城&nbsp;-&nbsp;@(Constants.Brand)</span>
         </div>
     </div>
-    @Scripts.Render("~/Content/layui/layui.js")
+    @Scripts.Render("~/Content/frame/layui/layui.all.js")
+    @Scripts.Render("~/Content/js/common/jquery-3.3.1.min.js")
+    @Scripts.Render("~/Content/js/module/bootstrap.js")
 </body>
 </html>

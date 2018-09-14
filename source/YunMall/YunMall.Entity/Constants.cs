@@ -10,8 +10,10 @@ namespace YunMall.Entity
         /// <summary>
         /// 网站基本信息配置
         /// </summary>
-        public static string WEB_TITLE { get; set; } = "请设置您的网站标题";
-        public static string WEB_KEYWORDS { get; set; }
-        public static string WEB_DESCRIPTION { get; set; }
+        public static string Title { get; set; } = "请设置您的网站标题";
+        public static string KeyWords { get; set; }
+        public static string Description { get; set; }
+        public static string Brand { get; set; } = "主旋律科技有限公司";
+
     }
 }

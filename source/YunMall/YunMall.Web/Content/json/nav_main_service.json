@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "text": "欢迎回来",
+      "icon": "&#xe66a;",
+      "subset":[
+        {
+          "text": "控制台",
+          "icon": "&#xe68e;",
+          "href": "/management/index"
+        }
+      ]
+    },
+  {
+    "text": "财务模块",
+    "icon": "&#xe65e;",
+    "subset": [
+      {
+        "text": "会计账簿",
+        "icon": "&#xe63c;",
+        "href": "/management/finance/accounts"
+      }
+    ]
+  },{
+      "text": "市场运营",
+      "icon": "&#xe632;",
+      "subset": [
+        {
+          "text": "佣金结算",
+          "icon": "&#xe63c;",
+          "href": "/management/room/close-accounts"
+        },{
+          "text": "提现审批",
+          "icon": "&#xe63c;",
+          "href": "/management/withdraw/index"
+        },{
+          "text": "充值审批",
+          "icon": "&#xe63c;",
+          "href": "/management/recharge/index"
+        },{
+          "text": "充值房卡",
+          "icon": "&#xe63c;",
+          "href": "/management/room/room-card"
+        }]
+    }
+  ]
+}

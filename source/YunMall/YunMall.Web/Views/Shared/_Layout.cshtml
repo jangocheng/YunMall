@@ -1,43 +1,70 @@
-﻿<!DOCTYPE html>
+﻿@using YunMall.Entity
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title - @(Constants.Title)</title>
+    @Styles.Render("~/Content/frame/layui/css/layui.css")
+    @Styles.Render("~/Content/frame/static/css/style.css")
+    @RenderSection("styles", required: false)
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("应用程序名称", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                    <li>@Html.ActionLink("关于", "About", "Home")</li>
-                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
-                </ul>
+<body> 
+    <!-- layout admin -->
+    <div class="layui-layout layui-layout-admin">
+        <!-- 添加skin-1类可手动修改主题为纯白，添加skin-2类可手动修改主题为蓝白 -->
+        <!-- header -->
+        <div class="layui-header my-header">
+            <img class="my-logo" src="/Content/images/logo_white.png"  oncontextmenu="return false;" ondragstart="return false;"  alt="@(Constants.Brand)" />
+            <a href="/">
+                <div class="my-header-logo">@(Constants.Brand)</div>
+            </a>
+
+            <!-- 顶部左侧添加选项卡监听 -->
+            <ul class="layui-nav" lay-filter="side-top-left"></ul>
+
+            <!-- 顶部右侧添加选项卡监听 -->
+            <ul class="layui-nav my-header-user-nav" lay-filter="side-top-right">
+                <li class="layui-nav-item"><a href="/logout">注销登录</a></li>
+            </ul>
+
+        </div>
+
+        <!--左侧菜单 begin-->
+        <div class="layui-side my-side">
+            <div class="layui-side-scroll">
+                <!-- 左侧主菜单添加选项卡监听 -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="side-main"></ul>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
-        </footer>
+        <!--左侧菜单 end-->
+        <!-- 内容主体 begin -->
+        <div class="layui-body my-body">
+            <div class="my-breadcrumb">
+                <span class="layui-breadcrumb" lay-filter="breadcrumb" style="visibility: visible;">
+                    <a href="/admin/index">首页</a><span lay-separator="">/</span>
+                    @RenderSection("current_page", required: true)
+                </span>
+            </div>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show my-content">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <!-- 内容主体 end -->
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/js/common/jquery-2.0.0.min.js")
+    @Scripts.Render("~/Content/frame/layui/layui.all.js")
+    @Scripts.Render("~/Content/js/common/jquery.form.js")
+    @Scripts.Render("~/Content/js/common/layui-format-date.js")
+    @Scripts.Render("~/Content/frame/static/js/vip_comm.js")
+    @Scripts.Render("~/Content/js/base/utils.js")
+    @Scripts.Render("~/Content/js/base/index.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
