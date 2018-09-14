@@ -1,0 +1,15 @@
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\HS.Redis.Cache.dll
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\HS.Redis.Cache.pdb
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\Newtonsoft.Json.dll
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\ServiceStack.Common.dll
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\ServiceStack.Interfaces.dll
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\ServiceStack.Redis.dll
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\ServiceStack.Text.dll
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\Newtonsoft.Json.xml
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\ServiceStack.Common.xml
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\ServiceStack.Interfaces.xml
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\ServiceStack.Redis.xml
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\bin\Release\ServiceStack.Text.xml
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\obj\Release\HS.Redis.Cache.dll
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\obj\Release\HS.Redis.Cache.pdb
+E:\HSYG\HS.Cache\SoureCode\trunk\V1.0\HS.Redis.Cache\HS.Redis.Cache\obj\Release\HS.Redis.Cache.csprojResolveAssemblyReference.cache

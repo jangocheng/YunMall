@@ -160,9 +160,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />
+    <Compile Include="Filters\MvcSecurityFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -327,6 +329,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Security\Controllers\" />
+    <Folder Include="Areas\Security\Models\" />
+    <Folder Include="Areas\Security\Views\Shared\" />
     <Folder Include="Content\frame\layui\extend\" />
     <Folder Include="Images\" />
     <Folder Include="Models\" />
@@ -338,6 +343,7 @@
     <Content Include="Content\frame\layui\font\iconfont.svg" />
     <Content Include="Content\frame\layui\font\iconfont.ttf" />
     <Content Include="Content\frame\layui\font\iconfont.woff" />
+    <Content Include="Areas\Security\Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
@@ -347,6 +353,10 @@
     <ProjectReference Include="..\YunMall.Entity\YunMall.Entity.csproj">
       <Project>{ef160a07-e90f-48df-b40f-a37557043017}</Project>
       <Name>YunMall.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YunMall.Utility\YunMall.Utility.csproj">
+      <Project>{cbfa2042-64dd-404c-9e40-16abbc46df35}</Project>
+      <Name>YunMall.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

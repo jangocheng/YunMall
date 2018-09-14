@@ -1,0 +1,54 @@
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\HS.Redis.Cache.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\HS.Redis.Cache.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\ServiceStack.Common.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\ServiceStack.Redis.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\ServiceStack.Text.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\ServiceStack.Common.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\ServiceStack.Interfaces.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\ServiceStack.Redis.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\bin\Debug\ServiceStack.Text.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\obj\Debug\DF.Redis.Cache.csprojResolveAssemblyReference.cache
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\obj\Debug\HS.Redis.Cache.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Redis.Cache\HS.Redis.Cache\obj\Debug\HS.Redis.Cache.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\DF.Redis.Cache.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\DF.Redis.Cache.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Redis.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Text.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Common.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Interfaces.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Redis.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Text.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\obj\Debug\DF.Redis.Cache.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\obj\Debug\DF.Redis.Cache.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\obj\Debug\DF.Redis.Cache.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\DF.Redis.Cache.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\DF.Redis.Cache.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Common.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Redis.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Text.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Common.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Interfaces.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Redis.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Text.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\obj\Debug\DF.Redis.Cache.csprojResolveAssemblyReference.cache
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\obj\Debug\DF.Redis.Cache.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\obj\Debug\DF.Redis.Cache.pdb
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\DF.Redis.Cache.dll
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\DF.Redis.Cache.pdb
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\Newtonsoft.Json.dll
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Common.dll
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Interfaces.dll
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Redis.dll
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Text.dll
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Common.xml
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Interfaces.xml
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Redis.xml
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\bin\Debug\ServiceStack.Text.xml
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\obj\Debug\DF.Redis.Cache.dll
+G:\DF.TMall\Sources\DF.Redis.Cache\DF.Redis.Cache\obj\Debug\DF.Redis.Cache.pdb

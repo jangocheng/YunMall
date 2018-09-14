@@ -1,0 +1,74 @@
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\Newtonsoft.Json.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\System.Web.Http.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\Newtonsoft.Json.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\System.Web.Http.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\zh-Hans\System.Web.Http.resources.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.dll.config
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\Newtonsoft.Json.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\DF.Log.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\log4net.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Bson.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.Core.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\DF.Log.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\log4net.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Bson.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.Core.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.csprojResolveAssemblyReference.cache
+G:\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.pdb
+G:\DF.TMall\Sources\DF.Common\bin\Release\DF.Log.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\Newtonsoft.Json.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\System.Net.Http.Formatting.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\System.Web.Http.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\log4net.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Bson.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.Core.dll
+G:\DF.TMall\Sources\DF.Common\bin\Release\DF.Log.pdb
+G:\DF.TMall\Sources\DF.Common\bin\Release\Newtonsoft.Json.xml
+G:\DF.TMall\Sources\DF.Common\bin\Release\System.Net.Http.Formatting.xml
+G:\DF.TMall\Sources\DF.Common\bin\Release\System.Web.Http.xml
+G:\DF.TMall\Sources\DF.Common\bin\Release\log4net.xml
+G:\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Bson.xml
+G:\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.xml
+G:\DF.TMall\Sources\DF.Common\bin\Release\zh-Hans\System.Web.Http.resources.dll
+G:\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.csprojResolveAssemblyReference.cache
+G:\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.dll
+G:\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.pdb
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.dll
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\DF.Common.pdb
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\DF.Log.dll
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\Newtonsoft.Json.dll
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\System.Net.Http.Formatting.dll
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\log4net.dll
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Bson.dll
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.dll
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.Core.dll
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\DF.Log.pdb
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\Newtonsoft.Json.xml
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\System.Net.Http.Formatting.xml
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\System.Web.Http.xml
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\log4net.xml
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Bson.xml
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\MongoDB.Driver.xml
+F:\net\DF.TMall\Sources\DF.Common\bin\Release\zh-Hans\System.Web.Http.resources.dll
+F:\net\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.csprojResolveAssemblyReference.cache
+F:\net\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.csproj.CoreCompileInputs.cache
+F:\net\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.dll
+F:\net\DF.TMall\Sources\DF.Common\obj\Release\DF.Common.pdb

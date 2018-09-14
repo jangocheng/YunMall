@@ -1,0 +1,263 @@
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.dll.config
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Common.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Redis.Cache.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Newtonsoft.Json.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\StackExchange.Redis.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Helpers.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Mvc.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Razor.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Interfaces.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Redis.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Common.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Text.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Common.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Redis.Cache.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Web.Infrastructure.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\StackExchange.Redis.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Helpers.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Mvc.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Razor.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Interfaces.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Redis.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Common.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Text.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Helpers.resources.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Mvc.resources.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Razor.resources.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.Razor.resources.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.csprojResolveAssemblyReference.cache
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.dll.config
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Redis.Cache.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Helpers.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Mvc.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Razor.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Interfaces.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Redis.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Text.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Redis.Cache.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Helpers.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Mvc.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Razor.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Interfaces.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Redis.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Common.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Text.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Helpers.resources.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Mvc.resources.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Razor.resources.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.Razor.resources.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Log.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Http.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\log4net.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Bson.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.Core.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Log.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Http.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\log4net.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Bson.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.Core.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Newtonsoft.Json.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.dll.config
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.pdb
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Common.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Log.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Redis.Cache.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Configuration.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Web.Infrastructure.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Newtonsoft.Json.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\StackExchange.Redis.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Helpers.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Http.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Mvc.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Razor.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Deployment.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Razor.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Net.Http.Formatting.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\log4net.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Bson.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.Core.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Interfaces.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Redis.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Common.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Text.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Common.pdb
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.pdb
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Redis.Cache.pdb
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Configuration.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Web.Infrastructure.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Newtonsoft.Json.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\StackExchange.Redis.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Helpers.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Mvc.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Razor.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Deployment.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Razor.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Net.Http.Formatting.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Interfaces.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Redis.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Common.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Text.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Helpers.resources.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Mvc.resources.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Razor.resources.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.Razor.resources.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.csprojResolveAssemblyReference.cache
+G:\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.dll
+G:\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.pdb
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Log.pdb
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\log4net.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Bson.xml
+G:\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.dll.config
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Common.pdb
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Common.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Log.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Redis.Cache.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Configuration.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Newtonsoft.Json.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\StackExchange.Redis.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Net.Http.Formatting.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Helpers.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Http.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Mvc.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Razor.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Deployment.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Razor.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\log4net.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Bson.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.Core.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Interfaces.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Redis.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Common.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Text.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Common.pdb
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.pdb
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Tmall.Model.dll.config
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Log.pdb
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\DF.Redis.Cache.pdb
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.ServiceLocation.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Configuration.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Microsoft.Web.Infrastructure.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\Newtonsoft.Json.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\StackExchange.Redis.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Net.Http.Formatting.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Helpers.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Mvc.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.Razor.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Deployment.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\System.Web.WebPages.Razor.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\log4net.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Bson.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\MongoDB.Driver.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Interfaces.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Redis.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Common.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\ServiceStack.Text.xml
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Helpers.resources.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Mvc.resources.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.Razor.resources.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\bin\Release\zh-Hans\System.Web.WebPages.Razor.resources.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.csprojResolveAssemblyReference.cache
+F:\net\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.csproj.CoreCompileInputs.cache
+F:\net\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.dll
+F:\net\DF.TMall\Sources\DF.Tmall.Common\obj\Release\DF.Tmall.Common.pdb
