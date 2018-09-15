@@ -1,0 +1,17 @@
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\HS.DBUtility.dll.config
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\HS.DBUtility.XML
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\HS.DBUtility.dll
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\HS.DBUtility.pdb
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MongoDB.Bson.dll
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MongoDB.Driver.dll
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MongodbRepositoryHelper.dll
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MongoRepository.Net45.dll
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MySql.Data.dll
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\Oracle.ManagedDataAccess.dll
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MongoDB.Bson.xml
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MongoDB.Driver.xml
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MongodbRepositoryHelper.pdb
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\bin\Debug\MongoRepository.Net45.xml
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\obj\Debug\HS.DBUtility.csprojResolveAssemblyReference.cache
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\obj\Debug\HS.DBUtility.dll
+E:\HSYG\HS.DBUtility\SoureCode\trunk\V2.0\HS.DBUtility\obj\Debug\HS.DBUtility.pdb

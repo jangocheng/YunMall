@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YunMall.Entity
+namespace YunMall.Entity.db
 {
     /// <summary>
     /// 用户表

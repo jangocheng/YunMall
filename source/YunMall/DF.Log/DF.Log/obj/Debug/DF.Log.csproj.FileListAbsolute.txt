@@ -1,0 +1,76 @@
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\bin\Debug\log4net.config
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\bin\Debug\HS.Log.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\bin\Debug\HS.Log.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\bin\Debug\MySql.Data.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\bin\Debug\log4net.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\bin\Debug\MySql.Data.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\obj\Debug\DF.Log.csprojResolveAssemblyReference.cache
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\obj\Debug\HS.Log.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\HS.Log\HS.Log\obj\Debug\HS.Log.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.config
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\DF.Log.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\DF.Log.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Bson.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoRepository.Net45.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MySql.Data.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Bson.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoRepository.Net45.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MySql.Data.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\obj\Debug\DF.Log.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\obj\Debug\DF.Log.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DF.TMall\Sources\DF.Log\DF.Log\obj\Debug\DF.Log.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.config
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\DF.Log.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\DF.Log.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Bson.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoRepository.Net45.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MySql.Data.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Bson.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.pdb
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoRepository.Net45.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MySql.Data.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\obj\Debug\DF.Log.csprojResolveAssemblyReference.cache
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\obj\Debug\DF.Log.dll
+C:\Users\hongwei\Desktop\DF.TMall\Sources\DF.Log\DF.Log\obj\Debug\DF.Log.pdb
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.config
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\DF.Log.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\DF.Log.pdb
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Bson.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.Core.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoRepository.Net45.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MySql.Data.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\Newtonsoft.Json.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\log4net.xml
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Bson.xml
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoDB.Driver.xml
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.pdb
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongodbRepositoryHelper.xml
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MongoRepository.Net45.xml
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\MySql.Data.xml
+G:\DF.TMall\Sources\DF.Log\DF.Log\bin\Debug\Newtonsoft.Json.xml
+G:\DF.TMall\Sources\DF.Log\DF.Log\obj\Debug\DF.Log.dll
+G:\DF.TMall\Sources\DF.Log\DF.Log\obj\Debug\DF.Log.pdb
