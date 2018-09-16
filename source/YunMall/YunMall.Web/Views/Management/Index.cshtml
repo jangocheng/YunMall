@@ -1,8 +1,11 @@
-﻿
+﻿@using YunMall.Utility.LoginUtils
+
 @{
     ViewBag.Title = "控制台";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@model YunMall.Entity.dbExt.UserDetail
 
 @section styles {
     <style>
@@ -40,10 +43,20 @@
 
 <div class="layui-row">
     <div class="layui-col-md12 container">
+        
+        <blockquote class="layui-elem-quote layui-text layui-quote-nm">
+            尊敬的<span style="color:#1E9FFF">@(ViewBag.LevelName)</span>，欢迎您回来，登录时间：@(DateTime.Now)
+        </blockquote>
+
         <!--主体 begin-->
         <ul class="nav_big_btn">
             <li style="background-image: url(/Content/images/bigButton1.png);"></li>
-            <li style="background-image: url(/Content/images/bigButton2.png);"></li>
+            @{
+                // 只有管理员可以显示会员信息管理模块
+                if (Model.User.Level == 1) {
+                    <li style="background-image: url(/Content/images/bigButton2.png);"></li>
+                }
+            }
             <li style="background-image: url(/Content/images/bigButton3.png);"></li>
         </ul>
         <!--主体 end-->

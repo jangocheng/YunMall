@@ -1,4 +1,5 @@
 ﻿using YunMall.Entity.db;
+using YunMall.Entity.dbExt;
 using YunMall.Entity.enums;
 
 namespace YunMall.Web.IBLL.user {
@@ -14,6 +15,6 @@ namespace YunMall.Web.IBLL.user {
         /// <param name="password"></param>
         /// <param name="user"></param>
         /// <returns></returns>
-        LoginResult Login(string username, string password, ref User user);
+        LoginResult Login(string username, string password, ref UserDetail user);
     }
 }

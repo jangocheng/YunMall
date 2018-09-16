@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="dbExt\UserDetail.cs" />
     <Compile Include="db\Permission.cs" />
     <Compile Include="db\PermissionRelations.cs" />
     <Compile Include="db\User.cs" />

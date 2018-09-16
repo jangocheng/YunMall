@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DF.Redis.Cache;
 using Microsoft.Practices.Unity;
 using YunMall.Entity.db;
+using YunMall.Entity.dbExt;
 using YunMall.Entity.enums;
 using YunMall.Entity.json;
 using YunMall.Utility.LoginUtils;
@@ -33,26 +34,25 @@ namespace YunMall.Web.Controllers
         /// <param name="password"></param>
         /// <returns></returns>
         public JsonResult Login(string username, string password) {
-            var user = new User();
+            var user = new UserDetail();
             var loginResult = UserService.Login(username, password, ref user);
             // 登录成功后将用户信息刷入缓存服务里
             if (loginResult == LoginResult.L00000) {
                 SessionInfo.SetSession(new SessionModel() {
-                    Uid = user.Uid,
-                    Level = user.Level,
-                    RoleId = user.RoleId,
-                    ParentId = user.ParentId,
-                    Depth = user.Depth,
-                    RegIp = user.RegIp,
-                    LastIp = user.LastIp,
-                    LastTime = user.LastTime,
-                    QQ = user.QQ,
-                    State = user.State,
-                    RealName = user.RealName,
-                    AddTime = user.AddTime
+                    Uid = user.User.Uid,
+                    UserDetail = user
                 });
             }
             return Json(new HttpResp(loginResult.ToString()));
+        }
+
+        /// <summary>
+        /// 注销登录 韦德 2018年9月16日21:20:03
+        /// </summary>
+        /// <returns></returns>
+        public RedirectResult Logout() {
+            SessionInfo.ClareSessionKey();
+            return Redirect("/Bootstrap/Index");
         }
     }
 }

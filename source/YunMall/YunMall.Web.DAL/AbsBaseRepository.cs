@@ -19,6 +19,7 @@ using System.Data.Common;
 using MySql.Data.MySqlClient;
 using DF.Common;
 using YunMall.Entity.ModelView;
+using YunMall.Web.DAL.utils;
 
 namespace YunMall.Web.DAL
 {
@@ -571,6 +572,63 @@ namespace YunMall.Web.DAL
         }
 
         #endregion
+        #endregion
+
+
+        #region 反射获取属性名
+
+        public virtual string JoinFields<T>(T model, int index) {
+            var obj = new object();
+            var fieldList = EntityUtil.GetFieldList(model, ref obj);
+            var fieldNameList = EntityUtil.GetFieldNameList(model);
+            var paras = new List<MySqlParameter>();
+
+            foreach (var fieldInfo in fieldList)
+            {
+                paras.Add(new MySqlParameter("?" + index + fieldInfo.Name.GetFieldName(), fieldInfo.GetValue(obj)));
+            }
+
+            StringBuilder builder = new StringBuilder();
+            builder.Append("(");
+            for (int i = 0; i < fieldNameList.Count; i++)
+            {
+                var name = fieldNameList[i];
+                builder.Append("?" + index + name);
+                if (i < fieldNameList.Count) builder.Append(",");
+            }
+            builder.Append("?" + string.Join(",?", fieldNameList));
+            builder.Append(")");
+
+            return builder.ToString();
+        }
+
+        #endregion
+
+
+        #region 反射获取属性值
+
+        public virtual string JoinFieldValues<T>(T model, out MySqlParameter[] param)
+        {
+            var obj = new object();
+            var fieldList = EntityUtil.GetFieldList(model, ref obj);
+            var fieldNameList = EntityUtil.GetFieldNameList(model);
+            var paras = new List<MySqlParameter>();
+
+            foreach (var fieldInfo in fieldList)
+            {
+                paras.Add(new MySqlParameter("?" + fieldInfo.Name.GetFieldName(), fieldInfo.GetValue(obj)));
+            }
+
+            param = paras.ToArray();
+
+            StringBuilder builder = new StringBuilder();
+            builder.Append("(");
+            builder.Append("?" + string.Join(",?", fieldNameList));
+            builder.Append(")");
+
+            return builder.ToString();
+        }
+
         #endregion
     }
 }

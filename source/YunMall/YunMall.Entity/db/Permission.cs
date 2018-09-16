@@ -13,8 +13,7 @@ namespace YunMall.Entity.db
     {
         public int PermissionId { get; set; }
 
-        public string Url { get; set; }
+        public string RoleName { get; set; }
 
-        public int Extensive { get; set; }
     }
 }

@@ -38,5 +38,9 @@ namespace YunMall.Entity.enums
         /// </summary>
         L00005,
 
+        /// <summary>
+        /// 非法权限
+        /// </summary>
+        L00006,
     }
 }

@@ -99,6 +99,9 @@ function loginRequest(username, password) {
                 case "L00005":
                     msg = "账号或密码填写格式不正确";
                     break;
+                case "L00006":
+                    msg = "您账号权限太低，请联系管理员处理！";
+                    break;
             }
 
             layer.msg(msg);

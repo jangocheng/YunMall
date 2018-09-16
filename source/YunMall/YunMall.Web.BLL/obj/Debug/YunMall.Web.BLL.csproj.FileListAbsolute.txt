@@ -35,3 +35,4 @@ F:\repository\YunMall\source\YunMall\YunMall.Web.BLL\obj\Debug\YunMall.Web.BLL.c
 F:\repository\YunMall\source\YunMall\YunMall.Web.BLL\obj\Debug\YunMall.Web.BLL.csproj.CopyComplete
 F:\repository\YunMall\source\YunMall\YunMall.Web.BLL\obj\Debug\YunMall.Web.BLL.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web.BLL\obj\Debug\YunMall.Web.BLL.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.BLL\bin\Debug\MySql.Data.dll

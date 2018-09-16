@@ -27,19 +27,21 @@ namespace YunMall.Web.Filters
             if (!SessionInfo.IsLogin)
             {
                 ContentResult Content = new ContentResult();
-                Content.Content = string.Format("<script type='text/javascript'>alert('请先登录！');window.location.href='{0}';</script>", FormsAuthentication.LoginUrl);
+                Content.Content = "<script type='text/javascript'>alert('请先登录！');location.href='/bootstrap/index';</script>";
                 filterContext.Result = Content;
             }
-            else
-            {
-                /*string[] Role = CheckLogin.Instance.GetUser().Roles.Split(',');//获取所有角色 
-                if (!Role.Contains(Code))//验证权限 
+            else {
+                var permissions = SessionInfo.GetSession().UserDetail.Permissions;
+                string[] permissionArray = permissions.Select(item => item.RoleName).ToArray();
+                string permissionJoinStrings = string.Join(",", permissionArray);
+                var isContains = Code.Contains(permissionJoinStrings);
+                if (!isContains)//验证权限 
                 {
                     //验证不通过 
                     ContentResult Content = new ContentResult();
-                    Content.Content = "<script type='text/javascript'>alert('权限验证不通过！');history.go(-1);</script>";
+                    Content.Content = "<script type='text/javascript'>alert('您没有权限访问！');location.href='/bootstrap/index';</script>";
                     filterContext.Result = Content;
-                }*/
+                }
             }
         }
     }

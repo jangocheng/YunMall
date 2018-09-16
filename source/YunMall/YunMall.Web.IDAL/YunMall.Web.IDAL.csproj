@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\DF.DBUtility\DF.DBUtility\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +45,7 @@
   <ItemGroup>
     <Compile Include="IAbsBaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user\IPermissionRepository.cs" />
     <Compile Include="user\IUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

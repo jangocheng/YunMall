@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MySql.Data.MySqlClient;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Text;
@@ -212,5 +213,19 @@ namespace YunMall.Web.IDAL
         #endregion
 
 
+
+        #region 反射获取属性名
+
+        string JoinFields<T>(T model, int index);
+
+        #endregion
+
+
+
+        #region 反射获取属性值
+
+        string JoinFieldValues<T>(T model, out MySqlParameter[] param);
+
+        #endregion
     }
 }

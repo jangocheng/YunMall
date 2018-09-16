@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AbsBaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user\PermissionRepositoryImpl.cs" />
     <Compile Include="user\UserRepositoryImpl.cs" />
     <Compile Include="utils\EntityUtil.cs" />
   </ItemGroup>

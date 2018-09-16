@@ -33,6 +33,10 @@ namespace YunMall.Web.Core
                 .Configure<Interception>().SetInterceptorFor<IUserRepository>(new InterfaceInterceptor());
 
 
+            // 权限逻辑和仓储接口 2018年9月16日14:59:03
+            container.RegisterType<IPermissionRepository, PermissionRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IPermissionRepository>(new InterfaceInterceptor());
+
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
