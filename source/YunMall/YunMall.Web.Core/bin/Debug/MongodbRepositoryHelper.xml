@@ -1,0 +1,433 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MongodbRepositoryHelper</name>
+    </assembly>
+    <members>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.InsertOne``1(``0)">
+            <summary>
+            插入一条新数据
+            </summary>
+            <typeparam name="T">实体类型占位符</typeparam>
+            <param name="entity">要添加的实体</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.InsertAll``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            插入多个数据
+            </summary>
+            <typeparam name="T">实体类型占位符</typeparam>
+            <param name="entity">要添加的实体</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Update``1(``0)">
+            <summary>
+            更新操作
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="collectionName">表名</param>
+            <param name="query">条件</param>
+            <param name="entry">新实体</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Update``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            更新操作
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="collectionName">表名</param>
+            <param name="query">条件</param>
+            <param name="entry">新实体</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Update1``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+            <summary>
+            更新操作
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="collectionName">表名</param>
+            <param name="query">条件</param>
+            <param name="entry">新实体</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Delete``1(System.String)">
+            <summary>
+            根据唯一标示,删除该文档
+            </summary>
+            <param name="id">文档对象的唯一标示.</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Delete``1(``0)">
+            <summary>
+            删除给定的文档
+            </summary>
+            <param name="entity">要删除的文档实体</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            删除满足匹配条件的文档
+            </summary>
+            <param name="criteria">Expression表达式</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.DeleteAll``1">
+            <summary>
+            删除所有文档
+            </summary>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.GetById``1(System.String)">
+            <summary>
+            根据id唯一标示,返回对应得文档实体
+            </summary>
+            <param name="id">文档对应的唯一标示</param>
+            <returns>实体类型占位符</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.GetSingle``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            根据查询条件返回匹配的第一个文档
+            </summary>
+            <param name="criteria">条件表达式.</param>
+            <returns>匹配到的第一个文档.</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.GetAllByExpression``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+             <summary>
+            根据查询条件返回匹配的文档
+             </summary>
+             <param name="criteria">条件表达式</param>
+             <returns>查询到的文档记录</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Count``1">
+            <summary>
+             返回所有的文档记录数
+            </summary>
+            <returns>集合中所有的文档记录数</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+             返回所有的符合查询条件的文档记录数
+            </summary>
+            <returns>集合中所有符合条件的文档记录数</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.BaseMongoDbRepository.Exists``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+             <summary>
+            查询是否存在满足指定条件的记录
+             </summary>
+             <param name="criteria">条件表达式.</param>
+             <returns>true 存在, false 不存在.</returns>
+        </member>
+        <member name="T:MongodbRepositoryHelper.EntityBase">
+            <summary>
+            实体基类
+            </summary>
+        </member>
+        <member name="P:MongodbRepositoryHelper.EntityBase.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="T:MongodbRepositoryHelper.MongoDbHepler">
+            <summary>
+            Mongodb数据库操作类
+            </summary>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetDatabase(System.String,System.String)">
+            <summary>
+            获取数据库实例对象
+            </summary>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <returns>数据库实例对象</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.Insert``1(System.String,``0)">
+            <summary>
+            插入一条记录
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="model">数据对象</param>
+            <returns>操作结果</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.Insert``1(System.String,System.String,System.String,``0)">
+            <summary>
+            插入一条记录
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="model">数据对象</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.InsertBatch``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            批量插入记录
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="model">数据对象</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.InsertBatch``1(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            批量插入记录
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="model">数据对象</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.FindAndModify(System.String,System.String,System.String,MongoDB.Driver.FindAndModifyArgs)">
+            <summary>
+             MongoDb原子操作FindAndModify--法师
+            </summary>
+            <param name="connectionString"></param>
+            <param name="dbName"></param>
+            <param name="collectionName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.Update(System.String,MongoDB.Driver.IMongoQuery,System.Collections.Generic.Dictionary{System.String,MongoDB.Bson.BsonValue})">
+            <summary>
+            更新数据
+            </summary>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件查询条件条件查询,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc")) 等等</param>
+            <param name="dictUpdate">更新字段</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.Update(System.String,MongoDB.Driver.IMongoQuery,MongoDB.Driver.IMongoUpdate)">
+            <summary>
+            更新数据
+            </summary>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件条件查询,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc")) 等等</param>
+            <param name="dictUpdate">更新字段,调用示例：Update.Set("Title", "yanc") 或者 Update.Set("Title", "yanc").Set("Author", "yanc2") 等等</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.Update(System.String,System.String,System.String,MongoDB.Driver.IMongoQuery,System.Collections.Generic.Dictionary{System.String,MongoDB.Bson.BsonValue})">
+            <summary>
+            更新数据
+            </summary>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <param name="dictUpdate">更新字段</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.Update(System.String,System.String,System.String,MongoDB.Driver.IMongoQuery,MongoDB.Driver.IMongoUpdate)">
+            <summary>
+            更新数据
+            </summary>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <param name="dictUpdate">更新字段,调用示例：Update.Set("Title", "yanc") 或者 Update.Set("Title", "yanc").Set("Author", "yanc2") 等等</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetById``1(System.String,System.String)">
+            <summary>
+            根据ID获取数据对象
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="id">主键ID</param>
+            <returns>数据对象</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetById``1(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据ID获取数据对象
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="id">ID</param>
+            <returns>数据对象</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetOneByCondition``1(System.String,System.String,System.String,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            根据查询条件获取一条数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <returns>数据对象</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetOneByCondition``1(System.String,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            根据查询条件获取一条数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <returns>数据对象</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetManyByCondition``1(System.String,System.String,System.String,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            根据查询条件获取多条数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <returns>数据对象集合</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetManyByCondition``1(System.String,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            根据查询条件获取多条数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <returns>数据对象集合</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,System.String,System.String)">
+            <summary>
+            根据集合中的所有数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <returns>数据对象集合</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String)">
+            <summary>
+            根据集合中的所有数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <returns>数据对象集合</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,System.Int32)">
+            <summary>
+            获取指定条数的文档
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名词</param>
+            <param name="count">条数</param>
+            <returns>返回查询到的文档</returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,System.Int32,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            根据条件查询返回指定条数的文档
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="count">指定条数</param>
+            <param name="query">条件查询. 调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,System.Int32,MongoDB.Driver.IMongoSortBy)">
+            <summary>
+            按照排序规则，返回指定条数的文档
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="count">指定条数</param>
+            <param name="sortBy">排序用的.调用示例：SortBy.Descending("Title") 或者 SortBy.Descending("Title").Ascending("Author")</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,System.Int32,MongoDB.Driver.IMongoQuery,MongoDB.Driver.IMongoSortBy,System.String[])">
+            <summary>
+            根据查询条件,排序规则,及指定条数,并返回指定属性字段的记录
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="count">指定条数</param>
+            <param name="query">条件查询. 调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc")) </param>
+            <param name="sortBy">排序用的.调用示例：SortBy.Descending("Title") 或者 SortBy.Descending("Title").Ascending("Author")</param>
+            <param name="fields">只返回所需要的字段的数据.调用示例："Title" 或者 new string[] { "Title", "Author" }等等</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,MongoDB.Driver.IMongoQuery,MongodbRepositoryHelper.PagerInfo)">
+            <summary>
+            根据查询条件,返回查询到的分页记录
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName"></param>
+            <param name="query">条件查询. 调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc")) </param>
+            <param name="pagerInfo">分页类</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,MongoDB.Driver.IMongoQuery,MongodbRepositoryHelper.PagerInfo,MongoDB.Driver.IMongoSortBy)">
+            <summary>
+            根据查询条件、排序规则,返回查询到的分页记录
+            </summary>
+            <typeparam name="T">指定条数</typeparam>
+            <param name="collectionName"></param>
+            <param name="query">条件查询。 调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc")) </param>
+            <param name="pagerInfo"></param>
+            <param name="sortBy">排序用的。调用示例：SortBy.Descending("Title") 或者 SortBy.Descending("Title").Ascending("Author")</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,MongoDB.Driver.IMongoQuery,MongodbRepositoryHelper.PagerInfo,MongoDB.Driver.IMongoSortBy,System.String[])">
+            <summary>
+            根据查询条件、排序规则及指定属性字段,返回查询到的记录,也可以是分页记录
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collectionName">集合名词</param>
+            <param name="query">条件查询。 调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc")) </param>
+            <param name="pagerInfo"></param>
+            <param name="sortBy">排序用的。调用示例：SortBy.Descending("Title") 或者 SortBy.Descending("Title").Ascending("Author")</param>
+            <param name="fields">只返回所需要的字段的数据。调用示例："Title" 或者 new string[] { "Title", "Author" }</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.GetAll``1(System.String,System.String,System.String,MongoDB.Driver.IMongoQuery,MongodbRepositoryHelper.PagerInfo,MongoDB.Driver.IMongoSortBy,System.String[])">
+            <summary>
+            根据查询条件、排序规则及指定属性字段,返回查询到的记录,也可以是分页记录
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collectionName">集合名词</param>
+            <param name="query">条件查询。 调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc")) </param>
+            <param name="pagerInfo"></param>
+            <param name="sortBy">排序用的。调用示例：SortBy.Descending("Title") 或者 SortBy.Descending("Title").Ascending("Author")</param>
+            <param name="fields">只返回所需要的字段的数据。调用示例："Title" 或者 new string[] { "Title", "Author" }</param>
+            <returns></returns>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.Delete(System.String,System.String,System.String,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            删除集合中符合条件的数据
+            </summary>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.Delete(System.String,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            删除集合中符合条件的数据
+            </summary>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件 调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.DeleteAll(System.String,System.String,System.String)">
+            <summary>
+            删除集合中的所有数据
+            </summary>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+        </member>
+        <member name="M:MongodbRepositoryHelper.MongoDbHepler.DeleteAll(System.String)">
+            <summary>
+            删除集合中的所有数据
+            </summary>
+            <param name="connectionString">数据库连接串</param>
+            <param name="dbName">数据库名称</param>
+            <param name="collectionName">集合名称</param>
+        </member>
+        <member name="T:MongodbRepositoryHelper.PagerInfo">
+            <summary>
+            分页信息类
+            </summary>
+        </member>
+        <member name="P:MongodbRepositoryHelper.PagerInfo.Page">
+            <summary>
+            页码
+            </summary>
+        </member>
+        <member name="P:MongodbRepositoryHelper.PagerInfo.PageSize">
+            <summary>
+            每页记录数量
+            </summary>
+        </member>
+    </members>
+</doc>

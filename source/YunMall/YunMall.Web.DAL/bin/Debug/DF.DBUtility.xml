@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DF.DBUtility</name>
+    </assembly>
+    <members>
+        <member name="T:DF.DBUtility.DBHelperBase">
+            <summary>
+            DBHelper基类
+            </summary>
+        </member>
+        <member name="F:DF.DBUtility.DBHelperBase.connectionString">
+            <summary>
+            数据库连接字符串
+            </summary>
+        </member>
+        <member name="M:DF.DBUtility.DBHelperBase.PrepareCommand(System.Data.Common.DbCommand,System.Data.Common.DbConnection,System.Data.Common.DbTransaction,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            构建Command对象
+            </summary>
+            <param name="cmd">commond对象</param>
+            <param name="conn">connection对象</param>
+            <param name="trans">transaction对象</param>
+            <param name="cmdText">sql字符串</param>
+            <param name="cmdParms">参数</param>
+        </member>
+        <member name="T:DF.DBUtility.MongoDb.MongoHelper">
+            <summary>
+            MongoDb访问帮助类
+            </summary>
+        </member>
+        <member name="F:DF.DBUtility.MongoDb.MongoHelper.nosqlConnectionString">
+            <summary>
+            数据库连接地址
+            </summary>
+        </member>
+        <member name="F:DF.DBUtility.MongoDb.MongoHelper.nosqlDbName">
+            <summary>
+            数据库名词
+            </summary>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.Insert``1(System.String,``0)">
+            <summary>
+            插入一条记录
+            </summary>
+            <typeparam name="T">数据类型</typeparam>    
+            <param name="collectionName">集合名称</param>
+            <param name="model">数据对象</param>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.InsertBatch``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            批量插入记录
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="model">数据对象</param>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.Update(System.String,MongoDB.Driver.IMongoQuery,MongoDB.Driver.IMongoUpdate)">
+            <summary>
+            更新数据
+            </summary>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件条件查询,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc")) 等等</param>
+            <param name="update">更新字段,调用示例：Update.Set("Title", "yanc") 或者 Update.Set("Title", "yanc").Set("Author", "yanc2") 等等</param>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.Update``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entitys"></param>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.FindAndModify(System.String,MongoDB.Driver.FindAndModifyArgs)">
+            <summary>
+            MongoDb原子操作FindAndModify--
+            </summary>
+            <param name="collectionName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.GetById``1(System.String,System.String)">
+            <summary>
+            根据ID获取数据对象
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="id">主键ID</param>
+            <returns>数据对象</returns>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.GetOneByCondition``1(System.String,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            根据查询条件获取一条数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <returns>数据对象</returns>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.GetManyByCondition``1(System.String,MongoDB.Driver.IMongoQuery)">
+            <summary>
+            根据查询条件获取多条数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="collectionName">集合名称</param>
+            <param name="query">查询条件,调用示例：Query.Matches("Title", "感冒") 或者 Query.EQ("Title", "感冒") 或者Query.And(Query.Matches("Title", "感冒"),Query.EQ("Author", "yanc"))</param>
+            <returns>数据对象集合</returns>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.GetAll``1(System.String)">
+            <summary>
+            根据集合中的所有数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>     
+            <param name="collectionName">集合名称</param>
+            <returns>数据对象集合</returns>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.GetAll``1(System.String,MongoDB.Driver.IMongoQuery,MongodbRepositoryHelper.PagerInfo,MongoDB.Driver.IMongoSortBy,System.String[])">
+            <summary>
+            分页查询 swj
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collectionName">文档名称</param>
+            <param name="query">查询条件</param>
+            <param name="pageInfo">分页条件</param>
+            <param name="sortBy">排序条件</param>
+            <param name="fields">关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoHelper.Delete(MongoDB.Driver.IMongoQuery,System.String)">
+            <summary>
+            根据条件删除数据
+            </summary>
+            <param name="collectionName">集合名称</param>
+            <param name="query">条件</param>
+            <returns></returns>
+        </member>
+        <member name="T:DF.DBUtility.MongoDb.MongoModel`1">
+            <summary>
+            MongoDb访问实体模型
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DF.DBUtility.MongoDb.MongoModel`1.#ctor(`0)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="P:DF.DBUtility.MongoDb.MongoModel`1.Data">
+            <summary>
+            实体占位符
+            </summary>
+        </member>
+        <member name="T:DF.DBUtility.MySql.DBHelperMySql">
+            <summary>
+            MySql数据库访问帮助类
+            </summary>
+        </member>
+        <member name="P:DF.DBUtility.MySql.DBHelperMySql.connectionString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.Exists(System.String,MySql.Data.MySqlClient.MySqlParameter[])">
+            <summary>
+            是否存在
+            </summary>
+            <param name="strSql"></param>
+            <param name="cmdParms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.GetSingle(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.GetSingle(System.String,MySql.Data.MySqlClient.MySqlParameter[])">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <param name="cmdParms">参数</param>      
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExcuteNonQuery(System.String)">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExcuteNonQuery(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行Insert、Update、Delete操作
+            </summary>
+            <param name="sqlStr">sql语句</param>
+            <param name="param">sql参数</param>
+            <returns>影响数据库的行数</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExcuteInsertReturnId(System.String,System.Int64@,System.Data.Common.DbParameter[])">
+            <summary>
+            执行Insert语句，返回自增Id
+            </summary>
+            <param name="sqlStr">sql</param>
+            <param name="param">参数</param>
+            <param name="pk">自增主键</param>
+            <returns>影响数据库行数</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTran(System.Collections.ArrayList)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">多条SQL语句</param>		
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTran(System.Collections.Hashtable)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的MySqlParameter[]）</param>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTran(System.Collections.Generic.IList{DF.DBUtility.SQLEntity},System.Int32@)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="list">SQLEntity的IList</param>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTranLock(System.Collections.Hashtable)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的MySqlParameter[]）</param>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTranLock(System.Collections.Generic.IDictionary{System.String,System.Data.Common.DbParameter[]})">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的MySqlParameter[]）</param>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTranLock(System.Collections.Generic.IDictionary{System.Text.StringBuilder,System.Data.Common.DbParameter[]})">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的MySqlParameter[]）</param>
+            <returns></returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTran(System.Collections.Generic.IDictionary{System.String,System.Data.Common.DbParameter[]})">
+            <summary>
+            执行多条SQL语句，实现数据库事务。yfx
+            </summary>
+            <param name="SQLStringList">SQL语句的字典序集合（key为sql语句，value是该语句的MySqlParameter[]）</param>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteScalar(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SELECT语句，
+            返回查询结果中第一行第一列的数据，
+            如果第一行存在但是第一列的值为空，返回DBNull，
+            如果不存在第一行，返回null。
+            </summary>
+            <param name="sqlStr">sql语句</param>
+            <param name="param">sql参数</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.Query(System.String)">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.Query(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SELECT语句
+            返回的DataSet不会为null
+            </summary>
+            <param name="sqlStr">sql语句</param>
+            <param name="param">sql参数</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.RunProceReturnDataSet(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行存储过程,返回DataSet
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="param">存储过程参数</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteReader(System.String)">
+            <summary>
+            执行查询语句，返回MySqlDataReader
+            </summary>
+            <param name="strSQL">查询语句</param>
+            <returns>MySqlDataReader</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.RunProcedure(System.String,System.Int32@,MySql.Data.MySqlClient.MySqlParameter[])">
+            <summary>
+            执行存储过程，返回影响的行数		
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="rowsAffected">影响的行数</param>
+            <returns></returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.BuildQueryCommand(MySql.Data.MySqlClient.MySqlConnection,System.String,MySql.Data.MySqlClient.MySqlParameter[])">
+            <summary>
+            构建 MySqlCommand 对象(用来返回一个结果集，而不是一个整数值)
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>MySqlCommand</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.AddBatch(System.Collections.Generic.List{System.String},System.Collections.Generic.List{MySql.Data.MySqlClient.MySqlParameter})">
+            <summary>
+            批量新增
+            </summary>
+            <param name="sqlList">sql语句</param>
+            <param name="param">参数</param>
+            <returns>影响函数</returns>
+        </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTran(System.Collections.Generic.IDictionary{System.String,MySql.Data.MySqlClient.MySqlParameter[]})">
+            <summary>
+            执行多条SQL语句，实现数据库事务。yfx
+            </summary>
+            <param name="SQLStringList">SQL语句的字典序集合（key为sql语句，value是该语句的MySqlParameter[]）</param>
+        </member>
+        <member name="T:DF.DBUtility.SQLEntity">
+            <summary>
+            SQL实体
+            </summary>
+        </member>
+        <member name="P:DF.DBUtility.SQLEntity.Sql">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DF.DBUtility.SQLEntity.Parameter">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

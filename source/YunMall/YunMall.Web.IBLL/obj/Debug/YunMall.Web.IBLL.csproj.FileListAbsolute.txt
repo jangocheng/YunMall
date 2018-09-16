@@ -1,0 +1,9 @@
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\bin\Debug\YunMall.Web.IBLL.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\bin\Debug\YunMall.Web.IBLL.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\bin\Debug\YunMall.Entity.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\bin\Debug\YunMall.Entity.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL.csprojAssemblyReference.cache
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL.csproj.CoreCompileInputs.cache
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL.csproj.CopyComplete
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL.pdb

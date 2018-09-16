@@ -20,7 +20,7 @@ namespace YunMall.Utility.LoginUtils
         /// </summary>
         public static void SetSession(SessionModel model)
         {
-            var _sessionid = model.UserId.ToString() + Guid.NewGuid();  //每次登陆唯一标识解决不同客户端登陆登出互相影响问题
+            var _sessionid = model.Uid.ToString() + Guid.NewGuid();  //每次登陆唯一标识解决不同客户端登陆登出互相影响问题
             CookieInfo.SetLoginCookie(_sessionid);
             RedisSession.Set<SessionModel>(_sessionid, model);
 
@@ -118,7 +118,7 @@ namespace YunMall.Utility.LoginUtils
         /// </summary>
         public static void SetBackSession(SessionModel model)
         {
-            var _sessionid = model.UserId.ToString() + Guid.NewGuid();  //每次登陆唯一标识解决不同客户端登陆登出互相影响问题
+            var _sessionid = model.Uid.ToString() + Guid.NewGuid();  //每次登陆唯一标识解决不同客户端登陆登出互相影响问题
             CookieInfo.SetBackLoginCookie(_sessionid);
             RedisSession.Set<SessionModel>(_sessionid, model);
 

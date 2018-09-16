@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>051f17ad-788b-4ad9-a1d3-9fa279711a60</ProjectGuid>
+    <ProjectGuid>{051F17AD-788B-4AD9-A1D3-9FA279711A60}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YunMall.Web.DAL</RootNamespace>
@@ -30,24 +30,49 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="DF.Common">
+      <HintPath>..\DF.Common\bin\Debug\DF.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DF.DBUtility">
+      <HintPath>..\DF.DBUtility\DF.DBUtility\bin\Debug\DF.DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="DF.Log">
+      <HintPath>..\DF.Log\DF.Log\bin\Debug\DF.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\DF.DBUtility\DF.DBUtility\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AbsBaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user\UserRepositoryImpl.cs" />
+    <Compile Include="utils\EntityUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YunMall.Entity\YunMall.Entity.csproj">
+      <Project>{EF160A07-E90F-48DF-B40F-A37557043017}</Project>
+      <Name>YunMall.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YunMall.Utility\YunMall.Utility.csproj">
+      <Project>{cbfa2042-64dd-404c-9e40-16abbc46df35}</Project>
+      <Name>YunMall.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YunMall.Web.IDAL\YunMall.Web.IDAL.csproj">
+      <Project>{70ec2dc1-e0e1-41a9-8ccc-b5920ec23ce2}</Project>
+      <Name>YunMall.Web.IDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

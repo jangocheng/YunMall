@@ -18,7 +18,7 @@ namespace YunMall.Entity
         /// <summary>
         /// 登录key(存放在cookie中)
         /// </summary>
-        public static string LoginKey { get; set; }
+        public static string LoginKey { get; set; } = "Account";
 
         /// <summary>
         /// 实体验证md5密匙

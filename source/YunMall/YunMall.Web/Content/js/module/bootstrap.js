@@ -60,15 +60,49 @@
 
 function readLocalStorage() {
     var storage = localStorage.getItem("login");
-    if (storage == null || storage == undefined || storage == "undefined") return;
+    if (storage === null || storage === "undefined") return;
     $("input[name='username']").eq(0).val(storage);
 }
 
 
 function loginRequest(username, password) {
-    layer.msg(username + "登录成功");
-    localStorage.setItem("login", username);
-    localStorage.setItem("dynamicNavigationUrl", "/content/json/nav_main.json");
-    localStorage.skin = 2;
-    location.href = "/admin/index";
+
+    $.post("./login",
+        {
+            "username": username,
+            "password": password
+        },
+        function(data) {
+            if (data === null) return layer.msg("登录失败");
+            if (data.Code === 1) return layer.open({ title: "sorry", content: data.Msg});
+
+            var msg = "";
+            switch (data.Msg) {
+                case "L00000":
+                    localStorage.setItem("login", username);
+                    localStorage.setItem("dynamicNavigationUrl", "/content/json/nav_main.json");
+                    localStorage.skin = 2;
+                    location.href = "/management/index";
+                    return;
+                case "L00001":
+                    msg = "登录异常";
+                    break;
+                case "L00002":
+                    msg = "用户不存在";
+                    break;
+                case "L00003":
+                    msg = "密码错误";
+                    break;
+                case "L00004":
+                    msg = "冻结/禁止登录";
+                    break;
+                case "L00005":
+                    msg = "账号或密码填写格式不正确";
+                    break;
+            }
+
+            layer.msg(msg);
+        });
+
+    
 }

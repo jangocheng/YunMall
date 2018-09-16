@@ -1,5 +1,3 @@
-F:\repository\YunMall\source\YunMall\YunMall.Utility\obj\Debug\YunMall.Utility.csprojAssemblyReference.cache
-F:\repository\YunMall\source\YunMall\YunMall.Utility\obj\Debug\YunMall.Utility.csproj.CoreCompileInputs.cache
 F:\repository\YunMall\source\YunMall\YunMall.Utility\bin\Debug\YunMall.Utility.dll
 F:\repository\YunMall\source\YunMall\YunMall.Utility\bin\Debug\YunMall.Utility.pdb
 F:\repository\YunMall\source\YunMall\YunMall.Utility\bin\Debug\DF.Common.dll
@@ -29,6 +27,8 @@ F:\repository\YunMall\source\YunMall\YunMall.Utility\bin\Debug\MongoDB.Bson.xml
 F:\repository\YunMall\source\YunMall\YunMall.Utility\bin\Debug\MongoDB.Driver.xml
 F:\repository\YunMall\source\YunMall\YunMall.Utility\bin\Debug\ServiceStack.Common.xml
 F:\repository\YunMall\source\YunMall\YunMall.Utility\bin\Debug\ServiceStack.Text.xml
+F:\repository\YunMall\source\YunMall\YunMall.Utility\obj\Debug\YunMall.Utility.csprojAssemblyReference.cache
+F:\repository\YunMall\source\YunMall\YunMall.Utility\obj\Debug\YunMall.Utility.csproj.CoreCompileInputs.cache
 F:\repository\YunMall\source\YunMall\YunMall.Utility\obj\Debug\YunMall.Utility.csproj.CopyComplete
 F:\repository\YunMall\source\YunMall\YunMall.Utility\obj\Debug\YunMall.Utility.dll
 F:\repository\YunMall\source\YunMall\YunMall.Utility\obj\Debug\YunMall.Utility.pdb

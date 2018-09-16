@@ -70,7 +70,7 @@ namespace YunMall.Utility.LoginUtils
             {
                 Value = cookievalue,
                 Expires = expires,
-                Domain = "/", // TODO 如果跨域，请修改此处的domian值为主域名地址
+                //Domain = "/", // TODO 如果跨域，请修改此处的domian值为主域名地址
             };
             HttpContext.Current.Response.Cookies.Add(cookie);
         }

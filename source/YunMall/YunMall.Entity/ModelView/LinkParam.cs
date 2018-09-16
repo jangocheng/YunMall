@@ -1,4 +1,4 @@
-﻿using YunMall.Entity.Enum;
+﻿using YunMall.Entity.enums;
 
 namespace YunMall.Entity.ModelView
 {

@@ -39,7 +39,7 @@ namespace YunMall.Web.DAL
         /// </summary>
         public AbsBaseRepository(string tableName)
         {
-            this.TableName = tableName;
+            this.TableName = " " + tableName + " ";
         }
 
         public string Fields { get; set; }
@@ -109,8 +109,7 @@ namespace YunMall.Web.DAL
             return DBHelperMySql.ExecuteSqlTranLock(DFTable);
 
         }
-        #endregion
-
+        #endregion 
 
         #region IDictionary提交事务--支持乐观锁--
         /// <summary>

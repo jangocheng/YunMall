@@ -1,0 +1,9 @@
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\bin\Debug\YunMall.Web.IDAL.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\bin\Debug\YunMall.Web.IDAL.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\bin\Debug\YunMall.Entity.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\bin\Debug\YunMall.Entity.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\obj\Debug\YunMall.Web.IDAL.csprojAssemblyReference.cache
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\obj\Debug\YunMall.Web.IDAL.csproj.CoreCompileInputs.cache
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\obj\Debug\YunMall.Web.IDAL.csproj.CopyComplete
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\obj\Debug\YunMall.Web.IDAL.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\obj\Debug\YunMall.Web.IDAL.pdb
