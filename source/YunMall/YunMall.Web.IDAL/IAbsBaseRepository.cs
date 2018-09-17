@@ -116,6 +116,18 @@ namespace YunMall.Web.IDAL
 
         #endregion
 
+
+
+        #region 插入返回主键id--Hashtable--
+        /// <summary>
+        /// 插入返回主键id--
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="model"></param>
+        /// <param name="table"></param>
+        bool InsertReturn<T>(T model, ref long pk);
+        #endregion
+
         #region 分页查询--
         /// <summary>
         /// 根据条件查询分页订单列表--条件不含子表信息--只查询一张主表

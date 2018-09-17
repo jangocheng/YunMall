@@ -44,15 +44,58 @@
                 }
             }
             , password: [/(.+){6,12}$/, '密码必须6到12位']
+            , password2: function(value) {
+                if (value !== $("input[name='password']").val()) {
+                    return "两次密码不一致";
+                }
+            }
         });
 
         // 登录验证
         form.on('submit(login)', function (data) {
             var username = $("input[name='username']").val(),
                 password = $("input[name='password']").val();
+
+            if (username === null || username === undefined || username.length <= 0) {
+                layer.msg("请输入用户名");
+                return false;
+            }
+
+            if (password === null || password === undefined || password.length <= 0) {
+                layer.msg("请输入密码");
+                return false;
+            }
+
             loginRequest(username, password);
             return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
         });
+
+        // 注册验证
+        form.on('submit(reg)', function (data) {
+            var username = $("input[name='username']").val(),
+                password = $("input[name='password']").val(),
+                password2 = $("input[name='password2']").val(),
+                contact = $("input[name='contact']").val();
+
+            if (username === null || username === undefined || username.length <= 0) {
+                layer.msg("请输入用户名");
+                return false;
+            }
+
+            if (password === null || password === undefined || password.length <= 0) {
+                layer.msg("请输入密码");
+                return false;
+            }
+
+            if (password !== password2) {
+                layer.msg("两次输入密码不一致");
+                return false;
+            }
+
+            registerRequest(username, password, contact);
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
         form.render();
     });
 });
@@ -108,4 +151,39 @@ function loginRequest(username, password) {
         });
 
     
+}
+
+
+
+function registerRequest(username, password, contact) {
+
+    $.post("./register",
+        {
+            "username": username,
+            "password": password,
+            "contact": contact
+        },
+        function (data) {
+            if (data === null) return layer.msg("注册失败");
+            if (data.Code === 1) return layer.open({ title: "sorry", content: data.Msg });
+
+            var msg = "";
+            switch (data.Msg) {
+                case "R00000":
+                    layer.msg("注册成功");
+                    localStorage.setItem("login", username);
+                    location.href = "/bootstrap/index";
+                    return;
+                case "R00001":
+                    msg = "登录异常";
+                    break;
+                case "R00002":
+                    msg = "账号或密码填写格式不正确";
+                    break;
+            }
+
+            layer.msg(msg);
+        });
+
+
 }

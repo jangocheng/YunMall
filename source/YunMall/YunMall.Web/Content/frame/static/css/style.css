@@ -440,7 +440,7 @@ html .skin-2 .layui-nav .layui-nav-item a:hover {
 html .skin-2 .my-header,
 html .skin-2 .layui-nav,
 html .skin-2 .layui-nav-child {
-    background-color: #1E9FFF;
+    background-color: #3D6DDE;
 }
 
     html .skin-2 .layui-nav .layui-nav-item .layui-nav-child dd.layui-this a {
@@ -462,7 +462,7 @@ html .skin-2 .dblclick-tips-box i.layui-layer-TipsB {
 }
 
 html .skin-2 .layui-nav .layui-nav-itemed > a {
-    background-color: #1392f1 !important;
+    background-color: #315cc2 !important;
 }
 
 /* skin0-2 */

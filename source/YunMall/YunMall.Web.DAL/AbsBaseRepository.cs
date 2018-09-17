@@ -150,6 +150,7 @@ namespace YunMall.Web.DAL
             strSql.Append(GetWhere(strWhere));
             DFTable.Add(strSql, null);
         }
+        #endregion
 
         #region 更新方法--
         /// <summary>
@@ -299,6 +300,29 @@ namespace YunMall.Web.DAL
             strSql.Append(GetInsertValues<T>(model, out parameters));
             DFTable.Add(strSql, parameters);
         }
+        #endregion
+
+
+        #region 插入返回主键
+        /// <summary>
+        /// 插入返回主键
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="model"></param>
+        /// <param name="DFTable"></param>
+        public bool InsertReturn<T>(T model, ref long pk)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            MySqlParameter[] parameters;
+            strSql.AppendFormat("insert into {0}", TableName);
+            strSql.Append(GetInsertFields());
+            strSql.Append(" values ");
+            strSql.Append(GetInsertValues<T>(model, out parameters));
+            int result = DBHelperMySql.ExcuteInsertReturnId(strSql.ToString(), out pk, parameters);
+            return result > 0;
+        }
+
         #region 插入
         /// <summary>
         /// 插入
@@ -373,6 +397,9 @@ namespace YunMall.Web.DAL
             strSql.Remove(strSql.Length - 1, 1);
             DFTable.Add(strSql, parameters.ToArray());
         }
+
+        #endregion
+
         #region 获取插入的字段
         /// <summary>
         /// 获取插入的字段
@@ -394,7 +421,6 @@ namespace YunMall.Web.DAL
         {
             return string.Empty;
         }
-        #endregion
         #endregion
 
         #region 批量插入--IDictionary--
@@ -572,8 +598,6 @@ namespace YunMall.Web.DAL
         }
 
         #endregion
-        #endregion
-
 
         #region 反射获取属性名
 

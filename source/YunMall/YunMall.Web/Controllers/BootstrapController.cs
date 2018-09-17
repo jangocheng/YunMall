@@ -54,5 +54,18 @@ namespace YunMall.Web.Controllers
             SessionInfo.ClareSessionKey();
             return Redirect("/Bootstrap/Index");
         }
+
+
+        /// <summary>
+        /// 注册用户 韦德 2018年9月17日17:50:38
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="contact"></param>
+        /// <returns></returns>
+        public JsonResult Register(string username, string password, string contact) {
+            var registerResult = UserService.Register(username, password, contact);
+            return Json(new HttpResp(registerResult.ToString()));
+        }
     }
 }

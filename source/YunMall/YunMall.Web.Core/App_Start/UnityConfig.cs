@@ -37,6 +37,9 @@ namespace YunMall.Web.Core
             container.RegisterType<IPermissionRepository, PermissionRepositoryImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IPermissionRepository>(new InterfaceInterceptor());
 
+            container.RegisterType<IPermissionRelationRepository, PermissionRelationRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IPermissionRelationRepository>(new InterfaceInterceptor());
+
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

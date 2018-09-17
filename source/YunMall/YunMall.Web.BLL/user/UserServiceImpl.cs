@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using DF.Common;
 using DF.Common.StringHelper;
@@ -18,12 +19,16 @@ namespace YunMall.Web.BLL.user {
 
         private readonly IUserRepository userRepository;
         private readonly IPermissionRepository permissionRepository;
+        private readonly IPermissionRelationRepository permissionRelationRepository;
 
         [InjectionConstructor]
-        public UserServiceImpl(IUserRepository userRepository, IPermissionRepository permissionRepository) {
-            this.userRepository = userRepository;
-            this.permissionRepository = permissionRepository;
+        public UserServiceImpl(IUserRepository userRepository, IPermissionRepository permissionRepository, IPermissionRelationRepository permissionRelationRepository)
+        {
+            this.userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+            this.permissionRepository = permissionRepository ?? throw new ArgumentNullException(nameof(permissionRepository));
+            this.permissionRelationRepository = permissionRelationRepository ?? throw new ArgumentNullException(nameof(permissionRelationRepository));
         }
+
 
 
         /// <summary>
@@ -64,6 +69,49 @@ namespace YunMall.Web.BLL.user {
             }
 
             return LoginResult.L00000;
+        }
+
+        /// <summary>
+        /// 注册 韦德 2018年9月17日17:51:18
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="contact"></param>
+        /// <returns></returns>
+        public RegisterResult Register(string username, string password, string contact) {
+            if (username.IsEmpty() || password.IsEmpty() || contact.IsEmpty()
+                                   || !Util.LengthValid(username) || !Util.LengthValid(password)) return RegisterResult.R00002;
+            var hsTable = new Hashtable();
+
+            // 1.添加新会员
+            var pk = AddUser(username, password, contact);
+            if(pk == 0) return RegisterResult.R00001;
+
+            // 2.关联身份权限
+            hsTable = AddPermissionRelation(pk, hsTable);
+
+            // 3.无锁事务提交
+            userRepository.CommitTransaction(hsTable);
+
+            return RegisterResult.R00000;
+        }
+
+        private Hashtable AddPermissionRelation(long pk, Hashtable hsTable) {
+            permissionRelationRepository.Insert(new PermissionRelations() {
+                Uid = Convert.ToInt32(pk),
+                PermissionList = "4"
+            }, ref hsTable);
+            return hsTable;
+        }
+
+        private long AddUser(string username, string password, string contact) {
+            long pk = 0L;
+            userRepository.InsertReturn(new User() {
+                Username = username,
+                Password = MD5Encrypt.MD5(MD5Encrypt.MD5(username + password)),
+                QQ = contact
+            }, ref pk);
+            return pk;
         }
 
         class Util {

@@ -48,6 +48,7 @@
     <Compile Include="enums\LinkChannels.cs" />
     <Compile Include="enums\LoginResult.cs" />
     <Compile Include="enums\OrderErrors.cs" />
+    <Compile Include="enums\RegisterResult.cs" />
     <Compile Include="enums\UserType.cs" />
     <Compile Include="json\HttpResp.cs" />
     <Compile Include="ModelView\HttpParam.cs" />
