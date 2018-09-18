@@ -58,7 +58,7 @@ namespace YunMall.Web.BLL.user {
             user.Permissions = permissions;
 
             // 查询上级用户
-            if (!user.User.ParentId.IsEmpty() || user.User.ParentId.Length > 0) {
+            if (user.User.ParentId != null && user.User.ParentId.Length > 0) {
                 queryParam = new QueryParam();
                 queryParam.StrWhere = $"uid IN({user.User.ParentId})";
                 queryParam.OrderBy = "depth DESC";
@@ -86,6 +86,7 @@ namespace YunMall.Web.BLL.user {
             // 1.添加新会员
             var pk = AddUser(username, password, contact);
             if(pk == 0) return RegisterResult.R00001;
+            if(pk == -1) return RegisterResult.R00003;
 
             // 2.关联身份权限
             hsTable = AddPermissionRelation(pk, hsTable);
@@ -106,11 +107,18 @@ namespace YunMall.Web.BLL.user {
 
         private long AddUser(string username, string password, string contact) {
             long pk = 0L;
-            userRepository.InsertReturn(new User() {
-                Username = username,
-                Password = MD5Encrypt.MD5(MD5Encrypt.MD5(username + password)),
-                QQ = contact
-            }, ref pk);
+            try {
+                userRepository.InsertReturn(new User()
+                {
+                    Username = username,
+                    Password = MD5Encrypt.MD5(MD5Encrypt.MD5(username + password)),
+                    QQ = contact
+                }, ref pk);
+            }
+            catch (Exception e) {
+                if (e.Message.Contains("Duplicate entry")) return -1L;
+                throw;
+            }
             return pk;
         }
 

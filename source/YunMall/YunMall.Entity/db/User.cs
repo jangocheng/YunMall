@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YunMall.Web.Models;
 
 namespace YunMall.Entity.db
 {
@@ -11,6 +12,7 @@ namespace YunMall.Entity.db
     /// </summary>
     public class User
     {
+        [GenerateId]
         public int Uid { get; set; }
 
         public string Username { get; set; }

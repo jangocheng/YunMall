@@ -20,6 +20,8 @@ using MySql.Data.MySqlClient;
 using DF.Common;
 using YunMall.Entity.ModelView;
 using YunMall.Web.DAL.utils;
+using System;
+using YunMall.Entity.db;
 
 namespace YunMall.Web.DAL
 {
@@ -634,13 +636,12 @@ namespace YunMall.Web.DAL
         public virtual string JoinFieldValues<T>(T model, out MySqlParameter[] param)
         {
             var obj = new object();
-            var fieldList = EntityUtil.GetFieldList(model, ref obj);
+            var propertyInfos = EntityUtil.GetPropertyInfo(model);
             var fieldNameList = EntityUtil.GetFieldNameList(model);
             var paras = new List<MySqlParameter>();
 
-            foreach (var fieldInfo in fieldList)
-            {
-                paras.Add(new MySqlParameter("?" + fieldInfo.Name.GetFieldName(), fieldInfo.GetValue(obj)));
+            foreach (var propertyInfo in propertyInfos) {
+                paras.Add(new MySqlParameter("?" + propertyInfo.Name, propertyInfo.GetValue(model)));
             }
 
             param = paras.ToArray();
@@ -651,6 +652,17 @@ namespace YunMall.Web.DAL
             builder.Append(")");
 
             return builder.ToString();
+        }
+
+        #endregion
+
+        #region 反射获取属性名字符串
+
+        public virtual string JoinFieldStrings<T>(T model)
+        {
+            var obj = new object();
+            var fieldNameList = EntityUtil.GetFieldNameList(model);
+            return string.Join(",", fieldNameList);
         }
 
         #endregion

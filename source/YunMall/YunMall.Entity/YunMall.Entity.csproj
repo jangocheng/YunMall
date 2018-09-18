@@ -57,6 +57,7 @@
     <Compile Include="ModelView\PageParam.cs" />
     <Compile Include="ModelView\QueryParam.cs" />
     <Compile Include="ModelView\TaskReq.cs" />
+    <Compile Include="model\GenerateIdAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

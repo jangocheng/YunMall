@@ -8,7 +8,8 @@ namespace YunMall.Web.DAL.user {
     public class PermissionRelationRepositoryImpl : AbsBaseRepository, IPermissionRelationRepository {
         public PermissionRelationRepositoryImpl() : base("permission_relations")
         {
-            base.Fields = @"*";
+            PermissionRelations permissionRelations = new PermissionRelations();
+            base.Fields = "(" + base.JoinFieldStrings(permissionRelations) + ")";
         }
 
         protected override string GetInsertFields()

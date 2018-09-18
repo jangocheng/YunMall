@@ -21,6 +21,12 @@ namespace YunMall.Entity.enums
         /// <summary>
         /// 账号或密码填写格式不正确
         /// </summary>
-        R00002
+        R00002,
+
+
+        /// <summary>
+        /// 用户名已存在
+        /// </summary>
+        R00003
     }
 }

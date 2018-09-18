@@ -38,14 +38,14 @@
 
         //自定义验证规则
         form.verify({
-            username: function (value) {
+            reg_username: function (value) {
                 if (value.length < 5) {
                     return '用户名至少是5位字母/数字';
                 }
             }
-            , password: [/(.+){6,12}$/, '密码必须6到12位']
+            , reg_password: [/(.+){6,12}$/, '密码必须6到12位']
             , password2: function(value) {
-                if (value !== $("input[name='password']").val()) {
+                if (value !== $("input[name='reg_password']").val()) {
                     return "两次密码不一致";
                 }
             }
@@ -72,8 +72,8 @@
 
         // 注册验证
         form.on('submit(reg)', function (data) {
-            var username = $("input[name='username']").val(),
-                password = $("input[name='password']").val(),
+            var username = $("input[name='reg_username']").val(),
+                password = $("input[name='reg_password']").val(),
                 password2 = $("input[name='password2']").val(),
                 contact = $("input[name='contact']").val();
 
@@ -179,6 +179,9 @@ function registerRequest(username, password, contact) {
                     break;
                 case "R00002":
                     msg = "账号或密码填写格式不正确";
+                    break;
+                case "R00003":
+                    msg = "用户名已存在，请换一个吧~";
                     break;
             }
 

@@ -13,7 +13,8 @@ namespace YunMall.Web.DAL.user {
     public class UserRepositoryImpl : AbsBaseRepository, IUserRepository {
         public UserRepositoryImpl() : base("users")
         {
-            base.Fields = @"*";
+            User user = new User();
+            base.Fields = "(" + base.JoinFieldStrings(user) + ")";
         }
 
         protected override string GetInsertFields()
