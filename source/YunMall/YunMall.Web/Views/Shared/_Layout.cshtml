@@ -10,6 +10,7 @@
     <title>@ViewBag.Title - @(Constants.Title)</title>
     @Styles.Render("~/Content/frame/layui/css/layui.css")
     @Styles.Render("~/Content/frame/static/css/style.css")
+    @Styles.Render("~/Content/css/style.css")
     @RenderSection("styles", required: false)
 </head>
 <body> 
@@ -45,7 +46,7 @@
         <div class="layui-body my-body">
             <div class="my-breadcrumb">
                 <span class="layui-breadcrumb" lay-filter="breadcrumb" style="visibility: visible;">
-                    <a href="/admin/index">首页</a><span lay-separator="">/</span>
+                    <a href="/management/index">首页</a><span lay-separator="">/</span>
                     @RenderSection("current_page", required: true)
                 </span>
             </div>

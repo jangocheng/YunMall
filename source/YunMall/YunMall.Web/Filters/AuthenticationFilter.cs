@@ -16,7 +16,7 @@ namespace YunMall.Web.Filters
         /// <summary> 
         /// 角色名称 
         /// </summary> 
-        public string Code { get; set; }
+        public string Role { get; set; }
         /// <summary> 
         /// 验证权限（action执行前会先执行这里） 
         /// </summary> 
@@ -34,7 +34,7 @@ namespace YunMall.Web.Filters
                 var permissions = SessionInfo.GetSession().UserDetail.Permissions;
                 string[] permissionArray = permissions.Select(item => item.RoleName).ToArray();
                 string permissionJoinStrings = string.Join(",", permissionArray);
-                var isContains = Code.Contains(permissionJoinStrings);
+                var isContains = Role.Contains(permissionJoinStrings);
                 if (!isContains)//验证权限 
                 {
                     //验证不通过 

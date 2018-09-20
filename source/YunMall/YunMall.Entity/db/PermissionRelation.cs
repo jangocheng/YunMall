@@ -9,7 +9,7 @@ namespace YunMall.Entity.db
     /// <summary>
     /// 权限关系表
     /// </summary>
-    public class PermissionRelations
+    public class PermissionRelation
     {
         public int RelationId { get; set; }
 

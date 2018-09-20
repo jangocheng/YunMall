@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.WebPages;
+using Microsoft.Practices.Unity;
+using YunMall.Entity.json;
+using YunMall.Utility.LoginUtils;
+using YunMall.Web.Controllers;
+using YunMall.Web.Filters;
+using YunMall.Web.IBLL.product;
+
+namespace YunMall.Web.Areas.Product.Controllers
+{
+    [AuthenticationFilter(Role = "admin,supplier")]
+    public class PublishController : BaseController
+    {
+        [Dependency]
+        public IProductService ProductService { get; set; }
+
+        // GET: Product/Publish
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 发布商品 韦德 2018年9月20日19:22:42
+        /// </summary>
+        /// <param name="productName"></param>
+        /// <param name="price"></param>
+        /// <param name="categoryId"></param>
+        /// <param name="type"></param>
+        /// <param name="description"></param>
+        /// <param name="mainImage"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Add(string productName, double price, int categoryId, int type, string description, string mainImage) {
+            if (productName.IsEmpty()) return Json(new HttpResp(1, "请输入商品名称")); 
+            if (description.IsEmpty()) return Json(new HttpResp(1, "请输入商品描述")); 
+            if (price <= 0) return Json(new HttpResp(1, "请输入正确的定价"));
+            if (categoryId <= 0) return Json(new HttpResp(1, "请挂靠正确的经营类目"));
+            if (type < 0 || type > 3) return Json(new HttpResp(1, "请选择正确的商品类型"));
+
+            var user = SessionInfo.GetSession();
+            if(user == null || user.Uid <= 0) return Json(new HttpResp(1, "请先登录"));
+
+            string cause = string.Empty;
+            var result = ProductService.CreateProduct(new Entity.db.Product() {
+                ProductName =  productName,
+                Amount = price,
+                CategoryId = categoryId,
+                Type = type,
+                Description = description,
+                Sid = user.Uid,
+                MainImage = mainImage
+            }, ref cause);
+
+            if (result) return Json(new HttpResp("发布成功"));
+
+            return Json(new HttpResp(1, cause));
+        }
+    }
+}

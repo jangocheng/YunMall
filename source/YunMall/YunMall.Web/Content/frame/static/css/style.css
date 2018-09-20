@@ -623,3 +623,21 @@ html body .layui-nav .layui-nav-bar {
 .my-header-logo {
     color: rgba(255, 255, 255, 0.82) !important;
 }
+
+
+.layui-upload-drag .layui-icon {
+    color: #3d6dde;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #3d6dde;
+    background-color: #3d6dde;
+}
+
+.layui-form-select dl dd.layui-this {
+    background-color: #82a3ef;
+}
+
+.layui-layout-admin .layui-body {
+    overflow: scroll;
+}

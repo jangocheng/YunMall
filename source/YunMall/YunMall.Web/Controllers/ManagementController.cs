@@ -12,10 +12,11 @@ namespace YunMall.Web.Controllers
     /// <summary>
     /// 管理员用户控制器 韦德 2018年9月14日16:26:18
     /// </summary>
-    [AuthenticationFilter(Code = "admin,supplier,merchant")]
+    [AuthenticationFilter(Role = "admin,supplier,merchant,user")]
     public class ManagementController : BaseController
     {
         // GET: Admin
+        [HttpGet]
         public ActionResult Index() {
             var userDetail = SessionInfo.GetSession().UserDetail;
             // 设置用户权限等级别名

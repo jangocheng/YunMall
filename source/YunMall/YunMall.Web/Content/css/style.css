@@ -12,3 +12,33 @@
     border-color: #009688;
     color: #d4e0fc;
 }
+
+body {
+    background-color: #EDEDED;
+}
+
+
+.layui-breadcrumb {
+    background-color: #fff;
+}
+
+
+.my-container {
+    font-size: 12px;
+    border: 1px solid #ddd;
+    max-width: inherit;
+}
+
+.my-container-padding {
+    font-size: 12px;
+    border: 1px solid #ddd;
+    max-width: inherit;
+    padding: 20px;
+}
+
+
+
+.break-line-20 {
+    height: 20px;
+    width: 100%;
+}

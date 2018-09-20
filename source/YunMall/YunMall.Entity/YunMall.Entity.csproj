@@ -43,7 +43,8 @@
     <Compile Include="Constants.cs" />
     <Compile Include="dbExt\UserDetail.cs" />
     <Compile Include="db\Permission.cs" />
-    <Compile Include="db\PermissionRelations.cs" />
+    <Compile Include="db\PermissionRelation.cs" />
+    <Compile Include="db\Product.cs" />
     <Compile Include="db\User.cs" />
     <Compile Include="enums\LinkChannels.cs" />
     <Compile Include="enums\LoginResult.cs" />

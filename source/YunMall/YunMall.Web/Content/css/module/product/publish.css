@@ -1,0 +1,90 @@
+﻿.publish-panel {
+    width: 950px;
+    min-height: 450px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.my-content {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+h3 {
+    font-weight: bold;
+}
+
+
+.layui-tab-content {
+    padding-top: 25px;
+}
+
+.navigation {
+    width: 990px;
+    min-height: 72px;
+    line-height: 72px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.work-order-topbar-left {
+    float: left;
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.work-order-topbar-right {
+    float: right;
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.topbar-left-control {
+    margin-right: 40px;
+    display: inline-block;
+}
+
+.work-order-topbar-left {
+    padding-top: 6px;
+}
+
+em {
+    font-weight: 700;
+}
+
+label {
+    color: #a2a2a2;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+.layui-form-label {
+    width: 70px;
+}
+
+
+form {
+    padding: 20px;
+}
+
+.layui-btn-danger, .layui-btn-primary {
+    background-image: none;
+}
+
+
+.layui-btn-primary {
+    border: 1px solid #e6e6e6 !important;
+    background-color: #FBFBFB;
+    color: #000 !important;
+    opacity: 1;
+}
+
+
+.productImage {
+    display: none;
+    cursor: pointer;
+}
+
+.productImage img {
+    width: 300px;
+}

@@ -8,7 +8,7 @@ namespace YunMall.Web.DAL.user {
     public class PermissionRelationRepositoryImpl : AbsBaseRepository, IPermissionRelationRepository {
         public PermissionRelationRepositoryImpl() : base("permission_relations")
         {
-            PermissionRelations permissionRelations = new PermissionRelations();
+            PermissionRelation permissionRelations = new PermissionRelation();
             base.Fields = "(" + base.JoinFieldStrings(permissionRelations) + ")";
         }
 
@@ -19,13 +19,13 @@ namespace YunMall.Web.DAL.user {
 
         protected override string GetInsertValues<T>(T item, out MySqlParameter[] param)
         {
-            var model = item as PermissionRelations;
+            var model = item as PermissionRelation;
             return base.JoinFieldValues(model, out param);
         }
 
         protected override string GetInsertValues<T>(T item, int index, ref IList<MySqlParameter> param)
         {
-            var model = item as PermissionRelations;
+            var model = item as PermissionRelation;
             return base.JoinFields(model, index);
         }
     }

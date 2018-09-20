@@ -4,10 +4,14 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Unity.WebApi;
 using System.Web;
+using YunMall.Web.BLL.product;
 using YunMall.Web.BLL.user;
+using YunMall.Web.DAL.product;
 using YunMall.Web.IBLL.user;
 using YunMall.Web.IDAL.user;
 using YunMall.Web.DAL.user;
+using YunMall.Web.IBLL.product;
+using YunMall.Web.IDAL.product;
 
 namespace YunMall.Web.Core
 {
@@ -39,6 +43,15 @@ namespace YunMall.Web.Core
 
             container.RegisterType<IPermissionRelationRepository, PermissionRelationRepositoryImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IPermissionRelationRepository>(new InterfaceInterceptor());
+
+
+            // 商品发布逻辑和仓储接口 2018年9月20日19:11:49
+            container.RegisterType<IProductRepository, ProductRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IProductRepository>(new InterfaceInterceptor());
+
+            container.RegisterType<IProductService, ProductServiceImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IProductService>(new InterfaceInterceptor());
+
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);

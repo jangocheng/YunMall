@@ -33,6 +33,10 @@
             background-position-x: 120px;
             background-position-y: 110px;
         }
+
+        .layui-badge-rim, .layui-colla-content, .layui-colla-item, .layui-collapse, .layui-elem-field, .layui-form-pane .layui-form-item[pane], .layui-form-pane .layui-form-label, .layui-input, .layui-layedit, .layui-layedit-tool, .layui-quote-nm, .layui-select, .layui-tab-bar, .layui-tab-card, .layui-tab-title, .layui-tab-title .layui-this:after, .layui-textarea {
+            border-color: #83a7fe;
+        }
     </style>
 }
 
@@ -41,23 +45,33 @@
 }
 
 
-<div class="layui-row">
-    <div class="layui-col-md12 container">
-        
-        <blockquote class="layui-elem-quote layui-text layui-quote-nm">
-            尊敬的<span style="color:#3d6dde">@(ViewBag.LevelName)</span>，欢迎您回来，登录时间：@(DateTime.Now)
-        </blockquote>
-
+<div class="layui-row my-container">
+    <div class="layui-col-md12 container"> 
         <!--主体 begin-->
         <ul class="nav_big_btn">
+            <blockquote class="layui-elem-quote layui-text layui-quote-nm">
+                尊敬的<span style="color:#3d6dde">@(ViewBag.LevelName)</span>，欢迎您回来，登录时间：@(DateTime.Now)
+            </blockquote>
+
             <li style="background-image: url(/Content/images/bigButton1.png);"></li>
             @{
                 // 只有管理员可以显示会员信息管理模块
                 if (Model.User.Level == 1) {
                     <li style="background-image: url(/Content/images/bigButton2.png);"></li>
                 }
+
+                // 仅限管理组查看交易流水复盘模块
+                int[] roles = {1, 2, 3, 4, 5};
+                if (roles.Contains(Model.User.Level)) {
+                    <li style="background-image: url(/Content/images/bigButton3.png);"></li>
+                }
+
+                // 仅限管理员和供货商查看商品发布模块
+                if (Model.User.Level == 1 || Model.User.Level == 2) {
+                    <li style="background-image: url(/Content/images/bigButton4.png);" onclick="location.href = '/product/publish'"></li>
+                }
             }
-            <li style="background-image: url(/Content/images/bigButton3.png);"></li>
+
         </ul>
         <!--主体 end-->
     </div>

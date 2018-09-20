@@ -182,10 +182,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Product\Controllers\PublishController.cs" />
+    <Compile Include="Areas\Product\ProductAreaRegistration.cs" />
     <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Filters\AuthenticationFilter.cs" />
     <Compile Include="Filters\MvcExceptionFilter.cs" />
     <Compile Include="Filters\MvcSecurityFilter.cs" />
@@ -197,6 +201,7 @@
   <ItemGroup>
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\module\bootstrap.css" />
+    <Content Include="Content\css\module\product\publish.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\frame\echarts\echarts.min.js" />
     <Content Include="Content\frame\layui\css\layui.css" />
@@ -334,6 +339,7 @@
     <Content Include="Content\js\common\layui-format-date.js" />
     <Content Include="Content\js\common\jquery-3.3.1.min.js" />
     <Content Include="Content\js\module\bootstrap.js" />
+    <Content Include="Content\js\module\product\publish.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -353,6 +359,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Product\Models\" />
+    <Folder Include="Areas\Product\Views\Shared\" />
     <Folder Include="Areas\Security\Controllers\" />
     <Folder Include="Areas\Security\Models\" />
     <Folder Include="Areas\Security\Views\Shared\" />
@@ -360,6 +368,7 @@
     <Folder Include="Images\" />
     <Folder Include="Interceptor\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\json\nav_main.json" />
@@ -369,10 +378,13 @@
     <Content Include="Content\frame\layui\font\iconfont.ttf" />
     <Content Include="Content\frame\layui\font\iconfont.woff" />
     <Content Include="Areas\Security\Views\web.config" />
+    <Content Include="Areas\Product\Views\web.config" />
+    <Content Include="Areas\Product\Views\Publish\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />
     <Content Include="Views\Shared\_Layout - 复制.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YunMall.Entity\YunMall.Entity.csproj">

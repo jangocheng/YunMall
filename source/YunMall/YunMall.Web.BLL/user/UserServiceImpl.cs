@@ -98,7 +98,7 @@ namespace YunMall.Web.BLL.user {
         }
 
         private Hashtable AddPermissionRelation(long pk, Hashtable hsTable) {
-            permissionRelationRepository.Insert(new PermissionRelations() {
+            permissionRelationRepository.Insert(new PermissionRelation() {
                 Uid = Convert.ToInt32(pk),
                 PermissionList = "4"
             }, ref hsTable);

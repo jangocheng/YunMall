@@ -27,5 +27,10 @@ namespace YunMall.Entity
             get { return "YunMall";}
         }
 
+        /// <summary>
+        /// 默认商品主图地址
+        /// </summary>
+        public static string DefaultProductImage { get; set; } = "~/Content/images/defaultProduct.png";
+
     }
 }
