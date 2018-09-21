@@ -14,7 +14,7 @@ namespace YunMall.Web.Controllers
     {
         [HttpPost]
         public ActionResult Upload() {
-            var savePath = "/content/images/";
+            var savePath = "/content/";
 
             // 获取文件
             var files = Request.Files;
@@ -30,10 +30,10 @@ namespace YunMall.Web.Controllers
 
             // 定义允许上传的文件扩展名
             Hashtable extTable = new Hashtable();
-            extTable.Add("image", "gif,jpg,jpeg,png,bmp");
-            extTable.Add("flash", "swf,flv");
-            extTable.Add("media", "swf,flv,mp3,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb");
-            extTable.Add("file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2");
+            extTable.Add("upload_image", "gif,jpg,jpeg,png,bmp");
+            extTable.Add("upload_flash", "swf,flv");
+            extTable.Add("upload_media", "swf,flv,mp3,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb");
+            extTable.Add("upload_file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2");
 
             String dirPath = Server.MapPath(savePath);
             if (!Directory.Exists(dirPath))
@@ -45,7 +45,7 @@ namespace YunMall.Web.Controllers
             String dirName = Request.QueryString["dir"];
             if (String.IsNullOrEmpty(dirName))
             {
-                dirName = "image";
+                dirName = "upload_image";
             }
             if (!extTable.ContainsKey(dirName))
             {
@@ -84,7 +84,7 @@ namespace YunMall.Web.Controllers
 
             file.SaveAs(filePath);
 
-            String fileUrl = savePath + fileName;
+            String fileUrl = savePath + "/" +  dirName+ "/" + ymd + "/" + fileName;
 
             return Json(new HttpResp(fileUrl));
         }

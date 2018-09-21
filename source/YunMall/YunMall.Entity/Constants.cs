@@ -32,5 +32,10 @@ namespace YunMall.Entity
         /// </summary>
         public static string DefaultProductImage { get; set; } = "~/Content/images/defaultProduct.png";
 
+        /// <summary>
+        /// 程序调试数据埋点
+        /// </summary>
+        public static bool Debug { get; set; }
+
     }
 }

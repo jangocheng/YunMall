@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Results;
 using System.Web.Mvc;
+using YunMall.Entity;
 using YunMall.Entity.json;
 
 namespace YunMall.Web.Filters
@@ -41,11 +42,25 @@ namespace YunMall.Web.Filters
             Console.Error.WriteLine(String.Format(url + "::" + message));
 
             filterContext.ExceptionHandled = true;
-            filterContext.Result = new JsonResult() {
-                ContentEncoding = Encoding.UTF8,
-                ContentType = "application/json",
-                Data = new HttpResp(1, "o(╥﹏╥)o 系统发生故障啦~~~")
-            };//跳转至错误提示页面 
+
+            if (Constants.Debug) {
+                filterContext.Result = new JsonResult()
+                {
+                    ContentEncoding = Encoding.UTF8,
+                    ContentType = "application/json",
+                    Data = new HttpResp(1, message)
+                };//跳转至错误提示页面 
+            }
+            else {
+                filterContext.Result = new JsonResult()
+                {
+                    ContentEncoding = Encoding.UTF8,
+                    ContentType = "application/json",
+                    Data = new HttpResp(1, "o(╥﹏╥)o 系统发生故障啦~~~")
+                };//跳转至错误提示页面 
+            }
+
+
         }
         #endregion
     }

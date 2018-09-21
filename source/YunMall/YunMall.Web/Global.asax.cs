@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using YunMall.Entity;
 using YunMall.Web.Core;
 
 namespace YunMall.Web
@@ -30,6 +31,8 @@ namespace YunMall.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Constants.Debug = true;
         }
     }
 }

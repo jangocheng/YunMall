@@ -69,13 +69,14 @@
         //拖拽上传
         upload.render({
             elem: '#mainImageUploader'
-            , url: '/file/upload?dir=image'
+            , url: '/file/upload?dir=upload_image'
             , done: function (data) {
                 if (utils.response.isError(data)) return data.Msg === null ? layer.msg("上传失败") : layer.msg(data.Msg);
                 $("#mainImage").val(data.Msg);
                 layer.msg("上传成功");
 
                 $("#mainImageUploader").hide();
+                $("#productImage img").attr("src", data.Msg);
                 $("#productImage").show();
             }
         });
