@@ -641,3 +641,8 @@ html body .layui-nav .layui-nav-bar {
 .layui-layout-admin .layui-body {
     overflow: scroll;
 }
+
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    background-color: #3d6dde;
+}

@@ -182,14 +182,14 @@ namespace YunMall.Web.BLL.user {
             if (condition != null)
             {
                 condition = condition.Trim();
-                where += " AND (" + ConditionUtil.Like("user_id", condition, true, "t1");
+                where += " AND (" + ConditionUtil.Like("sid", condition, true, "t1");
                 if (condition.Split('-').Length == 2)
                 {
-                    where += " OR " + ConditionUtil.Like("add_time", condition, true, "t1");
-                    where += " OR " + ConditionUtil.Like("update_time", condition, true, "t1");
+                    where += " OR " + ConditionUtil.Like("addTime", condition, true, "t1");
+                    where += " OR " + ConditionUtil.Like("editTime", condition, true, "t1");
                 }
-                where += " OR " + ConditionUtil.Like("phone", condition, true, "t1");
-                where += " OR " + ConditionUtil.Like("panda_id", condition, true, "t1") + ")";
+                where += " OR " + ConditionUtil.Like("productName", condition, true, "t1");
+                where += " OR " + ConditionUtil.Like("categoryId", condition, true, "t1") + ")";
             }
 
             // 查询全部数据或者只有一类数据
@@ -213,15 +213,15 @@ namespace YunMall.Web.BLL.user {
             if ((beginTime != null && beginTime.Contains('-')) &&
                 endTime != null && endTime.Contains('-'))
             {
-                where += " AND t1.add_date BETWEEN #{beginTime} AND #{endTime}";
+                where += $" AND t1.addTime BETWEEN {beginTime} AND {endTime}";
             }
             else if (beginTime != null && beginTime.Contains('-'))
             {
-                where += " AND t1.add_date BETWEEN #{beginTime} AND #{endTime}";
+                where += $" AND t1.addTime BETWEEN {beginTime} AND {endTime}";
             }
             else if (endTime != null && endTime.Contains('-'))
             {
-                where += " AND t1.add_date BETWEEN #{beginTime} AND #{endTime}";
+                where += $" AND t1.addTime BETWEEN {beginTime} AND {endTime}";
             }
             return where;
         }
@@ -237,7 +237,7 @@ namespace YunMall.Web.BLL.user {
         {
             if (isEnable != null && isEnable != 0)
             {
-                where += " AND t1.is_enable = #{isEnable}";
+                where += $" AND t1.is_enable = {isEnable}";
             }
             return where;
         }

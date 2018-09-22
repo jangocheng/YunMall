@@ -22,7 +22,6 @@ namespace YunMall.Web.Controllers
             return base.Json(data, contentType, contentEncoding, behavior);
         }
 
-
         protected JsonResult Json(object data)
         {
             return base.Json(data, behavior: JsonRequestBehavior.AllowGet);

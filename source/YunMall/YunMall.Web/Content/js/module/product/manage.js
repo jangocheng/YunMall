@@ -250,17 +250,26 @@ function getTableColumns() {
             return "<span style='color: #c2330f;'>" + d.Amount + "</span>";
             }}
         , {
-            field: 'Description', title: '简述', width: 150, templet: function (d) {
-                return (d.Description != null) ? d.Description.substr(0, 10) + "..." : "";
+            field: 'Description', title: '简述', width: 260, templet: function (d) {
+                return (d.Description != null) ? d.Description.substr(0, 50) + "..." : "";
             }
         }
-        , {field: 'Status', title: '状态', width: 120, sort:true,  templet: function (d) {
-            var state = "未上架";
-            if (d.Status == 1){
-                    state = "销售中";
-            } else if (d.Status == 1){
-                    state = "已下架";
+        , {
+            field: 'Status', title: '状态', width: 120, sort: true, templet: function (d) {
+                 
+                var state = ""; 
+                switch (d.Status) {
+                    case 0:
+                        state = "未上架"; 
+                        break;
+                    case 1:
+                        state = "已上架"; 
+                        break;
+                    case 2:
+                        state = "已下架"; 
+                        break;
                 }
+                 
                 return state;
             }}
         , {
@@ -272,7 +281,25 @@ function getTableColumns() {
             field: 'EditTime', title: '最后编辑时间', width: 180, sort: true, templet: function (d) {
                 return d.EditTime == null ? '' : utils.date.dateConvert(d.EditTime);
             }}
-        , {fixed: 'right',title: '操作', width: 480, align: 'center', toolbar: "#barOption"}
+        , { fixed: 'right', title: '操作', width: 160, align: 'center', templet: function(d) {
+            var html = "";
+
+            switch (d.Status) {
+            case 0: // 未上架
+                    html += '<a name="item-view" id="product-push" class="layui-btn layui-btn layui-btn-sm layui-btn-danger" lay-event="push">上架</a>';
+                break;
+            case 1: // 已上架
+                html += '<a name="item-edit" id="product-remove" class="layui-btn layui-btn layui-btn-sm layui-btn-warm" lay-event="remove">下架</a>';
+                break;
+            case 2: // 已下架
+                    html += '<a name="item-view" id="product-push" class="layui-btn layui-btn layui-btn-sm layui-btn-danger" lay-event="push">上架</a>';
+                break;
+            }
+
+            html += '<a name="item-edit" class="layui-btn layui-btn layui-btn-sm layui-btn-normal" lay-event="edit">编辑</a>';
+
+            return html;
+        } }
     ]];
 }
 

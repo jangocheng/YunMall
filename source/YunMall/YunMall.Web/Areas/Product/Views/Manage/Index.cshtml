@@ -10,7 +10,18 @@
 }
 
 @section scripts {
-    @Scripts.Render("~/content/js/module/product/manage.js")
+    @Scripts.Render("~/content/js/module/product/manage.js") 
+    <script>
+        layui.use(['laydate'], function(){
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: "#date"
+            });
+            laydate.render({
+                elem: "#date2"
+            });
+        });
+    </script>
 }
 
 @section current_page {
