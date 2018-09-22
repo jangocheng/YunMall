@@ -8,3 +8,5 @@ F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\obj\Debug\YunMall.Web.IDAL
 F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\obj\Debug\YunMall.Web.IDAL.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\obj\Debug\YunMall.Web.IDAL.pdb
 F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\bin\Debug\MySql.Data.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\bin\Debug\Newtonsoft.Json.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IDAL\bin\Debug\Newtonsoft.Json.xml

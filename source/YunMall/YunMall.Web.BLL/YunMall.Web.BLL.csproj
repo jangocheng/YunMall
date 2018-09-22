@@ -59,6 +59,7 @@
     <Compile Include="product\ProductServiceImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="user\UserServiceImpl.cs" />
+    <Compile Include="util\ConditionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YunMall.Entity\YunMall.Entity.csproj">

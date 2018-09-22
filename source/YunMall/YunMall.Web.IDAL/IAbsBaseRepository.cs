@@ -239,5 +239,12 @@ namespace YunMall.Web.IDAL
         string JoinFieldValues<T>(T model, out MySqlParameter[] param);
 
         #endregion
+
+
+        #region 查询总数
+
+        int Count();
+
+        #endregion
     }
 }

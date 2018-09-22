@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="dbExt\ProductDetail.cs" />
     <Compile Include="dbExt\UserDetail.cs" />
     <Compile Include="db\Permission.cs" />
     <Compile Include="db\PermissionRelation.cs" />
@@ -51,7 +56,10 @@
     <Compile Include="enums\OrderErrors.cs" />
     <Compile Include="enums\RegisterResult.cs" />
     <Compile Include="enums\UserType.cs" />
-    <Compile Include="json\HttpResp.cs" />
+    <Compile Include="jsonData\HttpResp.cs" />
+    <Compile Include="jsonData\JsonArrayResult.cs" />
+    <Compile Include="jsonData\JsonResult.cs" />
+    <Compile Include="jsonData\JsonUtil.cs" />
     <Compile Include="ModelView\HttpParam.cs" />
     <Compile Include="ModelView\LinkParam.cs" />
     <Compile Include="ModelView\PageModel.cs" />

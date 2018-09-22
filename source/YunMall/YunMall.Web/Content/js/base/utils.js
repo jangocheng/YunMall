@@ -14,6 +14,22 @@ window.utils = {
             m = date.getMinutes() + ':';
             s = date.getSeconds();
             return Y+M+D+h+m+s;
+        },
+        dateConvert: function (cellval) {
+            var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));
+
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+
+
+            var h = date.getHours() + ':',
+
+            m = date.getMinutes() + ':',
+
+            s = date.getSeconds();
+
+            return date.getFullYear() + "-" + month + "-" + currentDate + " " + h + m + s;
         }
     }
 }

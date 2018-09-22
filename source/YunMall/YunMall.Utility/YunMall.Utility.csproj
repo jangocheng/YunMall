@@ -51,12 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginUtils\CookieHelper.cs" />
-    <Compile Include="LoginUtils\CookieInfo.cs" />
-    <Compile Include="LoginUtils\CookieModel.cs" />
-    <Compile Include="LoginUtils\SessionHelper.cs" />
-    <Compile Include="LoginUtils\SessionInfo.cs" />
-    <Compile Include="LoginUtils\SessionModel.cs" />
+    <Compile Include="login\CookieHelper.cs" />
+    <Compile Include="login\CookieInfo.cs" />
+    <Compile Include="login\CookieModel.cs" />
+    <Compile Include="login\SessionHelper.cs" />
+    <Compile Include="login\SessionInfo.cs" />
+    <Compile Include="login\SessionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

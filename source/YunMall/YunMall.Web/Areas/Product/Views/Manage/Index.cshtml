@@ -1,0 +1,63 @@
+﻿@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "商品信息管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    @Styles.Render("~/content/css/module/product/manage.css") 
+}
+
+@section scripts {
+    @Scripts.Render("~/content/js/module/product/manage.js")
+}
+
+@section current_page {
+    <a><cite>商品信息管理</cite></a>
+}
+
+<div class="layui-row my-container-padding">
+    <div class="layui-col-md12" style="">
+        <!--主体 begin-->
+        <!-- 工具集 -->
+        <div class="my-btn-box">
+            <!--下拉列表-->
+            <div class="layui-form">
+                <!--days begin-->
+                <div class="layui-inline" >
+                    <label class="layui-form-label">开始日期</label>
+                </div>
+                <div class="layui-inline">
+                    <input name="trade_date_begin" type="text" class="layui-input" id="date">
+                </div>
+                <!--days end-->
+
+
+                <!--days begin-->
+                <div class="layui-inline" >
+                    <label class="layui-form-label">结束日期</label>
+                </div>
+                <div class="layui-inline">
+                    <input name="trade_date_end" type="text" class="layui-input" id="date2">
+                </div>
+                <!--days end-->
+
+                <span class="fl layui-inline" style="margin-right: -20px;">
+                    <a class="layui-btn btn-add btn-default" id="btn-refresh-my-data-table"><i class="layui-icon layui-icon-refresh"></i></a>
+                </span>
+                <span class="fr">
+                    <span class="layui-form-label">搜索条件：</span>
+                    <div class="layui-input-inline">
+                        <input id="my-data-table-condition" type="text" autocomplete="off" placeholder="请输入搜索条件" class="layui-input">
+                    </div>
+                    <button id="my-data-table-query" class="layui-btn mgl-20">查询</button>
+                </span>
+            </div>
+
+        </div>
+        <!-- 表格 -->
+        <div id="my-data-table" class="my-data-table" lay-filter="my-data-table"></div>
+        <!--主体 end-->
+    </div>
+</div>

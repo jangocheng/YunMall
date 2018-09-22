@@ -666,5 +666,18 @@ namespace YunMall.Web.DAL
         }
 
         #endregion
+
+
+        #region 查询总数
+
+        public int Count() {
+            StringBuilder strSql = new StringBuilder();
+            MySqlParameter[] parameters;
+            strSql.AppendFormat("select count(*) from {0}", TableName);
+            object result = DBHelperMySql.GetSingle(strSql.ToString());
+            return Convert.ToInt32(result);
+        }
+
+        #endregion
     }
 }

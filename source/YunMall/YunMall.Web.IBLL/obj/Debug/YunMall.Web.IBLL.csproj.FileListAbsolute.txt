@@ -7,3 +7,5 @@ F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL
 F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL.csproj.CopyComplete
 F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\obj\Debug\YunMall.Web.IBLL.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\bin\Debug\Newtonsoft.Json.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.IBLL\bin\Debug\Newtonsoft.Json.xml
