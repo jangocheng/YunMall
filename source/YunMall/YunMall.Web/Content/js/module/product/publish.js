@@ -1,5 +1,13 @@
 ﻿$(function () {
 
+    // 实时计算真实利润
+    $('input[name="price"]').eq(0).bind('input propertychange', function () {
+        var returnRate = $("#returnRate").val();
+        var realPrice = parseFloat($(this).val()) - (parseFloat($(this).val()) * parseFloat(returnRate) / 100);
+        $("label[name='realAmount']").text("￥" + realPrice);
+    });
+
+
     // 表单验证 
     layui.use(['form','upload'], function () {
         var form = layui.form,
@@ -9,7 +17,7 @@
         // 表单疑问提醒
         var tipsIndex = 0;
         $("i[class~='tips[rate]']").hover(function () {
-            tipsIndex = layer.tips('定价 * 平台返利百分比 = 实收利润', this,
+            tipsIndex = layer.tips('定价 - (定价 * 平台返利百分比) = 实收利润', this,
                 {
                     tips: [2, '#3D6DDE'],
                     area: ["auto","auto"]

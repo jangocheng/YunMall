@@ -11,6 +11,7 @@ using YunMall.Utility.LoginUtils;
 using YunMall.Web.Controllers;
 using YunMall.Web.Filters;
 using YunMall.Web.IBLL.product;
+using YunMall.Web.IBLL.user;
 
 namespace YunMall.Web.Areas.Product.Controllers
 {
@@ -20,13 +21,22 @@ namespace YunMall.Web.Areas.Product.Controllers
         [Dependency]
         public IProductService ProductService { get; set; }
 
+        [Dependency]
+        public IUserService UserService { get; set; }
+
         // GET: Product/Publish
         [HttpGet]
         public ActionResult Index(int? productId)
         {
+            // 查询平台利率
+            var session = SessionInfo.GetSession();
+            var returnRate = session.UserDetail.Permissions.First().ReturnRate;
+            ViewBag.ReturnRate = returnRate;
+
+            // 商品路由器
             if (productId.HasValue) {
                 ProductDetail product = ProductService.GetProduct(productId.Value);
-                ViewBag.RealPrice = product.Amount * product.ReturnRate / 100;
+                ViewBag.RealPrice = product.Amount - (product.Amount * product.ReturnRate / 100);
                 return View(product);
             }
             return View();
