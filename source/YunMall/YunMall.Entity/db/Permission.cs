@@ -15,5 +15,7 @@ namespace YunMall.Entity.db
 
         public string RoleName { get; set; }
 
+        public double ReturnRate { get; set; }
+
     }
 }

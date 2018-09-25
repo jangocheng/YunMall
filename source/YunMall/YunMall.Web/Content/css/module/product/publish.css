@@ -88,3 +88,7 @@ form {
 .productImage img {
     width: 300px;
 }
+
+.layui-layer-content {
+    top: -10px !important;
+}

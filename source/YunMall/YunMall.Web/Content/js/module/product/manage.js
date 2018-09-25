@@ -7,108 +7,42 @@ var tableIndex;
     // 加载数据表
     initDataTable(route + "/getProducts", function (form, table, layer, vipTable, tableIns) {
 
-    },function (table, res, curr, count) {
+    }, function (table, res, curr, count) {  
         // 监听工具条
         table.on('tool(my-data-table)', function(obj){
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var tr = obj.tr; //获得当前行 tr 的DOM对象
-            if(layEvent === 'reset'){ //重置密码
-                layer.prompt({title: '输入新密码', formType: 0}, function(pass, index){
-                    data.password = pass;
-                    service.updatePassword(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                    layer.close(index);
-                });
-
-            }else if(layEvent === 'disable'){ //冻结
-                layer.confirm('您确定要冻结此用户账户吗？', {
-                    btn: ['冻结','取消'] //按钮
-                }, function(){
-                    data.isEnable = 0;
-                    service.updateEnable(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            }else if(layEvent === 'del'){ //删除
-                layer.confirm('您确定要删除此用户账户吗？', {
-                    btn: ['删除','取消'] //按钮
-                }, function(){
-                    data.isEnable = 0;
-                    data.isDelete = 1;
-                    service.updateAvailability(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            }else if(layEvent === 'enable'){ //解冻
-                layer.confirm('您确定要解冻此用户账户吗？', {
-                    btn: ['解冻','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    service.updateEnable(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'renew'){ //删除
-                layer.confirm('您确定要恢复此用户账户吗？', {
-                    btn: ['恢复','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    data.isDelete = 0;
-                    service.updateAvailability(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'setService'){ //删除
-                layer.confirm('确定要提升为客服账号？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
-                    service.changeRole({
-                        "userId": data.userId,
-                        "roleName": "STAFF"
+            if (layEvent === 'putaway') { //上架
+                layer.confirm('您确定要上架此商品吗？', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    service.putaway({
+                        productId: data.Pid
                     }, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
+                        if (utils.response.isError(data)) return layer.msg(data.Msg);
                         tableIndex.reload();
                         layer.msg("操作成功");
-                    })
+                    });
                 });
-            } else if(layEvent === 'setAdmin'){ //删除
-                layer.confirm('确定要提升为管理员账号？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    data.isDelete = 0;
-                    service.changeRole({
-                        "userId": data.userId,
-                        "roleName": "ADMIN"
+            } else if (layEvent === 'unShelve') { //下架
+                layer.confirm('您确定要下架此商品吗？', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    service.unShelve({
+                        productId: data.Pid
                     }, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
+                        if (utils.response.isError(data)) return layer.msg(data.Msg);
                         tableIndex.reload();
                         layer.msg("操作成功");
-                    })
+                    });
                 });
+            } else if (layEvent === 'edit') {
+                location.href = "/product/publish?productId=" + data.Pid
             }
 
-
         });
+
     });
 })()
 
@@ -120,48 +54,26 @@ var tableIndex;
 function initService(r) {
     return {
         /**
-         * 修改密码 韦德 2018年8月30日14:58:13
+         * 上架商品 韦德 2018年9月24日17:10:27
          * @param param
          * @param callback
          */
-        updatePassword: function (param, callback) {
-            param.addDate = utils.date.timestampConvert(param.addDate);
-            if(param.updateDate != null) param.updateDate = utils.date.timestampConvert(param.updateDate);
-            $.post(r + "/updatePassword", param, function (data) {
+        putaway: function (param, callback) {
+            param.addTime = utils.date.timestampConvert(param.addTime);
+            if (param.editTime != null) param.editTime = utils.date.timestampConvert(param.editTime);
+            $.post(r + "/putaway", param, function (data) {
                 callback(data);
             });
         },
         /**
-         * 删除用户 韦德 2018年8月30日14:58:13
+         * 下架商品 韦德 2018年9月24日17:10:34
          * @param param
          * @param callback
          */
-        updateAvailability: function (param, callback) {
-            param.addDate = utils.date.timestampConvert(param.addDate);
-            if(param.updateDate != null) param.updateDate = utils.date.timestampConvert(param.updateDate);
-            $.post(r + "/updateAvailability", param, function (data) {
-                callback(data);
-            });
-        },
-        /**
-         * 冻结用户 韦德 2018年8月30日14:58:13
-         * @param param
-         * @param callback
-         */
-        updateEnable: function (param, callback) {
-            param.addDate = utils.date.timestampConvert(param.addDate);
-            if(param.updateDate != null) param.updateDate = utils.date.timestampConvert(param.updateDate);
-            $.post(r + "/updateEnable", param, function (data) {
-                callback(data);
-            });
-        },
-        /**
-         * 设置权限 韦德 2018年9月1日02:47:07
-         * @param param
-         * @param callback
-         */
-        changeRole: function (param, callback) {
-            $.post(r + "/changeRole", param, function (data) {
+        unShelve: function (param, callback) {
+            param.addTime = utils.date.timestampConvert(param.addTime);
+            if (param.editTime != null) param.editTime = utils.date.timestampConvert(param.editTime);
+            $.post(r + "/unShelve", param, function (data) {
                 callback(data);
             });
         }
@@ -196,7 +108,7 @@ function initDataTable(url, callback, loadDone) {
 
         loadTable(tableIndex,"my-data-table", "#my-data-table", cols, url + param, function (res, curr, count) {
             $queryButton.removeAttr("disabled");
-        });
+        }); 
     })
 
     layui.use(['table', 'form', 'layer', 'vip_table', 'layedit', 'tree','element'], function () {
@@ -212,10 +124,10 @@ function initDataTable(url, callback, loadDone) {
         // 表格渲染
         tableIndex = table.render({
             elem: '#my-data-table'                  //指定原始表格元素选择器（推荐id选择器）
+            , url: url
             , height: 720    //容器高度
             , cols: cols
-            , id: 'my-data-table'
-            , url: url
+            , id: 'my-data-table' 
             , method: 'get'
             , page: true
             , limits: [30, 60, 90, 150, 300]
@@ -227,10 +139,67 @@ function initDataTable(url, callback, loadDone) {
             }
         });
 
+
+
         // 刷新
         $('#btn-refresh-my-data-table').on('click', function () {
             tableIndex.reload();
         });
+
+
+        // 批量上架 
+        $("#batch-putaway").on("click",
+            function() {
+                var checkStatus = table.checkStatus('my-data-table');
+                if (checkStatus.data.length > 0) {
+                    var arr = checkStatus.data;
+                    var pids = "";
+                    for (var i = 0; i < arr.length; i++) {
+                        pids += arr[i].Pid + ",";
+                    }
+                    pids = pids.substr(0, pids.length - 1);
+                    layer.confirm('您确定要批量上架这些商品吗？', {
+                        btn: ['确定', '取消'] //按钮
+                    }, function () {
+                        service.putaway({
+                            productId: pids
+                        }, function (data) {
+                            if (utils.response.isError(data)) return layer.msg(data.Msg);
+                            tableIndex.reload();
+                            layer.msg("操作成功");
+                        });
+                    });
+                }
+
+            });
+
+
+
+        // 批量下架
+        $("#batch-unShelve").on("click",
+            function () {
+                var checkStatus = table.checkStatus('my-data-table');
+                if (checkStatus.data.length > 0) {
+                    var arr = checkStatus.data;
+                    var pids = "";
+                    for (var i = 0; i < arr.length; i++) {
+                        pids += arr[i].Pid + ",";
+                    }
+                    pids = pids.substr(0, pids.length - 1);
+                    layer.confirm('您确定要批量下架这些商品吗？', {
+                        btn: ['确定', '取消'] //按钮
+                    }, function () {
+                        service.unShelve({
+                            productId: pids
+                        }, function (data) {
+                            if (utils.response.isError(data)) return layer.msg(data.Msg);
+                            tableIndex.reload();
+                            layer.msg("操作成功");
+                        });
+                    });
+                }
+
+            });
 
         // you code ...
         callback(form, table, layer, vipTable, tableIndex);
@@ -243,7 +212,7 @@ function initDataTable(url, callback, loadDone) {
  */
 function getTableColumns() {
     return [[
-        {type: "numbers", fixed: 'left'}
+        { type: 'checkbox', fixed: 'left' }
         , {field: 'Pid', title: '商品id', width: 80, sort: true}
         , {field: 'ProductName', title: '商品名称', width: 180}
         , { field: 'Amount', title: '价格', width: 180, templet: function (d) {
@@ -286,13 +255,13 @@ function getTableColumns() {
 
             switch (d.Status) {
             case 0: // 未上架
-                    html += '<a name="item-view" id="product-push" class="layui-btn layui-btn layui-btn-sm layui-btn-danger" lay-event="push">上架</a>';
+                    html += '<a name="item-view" id="product-push" class="layui-btn layui-btn layui-btn-sm layui-btn-danger" lay-event="putaway">上架</a>';
                 break;
             case 1: // 已上架
-                html += '<a name="item-edit" id="product-remove" class="layui-btn layui-btn layui-btn-sm layui-btn-warm" lay-event="remove">下架</a>';
+                html += '<a name="item-edit" id="product-remove" class="layui-btn layui-btn layui-btn-sm layui-btn-warm" lay-event="unShelve">下架</a>';
                 break;
             case 2: // 已下架
-                    html += '<a name="item-view" id="product-push" class="layui-btn layui-btn layui-btn-sm layui-btn-danger" lay-event="push">上架</a>';
+                    html += '<a name="item-view" id="product-push" class="layui-btn layui-btn layui-btn-sm layui-btn-danger" lay-event="unShelve">上架</a>';
                 break;
             }
 
@@ -300,7 +269,7 @@ function getTableColumns() {
 
             return html;
         } }
-    ]];
+    ]]; 
 }
 
 /**
@@ -315,10 +284,10 @@ function getTableColumns() {
 function loadTable(index,id,elem,cols,url,loadDone) {
     index.reload({
         elem: elem
+        , url: url
         , height: 720    //容器高度
         , cols: cols
-        , id: id
-        , url: url
+        , id: id 
         , method: 'get'
         , page: true
         , limits: [30, 60, 90, 150, 300]
@@ -329,7 +298,7 @@ function loadTable(index,id,elem,cols,url,loadDone) {
             resetPager();
             loadDone(res, curr, count);
         }
-    });
+    }); 
 }
 
 function resetPager() {

@@ -37,91 +37,199 @@
                     </div>
                 </div>
                 <div class="work-order-topbar-right">
-                    <button type="button" class="layui-btn layui-btn-normal" onclick="location.href='/product/manage'">进入商品信息管理</button> 
+                    <button type="button" class="layui-btn layui-btn-normal" onclick="location.href='/product/manage'">进入商品信息管理</button>
                 </div>
             </div>
         </div>
         <!-- navigation end -->
-        
+
         <div class="break-line-20"></div>
 
         <!-- publish begin -->
-        <div class="my-container-padding publish-panel">
-            <h3 class="detail-module-title">发布商品</h3>
-            <form id="publish" class="layui-form">
-                <input type="hidden" id="mainImage" value="" />
-                <div class="layui-form-item">
-                    <label class="layui-form-label">商品名称</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="productName" maxlength="255" lay-verify="productName" autocomplete="off" placeholder="请输入商品名称" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">价格</label>
-                        <div class="layui-input-inline" style="width: 100px;">
-                            <input type="text" name="price" maxlength="10" lay-verify="price" placeholder="￥" autocomplete="off" class="layui-input">
+        @if (Model == null)
+        {
+            <div class="my-container-padding publish-panel">
+                <h3 class="detail-module-title">发布商品</h3>
+                <form id="publish" class="layui-form">
+                    <input type="hidden" id="mainImage" value="" />
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商品名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="productName" maxlength="255" lay-verify="productName" autocomplete="off" placeholder="请输入商品名称" class="layui-input">
                         </div>
                     </div>
-                </div>
 
-                <div class="layui-form-item">
-                    <label class="layui-form-label">经营类目</label>
-                    <div class="layui-input-block">
-                        <select name="category" lay-filter="required">
-                            <option value=""></option>
-                            <option value="0">流量</option>
-                            <option value="1" selected="">话费</option>
-                            <option value="2">活动</option>
-                        </select>
-                        <div class="layui-unselect layui-form-select">
-                            <div class="layui-select-title"><input type="text" placeholder="请选择" value="阅读" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="" class="layui-select-tips">请选择</dd><dd lay-value="0" class="">写作</dd><dd lay-value="1" class="layui-this">阅读</dd><dd lay-value="2" class="">游戏</dd><dd lay-value="3" class="">音乐</dd><dd lay-value="4" class="">旅行</dd></dl></div>
-                    </div>
-                </div>
-
-                <div class="layui-form-item">
-                    <label class="layui-form-label">商品主图</label>
-                    <div class="layui-input-block">
-                        <div class="layui-upload-drag" id="mainImageUploader">
-                            <i class="layui-icon"></i>
-                            <p>点击上传，或将文件拖拽到此处</p>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">价格</label>
+                            <div class="layui-input-inline" style="width: 100px;">
+                                <input type="number" name="price" maxlength="10" lay-verify="price" placeholder="￥" autocomplete="off" class="layui-input">
+                            </div>
                         </div>
-                        <div class="productImage" id="productImage">
-                            <img src="~/Content/images/defaultProduct.png"  />
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">经营类目</label>
+                        <div class="layui-input-block">
+                            <select name="category" lay-filter="required">
+                                <option value=""></option>
+                                <option value="0">流量</option>
+                                <option value="1" selected="">话费</option>
+                                <option value="2">活动</option>
+                            </select> 
                         </div>
-                        <span style="color: #ccc; display: inline-block; position: relative; float: right">
-                            <span class="layui-badge-dot"></span>
-                            &nbsp;
-                            非必填项(留空则使用商品默认主图)
-                        </span>
                     </div>
-                </div>
 
-                <div class="layui-form-item" pane="">
-                    <label class="layui-form-label">类型</label>
-                    <div class="layui-input-block">
-                        <input type="checkbox" name="type" lay-skin="primary" title="直充" checked="">
-                        <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>直充</span><i class="layui-icon layui-icon-ok"></i></div>
-                        <input type="checkbox" name="type" lay-skin="primary" title="非直充">
-                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>非直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商品主图</label>
+                        <div class="layui-input-block">
+                            <div class="layui-upload-drag" id="mainImageUploader">
+                                <i class="layui-icon"></i>
+                                <p>点击上传，或将文件拖拽到此处</p>
+                            </div>
+                            <div class="productImage" id="productImage">
+                                <img src="~/Content/images/defaultProduct.png" />
+                            </div>
+                            <span style="color: #ccc; display: inline-block; position: relative; float: right">
+                                <span class="layui-badge-dot"></span>
+                                &nbsp;
+                                非必填项(留空则使用商品默认主图)
+                            </span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label">商品描述</label>
-                    <div class="layui-input-block">
-                        <textarea placeholder="请输入商品描述" maxlength="255" name="description" lay-verify="description" class="layui-textarea"></textarea>
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="type" lay-skin="primary" title="直充" checked="">
+                            <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                            <input type="checkbox" name="type" lay-skin="primary" title="非直充">
+                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>非直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                        </div>
                     </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <button class="layui-btn layui-btn-danger" lay-submit="" lay-filter="publish">发布商品</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">商品描述</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入商品描述" maxlength="255" name="description" lay-verify="description" class="layui-textarea"></textarea>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn layui-btn-danger" lay-submit="" lay-filter="publish">发布商品</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        }
+        else
+        { // 编辑商品
+            <div class="my-container-padding publish-panel">
+                <input type="hidden" id="pid" value="@Model.Pid" />
+                <h3 class="detail-module-title">编辑商品</h3>
+                <form id="publish" class="layui-form">
+                    <input type="hidden" id="mainImage" value="@Model.MainImage"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商品名称</label>
+                        <div class="layui-input-block">
+                            <input value="@Model.ProductName" type="text" name="productName" maxlength="255" lay-verify="productName" autocomplete="off" placeholder="请输入商品名称" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">价格</label>
+                            <div class="layui-input-inline" style="width: 100px;">
+                                <input value="@Model.Amount" type="number" name="price" maxlength="10" lay-verify="price" placeholder="￥" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">利润(P*1%)</label>
+                            <div class="layui-input-inline" style="width: 100px;">
+                                <input type="hidden" id="returnRate" value="@Model.ReturnRate" />
+                                <label class="layui-form-label" style="color: #ff5722; text-align: center; font-weight: bold; font-size: 22px; background-color: #ffe27926; border-radius: 15px; border: 1px solid #ffa707;" name="realAmount">￥@ViewBag.RealPrice</label>
+                                <i class="layui-icon layui-icon-help tips[rate]" style="display: inline-block;position: absolute;top: 0px;left: 110px; color: #bebebe;cursor: pointer"></i>
+                            </div>
+                        </div>
+                         
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">经营类目</label>
+                        <div class="layui-input-block">
+                            <select name="category" lay-filter="required" disabled="disabled">
+                                <option value=""></option>
+                                <option value="0">流量</option>
+                                <option value="1" selected="">话费</option>
+                                <option value="2">活动</option>
+                            </select> 
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商品主图</label>
+                        <div class="layui-input-block">
+                            <div class="layui-upload-drag" id="mainImageUploader" style="display: none">
+                                <i class="layui-icon"></i>
+                                <p>点击上传，或将文件拖拽到此处</p>
+                            </div>
+                            <div class="productImage" id="productImage" style="display: block">
+                                <img src="@Model.MainImage"/>
+                            </div>
+                            <span style="color: #ccc; display: inline-block; position: relative; float: right">
+                                <span class="layui-badge-dot"></span>
+                                &nbsp;
+                                非必填项(留空则使用商品默认主图)
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-block">
+                            @if (Model.Type == 0)
+                            {
+                                <input type="checkbox" name="type" lay-skin="primary" title="直充" checked="">
+                                <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                            }
+                            else if (Model.Type == 1)
+                            {
+                                <input type="checkbox" name="type" lay-skin="primary" title="非直充" checked="">
+                                <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>非直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                            }
+                            else if (Model.Type == 2)
+                            {
+                                <input type="checkbox" name="type" lay-skin="primary" title="直充" checked="">
+                                <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                                <input type="checkbox" name="type" lay-skin="primary" title="非直充" checked="">
+                                <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>非直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                            }
+                            else 
+                            {
+                                <input type="checkbox" name="type" lay-skin="primary" title="直充">
+                                <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                                <input type="checkbox" name="type" lay-skin="primary" title="非直充">
+                                <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>非直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                            }
+
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">商品描述</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入商品描述" maxlength="255" name="description" lay-verify="description" class="layui-textarea">@Model.Description</textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn layui-btn-danger" lay-submit="" lay-filter="publish">保存并发布</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        }
         <!-- publish end -->
     </div>
 </div>

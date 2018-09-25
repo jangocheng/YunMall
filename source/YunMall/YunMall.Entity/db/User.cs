@@ -37,8 +37,6 @@ namespace YunMall.Entity.db
 
         public int State { get; set; }
 
-        public double ReturnRate { get; set; }
-
         public string CashAccount { get; set; }
 
         public string RealName { get; set; }

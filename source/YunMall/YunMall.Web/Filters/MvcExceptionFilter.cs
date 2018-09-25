@@ -48,7 +48,8 @@ namespace YunMall.Web.Filters
                 {
                     ContentEncoding = Encoding.UTF8,
                     ContentType = "application/json",
-                    Data = new HttpResp(1, message)
+                    Data = new HttpResp(1, message),
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
                 };//跳转至错误提示页面 
             }
             else {
@@ -56,7 +57,8 @@ namespace YunMall.Web.Filters
                 {
                     ContentEncoding = Encoding.UTF8,
                     ContentType = "application/json",
-                    Data = new HttpResp(1, "o(╥﹏╥)o 系统发生故障啦~~~")
+                    Data = new HttpResp(1, "o(╥﹏╥)o 系统发生故障啦~~~"),
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
                 };//跳转至错误提示页面 
             }
 

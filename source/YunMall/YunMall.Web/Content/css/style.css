@@ -43,3 +43,21 @@ body {
     width: 100%;
 }
 
+.padding-horizontal-5 {
+    display: inline-block;
+    width: 5px;
+}
+
+.padding-horizontal-10 {
+    display: inline-block;
+    width: 10px;
+}
+
+.padding-horizontal-20 {
+    display: inline-block;
+    width: 20px;
+}
+
+.my-layui-form-label {
+    padding: 9px 9px 9px 0px;
+}

@@ -8,8 +8,10 @@ using System.Web.Mvc;
 using System.Web.WebPages;
 using YunMall.Entity.dbExt;
 using YunMall.Entity.json;
+using YunMall.Utility.LoginUtils;
 using YunMall.Web.Controllers;
 using YunMall.Web.Filters;
+using YunMall.Web.IBLL.product;
 using YunMall.Web.IBLL.user;
 
 namespace YunMall.Web.Areas.Product.Controllers
@@ -19,6 +21,9 @@ namespace YunMall.Web.Areas.Product.Controllers
     {
         [Dependency]
         public IUserService UserService { get; set; }
+
+        [Dependency]
+        public IProductService ProductService { get; set; }
 
         // GET: Product/Manage
         [HttpGet]
@@ -56,5 +61,42 @@ namespace YunMall.Web.Areas.Product.Controllers
             jsonArrayResult.count = count;
             return Json(jsonArrayResult);
         }
+
+
+        /// <summary>
+        /// 商品上架
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
+        public JsonResult Putaway(string productId) {
+            var session = SessionInfo.GetSession();
+            var sessionUid = session.Uid;
+            var cause = "上架失败";
+            bool result = ProductService.Putaway(sessionUid, productId, ref cause);
+            if (result) {
+                return Json(new HttpResp("上架成功"));
+            }
+            return Json(new HttpResp(1, cause));
+        }
+
+        /// <summary>
+        /// 商品下架
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
+        public JsonResult UnShelve(string productId)
+        {
+            var session = SessionInfo.GetSession();
+            var sessionUid = session.Uid;
+            var cause = "下架失败";
+            bool result = ProductService.UnShelve(sessionUid, productId, ref cause);
+            if (result)
+            {
+                return Json(new HttpResp("下架成功"));
+            }
+            return Json(new HttpResp(1, cause));
+        }
+
+
     }
 }

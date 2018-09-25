@@ -3,30 +3,28 @@ CREATE DATABASE IF NOT EXISTS YunMall default charset utf8 COLLATE utf8_general_
 
 /*用户表*/
 CREATE TABLE `users` (
-`uid`  int NOT NULL AUTO_INCREMENT ,
-`username`  varchar(16) NOT NULL COMMENT '用户名' ,
-`password`  varchar(32) NOT NULL COMMENT '密码' ,
-`level`  int NULL DEFAULT 0 COMMENT '等级(0=会员,1=管理员,2=供货商,3=金牌代理商,4=银牌代理商,5=普通代理商)' ,
-`roleId`  varchar(32) NULL COMMENT '角色id' ,
-`parentId`  int NULL COMMENT '上级用户id' ,
-`depth`  int NULL COMMENT '关系深度' ,
-`regIp`  varchar(32) NULL COMMENT '注册ip' ,
-`lastIp`  varchar(32) NULL COMMENT '登录ip' ,
-`lastTime`  datetime NULL DEFAULT NOW() COMMENT '登录时间' ,
-`qq`  varchar(15) NULL COMMENT '联系方式' ,
-`state`  int NULL COMMENT '账户状态(0=正常,1=禁用)' ,
-`returnRate`  decimal(10,2) NULL COMMENT '折扣率' ,
-`cashAccount`  varchar(32) NULL COMMENT '绑定提现账户' ,
-`realName`  varchar(32) NULL COMMENT '户主真实姓名' ,
-`addTime`  datetime NULL DEFAULT NOW() COMMENT '注册时间' ,
-`remark`  varchar(255) NULL COMMENT '摘要' ,
-PRIMARY KEY (`uid`),
-UNIQUE INDEX `uq_user` (`username`) 
-)
-COMMENT='用户表'
-;
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(16) NOT NULL COMMENT '用户名',
+  `password` varchar(32) NOT NULL COMMENT '密码',
+  `level` int(11) DEFAULT '0' COMMENT '等级(0=会员,1=管理员,2=供货商,3=甲级代理商,4=乙级代理商,5=普通代理商)',
+  `roleId` varchar(32) DEFAULT NULL COMMENT '角色id',
+  `parentId` int(11) DEFAULT NULL COMMENT '上级用户id',
+  `depth` int(11) DEFAULT NULL COMMENT '关系深度',
+  `regIp` varchar(32) DEFAULT NULL COMMENT '注册ip',
+  `lastIp` varchar(32) DEFAULT NULL COMMENT '登录ip',
+  `lastTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '登录时间',
+  `qq` varchar(15) DEFAULT NULL COMMENT '联系方式',
+  `state` int(11) DEFAULT NULL COMMENT '账户状态(0=正常,1=禁用)',
+  `cashAccount` varchar(32) DEFAULT NULL COMMENT '绑定提现账户',
+  `realName` varchar(32) DEFAULT NULL COMMENT '户主真实姓名',
+  `addTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
+  `remark` varchar(255) DEFAULT NULL COMMENT '摘要',
+  PRIMARY KEY (`uid`),
+  UNIQUE KEY `uq_user` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
-INSERT INTO `yunmall`.`users` (`username`, `password`, `level`, `roleId`, `parentId`, `depth`, `regIp`, `lastIp`, `lastTime`, `qq`, `state`, `returnRate`, `cashAccount`, `realName`, `addTime`, `remark`) VALUES ('admin', 'd7c6c07a0a04ba4e65921e2f90726384', '1', '1', '0', '0', NULL, NULL, '2018-09-21 22:37:18', NULL, NULL, NULL, NULL, NULL, '2018-09-21 22:37:18', NULL);
+
+INSERT INTO `yunmall`.`users` (`username`, `password`, `level`, `roleId`, `parentId`, `depth`, `regIp`, `lastIp`, `lastTime`, `qq`, `state`, `cashAccount`, `realName`, `addTime`, `remark`) VALUES ('admin', 'd7c6c07a0a04ba4e65921e2f90726384', '1', '1', '0', '0', NULL, NULL, '2018-09-21 22:37:18', NULL, NULL, NULL, NULL, '2018-09-21 22:37:18', NULL);
 
 
 
@@ -64,8 +62,10 @@ INSERT INTO `yunmall`.`permission_relations` (`uid`, `permissionList`) VALUES ('
 CREATE TABLE `permissions` (
   `permissionId` int(11) NOT NULL AUTO_INCREMENT,
   `roleName` varchar(32) NOT NULL,
+  `returnRate` decimal(10,2) DEFAULT '100.00' COMMENT '利润率',
   PRIMARY KEY (`permissionId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限表';
+
 
 
 INSERT INTO `yunmall`.`permissions` (`roleName`) VALUES ('admin');

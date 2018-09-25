@@ -39,8 +39,6 @@ namespace YunMall.Entity.dbExt {
 
         public int State { get; set; }
 
-        public double ReturnRate { get; set; }
-
         public string CashAccount { get; set; }
 
         public string RealName { get; set; }
@@ -51,5 +49,7 @@ namespace YunMall.Entity.dbExt {
         public int PermissionId { get; set; }
 
         public string RoleName { get; set; }
+
+        public double ReturnRate { get; set; }
     }
 }

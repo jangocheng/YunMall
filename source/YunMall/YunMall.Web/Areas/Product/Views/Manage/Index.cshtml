@@ -33,30 +33,45 @@
         <!--主体 begin-->
         <!-- 工具集 -->
         <div class="my-btn-box">
-            <!--下拉列表-->
             <div class="layui-form">
+                <span class="fl layui-inline">
+                    <a class="layui-btn btn-add btn-default" id="btn-refresh-my-data-table"><i class="layui-icon layui-icon-refresh"></i></a>
+                </span>
+
+                <div class="padding-horizontal-5"></div>
+
+                <div class="layui-inline">
+                    <button class="layui-btn layui-btn-lm" id="batch-putaway">批量上架</button>
+                </div>
+
+                <div class="padding-horizontal-5"></div>
+
+                <div class="layui-inline">
+                    <button class="layui-btn layui-btn-lm" id="batch-unShelve">批量下架</button>
+                </div>
+
+
                 <!--days begin-->
-                <div class="layui-inline" >
-                    <label class="layui-form-label">开始日期</label>
+                <div class="layui-inline">
+                    <label class="layui-form-label my-layui-form-label">开始日期</label>
                 </div>
                 <div class="layui-inline">
                     <input name="trade_date_begin" type="text" class="layui-input" id="date">
                 </div>
                 <!--days end-->
 
+                <div class="padding-horizontal-10"></div>
+
 
                 <!--days begin-->
-                <div class="layui-inline" >
-                    <label class="layui-form-label">结束日期</label>
+                <div class="layui-inline">
+                    <label class="layui-form-label my-layui-form-label">结束日期</label>
                 </div>
                 <div class="layui-inline">
                     <input name="trade_date_end" type="text" class="layui-input" id="date2">
                 </div>
                 <!--days end-->
 
-                <span class="fl layui-inline" style="margin-right: -20px;">
-                    <a class="layui-btn btn-add btn-default" id="btn-refresh-my-data-table"><i class="layui-icon layui-icon-refresh"></i></a>
-                </span>
                 <span class="fr">
                     <span class="layui-form-label">搜索条件：</span>
                     <div class="layui-input-inline">
@@ -65,7 +80,6 @@
                     <button id="my-data-table-query" class="layui-btn mgl-20">查询</button>
                 </span>
             </div>
-
         </div>
         <!-- 表格 -->
         <div id="my-data-table" class="my-data-table" lay-filter="my-data-table"></div>

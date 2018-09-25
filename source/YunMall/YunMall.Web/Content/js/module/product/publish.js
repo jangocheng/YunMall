@@ -1,9 +1,23 @@
-﻿$(function() {
+﻿$(function () {
+
     // 表单验证 
     layui.use(['form','upload'], function () {
         var form = layui.form,
             layer = layui.layer,
             upload = layui.upload;
+
+        // 表单疑问提醒
+        var tipsIndex = 0;
+        $("i[class~='tips[rate]']").hover(function () {
+            tipsIndex = layer.tips('定价 * 平台返利百分比 = 实收利润', this,
+                {
+                    tips: [2, '#3D6DDE'],
+                    area: ["auto","auto"]
+                });
+            },
+            function () {
+                layer.close(tipsIndex);
+            });
 
         //自定义验证规则
         form.verify({
@@ -44,13 +58,16 @@
             }
 
             var type = 0;
-            if ($type.eq(0).next().hasClass("layui-unselect")) type = 1;
-            if ($type.eq(1).next().hasClass("layui-unselect")) type = 2;
-            if ($type.eq(0).next().hasClass("layui-unselect") && $type.eq(1).next().hasClass("layui-unselect")) type = 3;
+            if ($type.eq(0).next().hasClass("layui-unselect")) type = 0;
+            if ($type.eq(1).next().hasClass("layui-unselect")) type = 1;
+            if ($type.eq(0).next().hasClass("layui-unselect") && $type.eq(1).next().hasClass("layui-unselect")) type = 2;
 
+
+            
 
             $.post("./publish/add",
                 {
+                    "pid": $("#pid").val() === null ? null : $("#pid").val(),
                     "productName": productName,
                     "price": parseFloat(price),
                     "categoryId": categoryId,
@@ -60,7 +77,6 @@
                 },
                 function(data) {
                     if (utils.response.isError(data)) return data.Msg === null ? layer.msg("发布失败") : layer.msg(data.Msg);
-                    layer.msg("发布成功");
                     location.href = "/product/manage";
                 });
             return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。

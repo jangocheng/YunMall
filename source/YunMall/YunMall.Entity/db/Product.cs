@@ -22,5 +22,7 @@ namespace YunMall.Entity.db {
         public DateTime AddTime { get; set; }
 
         public DateTime EditTime { get; set; }
+
+        public string Remark { get; set; }
     }
 }
