@@ -215,6 +215,7 @@ function getTableColumns() {
         { type: 'checkbox', fixed: 'left' }
         , {field: 'Pid', title: '商品id', width: 80, sort: true}
         , {field: 'ProductName', title: '商品名称', width: 180}
+        , { field: 'CategoryName', title: '经营类目', width: 180}
         , { field: 'Amount', title: '价格', width: 180, templet: function (d) {
             return "<span style='color: #c2330f;'>" + d.Amount + "</span>";
             }}

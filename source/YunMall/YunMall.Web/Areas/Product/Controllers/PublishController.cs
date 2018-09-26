@@ -24,6 +24,9 @@ namespace YunMall.Web.Areas.Product.Controllers
         [Dependency]
         public IUserService UserService { get; set; }
 
+        [Dependency]
+        public ICategoryService CategoryService { get; set; }
+
         // GET: Product/Publish
         [HttpGet]
         public ActionResult Index(int? productId)
@@ -32,6 +35,10 @@ namespace YunMall.Web.Areas.Product.Controllers
             var session = SessionInfo.GetSession();
             var returnRate = session.UserDetail.Permissions.First().ReturnRate;
             ViewBag.ReturnRate = returnRate;
+
+            // 查询经营类目
+            var categoryDetails = CategoryService.GetCategoryDetails();
+            ViewBag.Categorys = categoryDetails;
 
             // 商品路由器
             if (productId.HasValue) {

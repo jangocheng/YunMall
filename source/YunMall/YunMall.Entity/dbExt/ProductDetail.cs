@@ -51,5 +51,9 @@ namespace YunMall.Entity.dbExt {
         public string RoleName { get; set; }
 
         public double ReturnRate { get; set; }
+
+
+        /*categorys*/
+        public string CategoryName { get; set; }
     }
 }

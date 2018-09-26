@@ -117,7 +117,8 @@ namespace YunMall.Web.BLL.product {
             builder.Append($"amount={product.Amount},");
             builder.Append($"mainImage='{product.MainImage}',");
             builder.Append($"type={product.Type},");
-            builder.Append($"description='{product.Description}'");
+            builder.Append($"description='{product.Description}',");
+            builder.Append($"categoryId='{product.CategoryId}'");
             return productRepository.Update(builder.ToString(), $"sid = {product.Sid} AND pid = {product.Pid}");
         }
     }

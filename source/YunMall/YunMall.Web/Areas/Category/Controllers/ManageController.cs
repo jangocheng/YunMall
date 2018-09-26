@@ -12,15 +12,13 @@ using YunMall.Web.IBLL.product;
 
 namespace YunMall.Web.Areas.Category.Controllers
 {
-    [AuthenticationFilter(Role = "admin")]
     public class ManageController : BaseController
     {
         [Dependency]
         public ICategoryService CategoryService { get; set; }
 
         // GET: Category/Manage
-        [HttpGet]
-        public ActionResult Index()
+        [HttpGet] [AuthenticationFilter(Role = "admin")] public ActionResult Index()
         {
             return View();
         }
@@ -29,7 +27,7 @@ namespace YunMall.Web.Areas.Category.Controllers
         /// 查询经营类目类别 韦德 2018年9月26日09:39:56
         /// </summary>
         /// <returns></returns>
-        [HttpGet] public JsonResult GetCategorys() {
+        [HttpGet] [AuthenticationFilter(Role = "admin,supplier")] public JsonResult GetCategorys() {
             var categoryDetails = CategoryService.GetCategoryDetails();
             if (categoryDetails != null && categoryDetails.Count > 0) {
                 return Json(new JsonArrayResult<CategoryDetail>(categoryDetails));
@@ -64,8 +62,7 @@ namespace YunMall.Web.Areas.Category.Controllers
         /// <param name="parentId"></param>
         /// <param name="categoryName"></param>
         /// <returns></returns>
-        [HttpPost]
-        public JsonResult Add(int? parentId, string categoryName) {
+        [HttpPost] [AuthenticationFilter(Role = "admin")] public JsonResult Add(int? parentId, string categoryName) {
             if (!parentId.HasValue) parentId = 0;
             bool result = CategoryService.Add(parentId.Value, categoryName);
             if(result) return Json(new HttpResp("添加成功"));
@@ -76,7 +73,7 @@ namespace YunMall.Web.Areas.Category.Controllers
         /// 编辑经营类目页面 韦德 2018年9月26日14:50:11
         /// </summary>
         /// <returns></returns>
-        public ActionResult EditView(int? categoryId)
+        [AuthenticationFilter(Role = "admin")] public ActionResult EditView(int? categoryId)
         {
             CategoryDetail categoryDetail = CategoryService.GetCategoryDetail(categoryId.Value);
             var categoryDetails = CategoryService.GetCategoryDetails().Where(c => c.ParentId == 0).ToList();
@@ -92,8 +89,7 @@ namespace YunMall.Web.Areas.Category.Controllers
         /// <param name="categoryId"></param>
         /// <param name="categoryName"></param>
         /// <returns></returns>
-        [HttpPost]
-        public JsonResult Edit(int? parentId, int categoryId, string categoryName)
+        [HttpPost] [AuthenticationFilter(Role = "admin")] public JsonResult Edit(int? parentId, int categoryId, string categoryName)
         {
             if (!parentId.HasValue) parentId = 0;
             bool result = CategoryService.Edit(parentId.Value, categoryId, categoryName);

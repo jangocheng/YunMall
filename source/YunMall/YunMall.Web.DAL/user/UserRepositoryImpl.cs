@@ -24,9 +24,10 @@ namespace YunMall.Web.DAL.user {
         public List<ProductDetail> SelectLimit(int page, string limit, int state, string beginTime, string endTime, string where)
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append("SELECT t1.*, t2.*, (SELECT permissionId FROM permissions WHERE permissionId IN(t3.permissionList)), (SELECT roleName FROM permissions WHERE permissionId IN(t3.permissionList)) FROM products t1 ");
+            builder.Append("SELECT t1.*, t2.*, t4.*, (SELECT permissionId FROM permissions WHERE permissionId IN(t3.permissionList)), (SELECT roleName FROM permissions WHERE permissionId IN(t3.permissionList)) FROM products t1 ");
             builder.Append("LEFT JOIN users t2 ON t1.sid = t2.uid ");
             builder.Append("LEFT JOIN permission_relations t3 ON t1.sid = t3.uid ");
+            builder.Append("LEFT JOIN categorys t4 ON t1.categoryId = t4.cid ");
             builder.AppendFormat($"WHERE {where} GROUP BY t1.pid ORDER BY t1.addTime DESC LIMIT {page},{limit}");
             var dataSet = DBHelperMySql.Query(builder.ToString());
             if (dataSet == null || dataSet.Tables.Count == 0) return null;
