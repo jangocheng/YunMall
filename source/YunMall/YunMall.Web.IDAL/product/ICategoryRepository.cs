@@ -12,5 +12,12 @@ namespace YunMall.Web.IDAL.product {
         /// </summary>
         /// <returns></returns>
         IList<CategoryDetail> QueryDetails();
+
+        /// <summary>
+        /// 查询经营类目详细信息
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        CategoryDetail QueryDetail(int value);
     }
 }

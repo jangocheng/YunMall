@@ -9,5 +9,29 @@ namespace YunMall.Web.IBLL.product {
         /// </summary>
         /// <returns></returns>
         IList<CategoryDetail> GetCategoryDetails();
+
+        /// <summary>
+        /// 获取分类详细信息 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        CategoryDetail GetCategoryDetail(int value);
+
+        /// <summary>
+        /// 添加经营类目
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="categoryName"></param>
+        /// <returns></returns>
+        bool Add(int value, string categoryName);
+
+        /// <summary>
+        /// 编辑经营类目
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="categoryId"></param>
+        /// <param name="categoryName"></param>
+        /// <returns></returns>
+        bool Edit(int value, int categoryId, string categoryName);
     }
 }

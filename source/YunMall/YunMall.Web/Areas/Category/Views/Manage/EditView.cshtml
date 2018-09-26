@@ -1,0 +1,67 @@
+﻿@using System.Collections
+@using YunMall.Entity.dbExt
+@model YunMall.Entity.dbExt.CategoryDetail
+
+<div style="padding:20px">
+    <form class="layui-form layui-form-pane" action="">
+        <input type="hidden" name="categoryId" value="@Model.Cid" />
+        
+        <div class="layui-form-item">
+            <label class="layui-form-label">父级类目</label>
+            <div class="layui-input-block">
+                <select name="parentCategory">
+                    @{
+                        IList<CategoryDetail> categoryList = ViewBag.CategoryList;
+
+                        <option value="">请选择</option>
+                        foreach (var categoryDetail in categoryList) {
+                            if (categoryDetail.Cid == Model.Cid || categoryDetail.Cid == Model.ParentId) {
+                                <option value="@categoryDetail.Cid" selected="selected">@categoryDetail.CategoryName</option>
+                            }
+                            else {
+                                <option value="@categoryDetail.Cid">@categoryDetail.CategoryName</option>
+                            }
+                        }
+
+                    }
+
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">类目名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input" lay-verify="required" value="@Model.CategoryName">
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align: right">
+            <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="save">保&nbsp;存</button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(save)', function (data) {
+            $.post("/category/manage/edit",
+                {
+                    "parentId": data.field.parentCategory,
+                    "categoryId": data.field.categoryId,
+                    "categoryName": data.field.title
+                },
+                function(data) {
+                    if (utils.response.isError(data)) return layer.msg(data.Msg);
+                    location.reload();
+                });
+            return false;
+        });
+
+        form.render();
+    });
+</script>

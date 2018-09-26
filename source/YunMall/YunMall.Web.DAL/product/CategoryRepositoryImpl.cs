@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using DF.Common;
 using DF.DBUtility.MySql;
@@ -45,6 +46,21 @@ namespace YunMall.Web.DAL.product {
             builder.Append("LEFT JOIN categorys t2 ON t1.parentId = t2.cid; ");
             var dataSet = DBHelperMySql.Query(builder.ToString());
             return dataSet.ToList<CategoryDetail>();
+        }
+
+        /// <summary>
+        /// 查询经营类目详细信息
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public CategoryDetail QueryDetail(int value) {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("SELECT t1.*,t2.categoryName AS parentName FROM categorys t1 ");
+            builder.Append($"LEFT JOIN categorys t2 ON t1.parentId = t2.cid WHERE t1.cid = {value} ");
+            var dataSet = DBHelperMySql.Query(builder.ToString());
+            var list = dataSet.ToList<CategoryDetail>();
+            if (list == null || list.Count == 0) return null;
+            return list.First();
         }
     }
 }

@@ -2,7 +2,7 @@
 var service;
 var tableIndex;
 (function() {
-    service = initService(route);
+    service = initService(route); 
 
     // 加载数据表
     layui.use(['treetable', 'form'],
@@ -65,31 +65,60 @@ var tableIndex;
                         ],
                         call: function (data) {
                             if (data.isLeaf === true) {
-                                return '<a class="layui-btn layui-btn layui-btn-sm" lay-filter="edit">编辑</a>';
+                                return '<a class="layui-btn layui-btn layui-btn-sm" name="item_edit"  data-cid="' + data.id + '"  data-pid="' + data.pid + '" data-title="' + data.title + '" >编辑</a>';
                             } else {
                                 var html =
-                                    '<a class="layui-btn layui-btn layui-btn-sm layui-btn-danger" lay-filter="add" href="1.html">添加</a>';
+                                    '<a class="layui-btn layui-btn layui-btn-sm layui-btn-danger" name="item_add" data-cid="' + data.id + '"  data-pid="' + data.pid + '" data-title="' + data.title + '" >添加</a>';
                                 html +=
-                                    '<a class="layui-btn layui-btn layui-btn-sm " lay-filter="edit">编辑</a>';
+                                    '<a class="layui-btn layui-btn layui-btn-sm " name="item_edit"  data-cid="' + data.id + '"  data-pid="' + data.pid + '" data-title="' + data.title + '"  >编辑</a>';
                                 return html;
                             }
                         }
                     });
 
-                    treetable.on('treetable(test1)',
-                        function(data) {
-                            console.dir(o(data.elem).html());
-                        });
 
-                    treetable.on('treetable(add)',
-                        function(data) {
-                            console.dir(data);
-                        });
+                    $("a[name='item_add']").bind("click", function () {
+                        var title = "添加经营类目";
+                        if ($(this).data("pid") === 0) title += " - " + $(this).data("title");
 
-                    treetable.on('treetable(edit)',
-                        function(data) {
-                            console.dir(data);
-                        });
+                        service.addView({
+                                "categoryId": $(this).data("cid")
+                            },
+                            function(html) {
+                                layer.open({
+                                    type: 1,
+                                    shadeClose: true,
+                                    skin: 'layui-layer-rim', 
+                                    area: ['420px', 'auto'], 
+                                    title: title,
+                                    content: html
+                                });
+                            });
+
+                        
+                    });
+
+
+                    $("a[name='item_edit']").bind("click", function () {
+                        var title = "添加经营类目";
+                        if ($(this).data("pid") === 0) title += " - " + $(this).data("title");
+                        debugger;
+
+                        service.editView({
+                                "categoryId": $(this).data("cid")
+                            },
+                            function (html) {
+                                layer.open({
+                                    type: 1,
+                                    shadeClose: true,
+                                    skin: 'layui-layer-rim',
+                                    area: ['420px', 'auto'],
+                                    title: title,
+                                    content: html
+                                });
+                            });
+                    });
+
 
                     o('.up-all').click(function() {
                         treetable.all('up');
@@ -97,6 +126,21 @@ var tableIndex;
 
                     o('.down-all').click(function() {
                         treetable.all('down');
+                    });
+
+                    $("#create").click(function () {
+                        service.addView({},
+                            function (html) {
+                                layer.open({
+                                    type: 1,
+                                    shadeClose: true,
+                                    skin: 'layui-layer-rim',
+                                    area: ['420px', 'auto'],
+                                    title: "添加经营类目",
+                                    content: html
+                                });
+                            });
+
                     });
 
 
@@ -119,6 +163,28 @@ function initService(r) {
          */
         getCategorys: function (param, callback) {
             $.get(r + "/getCategorys", param, function (data) {
+                callback(data);
+            });
+        },
+        /**
+         * 添加 韦德 2018年9月26日14:56:30
+         * @param {} param 
+         * @param {} callback 
+         * @returns {} 
+         */
+        addView: function (param, callback) {
+            $.get(r + "/addView", param, function (data) {
+                callback(data);
+            });
+        },
+        /**
+         *  编辑 韦德 2018年9月26日17:17:11
+         * @param {} param 
+         * @param {} callback 
+         * @returns {} 
+         */
+        editView: function (param, callback) {
+            $.get(r + "/editView", param, function (data) {
                 callback(data);
             });
         }

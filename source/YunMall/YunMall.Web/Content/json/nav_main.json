@@ -18,7 +18,7 @@
         {
           "text": "商品管理",
           "icon": "&#xe63c;",
-          "href": "/management/room/close-accounts"
+          "href": "/product/manage"
         },
         {
           "text": "发布商品",

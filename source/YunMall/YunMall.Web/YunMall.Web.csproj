@@ -319,9 +319,6 @@
     <Content Include="Content\frame\static\image\v.png" />
     <Content Include="Content\frame\static\image\wx.png" />
     <Content Include="Content\frame\static\image\zfb.png" />
-    <Content Include="Content\frame\static\js\treeGrid\dltable.js" />
-    <Content Include="Content\frame\static\js\treeGrid\treeGrid.css" />
-    <Content Include="Content\frame\static\js\treeGrid\treeGrid.js" />
     <Content Include="Content\frame\static\js\treetable.js" />
     <Content Include="Content\frame\static\js\vip_comm.js" />
     <Content Include="Content\frame\static\js\vip_nav.js" />
@@ -395,6 +392,8 @@
     <Content Include="Areas\Category\Views\web.config" />
     <Content Include="Areas\Category\Views\Manage\Index.cshtml" />
     <Content Include="Content\json\dataGrid.json" />
+    <Content Include="Areas\Category\Views\Manage\AddView.cshtml" />
+    <Content Include="Areas\Category\Views\Manage\EditView.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />
