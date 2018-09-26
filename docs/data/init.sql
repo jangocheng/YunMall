@@ -80,19 +80,24 @@ CREATE TABLE `categorys` (
   `parentId` int(11) NOT NULL COMMENT '父级类目id',
   `categoryName` varchar(32) NOT NULL COMMENT '经营类目名称',
   `isLeaf` int(11) DEFAULT NULL COMMENT '是否叶子节点(0=不是,1=是)',
-  PRIMARY KEY (`cid`),
-  UNIQUE KEY `uq_category` (`categoryName`) USING BTREE
+  PRIMARY KEY (`cid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='经营类目表';
 
 
 INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('0', '中国移动', '0');
 INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('0', '中国联通', '0');
 INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('0', '中国电信', '0');
-INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('1,2,3', '话费充值', '1');
-INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('1,2,3', '流量充值', '1');
-INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('1,2,3', '活动办理', '1');
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('1', '话费充值', '1');
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('1', '流量充值', '1');
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('2', '活动办理', '1');
 
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('2', '话费充值', '1');
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('2', '流量充值', '1');
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('2', '活动办理', '1');
 
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('3', '话费充值', '1');
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('3', '流量充值', '1');
+INSERT INTO `yunmall`.`categorys` (`parentId`, `categoryName`, `isLeaf`) VALUES ('3', '活动办理', '1');
 
 -- ----------------------------
 -- Procedure structure for Query

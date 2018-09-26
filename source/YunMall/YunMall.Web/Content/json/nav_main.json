@@ -28,7 +28,7 @@
         {
           "text": "经营类目",
           "icon": "&#xe63c;",
-          "href": "/management/recharge/index"
+          "href": "/category/manage"
         },
         {
           "text": "订单管理",

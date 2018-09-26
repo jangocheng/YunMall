@@ -53,6 +53,15 @@ namespace YunMall.Web.Core
                 .Configure<Interception>().SetInterceptorFor<IProductService>(new InterfaceInterceptor());
 
 
+            // 经营类目逻辑和仓储接口 2018年9月26日09:43:45
+            container.RegisterType<ICategoryRepository, CategoryRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<ICategoryRepository>(new InterfaceInterceptor());
+
+            container.RegisterType<ICategoryService, CategoryServiceImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<ICategoryService>(new InterfaceInterceptor());
+
+
+
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

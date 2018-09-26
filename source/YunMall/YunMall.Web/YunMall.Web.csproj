@@ -182,6 +182,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
+    <Compile Include="Areas\Category\Controllers\ManageController.cs" />
     <Compile Include="Areas\Product\Controllers\ManageController.cs" />
     <Compile Include="Areas\Product\Controllers\PublishController.cs" />
     <Compile Include="Areas\Product\ProductAreaRegistration.cs" />
@@ -202,6 +204,7 @@
   <ItemGroup>
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\module\bootstrap.css" />
+    <Content Include="Content\css\module\category\manage.css" />
     <Content Include="Content\css\module\product\manage.css" />
     <Content Include="Content\css\module\product\publish.css" />
     <Content Include="Content\css\style.css" />
@@ -306,6 +309,7 @@
     <Content Include="Content\frame\layui\lay\modules\slider.js" />
     <Content Include="Content\frame\layui\lay\modules\table.js" />
     <Content Include="Content\frame\layui\lay\modules\tree.js" />
+    <Content Include="Content\frame\layui\lay\modules\treetable.js" />
     <Content Include="Content\frame\layui\lay\modules\upload.js" />
     <Content Include="Content\frame\layui\lay\modules\util.js" />
     <Content Include="Content\frame\static\css\admin.css" />
@@ -318,6 +322,7 @@
     <Content Include="Content\frame\static\js\treeGrid\dltable.js" />
     <Content Include="Content\frame\static\js\treeGrid\treeGrid.css" />
     <Content Include="Content\frame\static\js\treeGrid\treeGrid.js" />
+    <Content Include="Content\frame\static\js\treetable.js" />
     <Content Include="Content\frame\static\js\vip_comm.js" />
     <Content Include="Content\frame\static\js\vip_nav.js" />
     <Content Include="Content\frame\static\js\vip_tab.js" />
@@ -341,6 +346,7 @@
     <Content Include="Content\js\common\layui-format-date.js" />
     <Content Include="Content\js\common\jquery-3.3.1.min.js" />
     <Content Include="Content\js\module\bootstrap.js" />
+    <Content Include="Content\js\module\category\manage.js" />
     <Content Include="Content\js\module\product\manage.js" />
     <Content Include="Content\js\module\product\publish.js" />
     <Content Include="favicon.ico" />
@@ -362,6 +368,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Category\Models\" />
+    <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Areas\Product\Models\" />
     <Folder Include="Areas\Product\Views\Shared\" />
     <Folder Include="Areas\Security\Controllers\" />
@@ -384,6 +392,9 @@
     <Content Include="Areas\Product\Views\web.config" />
     <Content Include="Areas\Product\Views\Publish\Index.cshtml" />
     <Content Include="Areas\Product\Views\Manage\Index.cshtml" />
+    <Content Include="Areas\Category\Views\web.config" />
+    <Content Include="Areas\Category\Views\Manage\Index.cshtml" />
+    <Content Include="Content\json\dataGrid.json" />
     <None Include="packages.config" />
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />

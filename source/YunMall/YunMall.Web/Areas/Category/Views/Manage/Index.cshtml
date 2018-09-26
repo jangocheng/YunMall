@@ -1,0 +1,31 @@
+﻿@using System.Web.Optimization
+@model dynamic
+
+@{
+    ViewBag.Title = "经营类目管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section styles {
+    @Styles.Render("~/content/css/module/category/manage.css")
+}
+
+@section scripts { 
+    @Scripts.Render("~/content/js/module/category/manage.js")
+}
+
+@section current_page {
+    <a><cite>经营类目</cite></a>
+}
+
+<div class="layui-row my-container-padding">
+    <div class="layui-col-md12" style="">
+        <!--主体 begin-->
+        <button class="layui-btn layui-btn-primary up-all">全部收起</button>
+        <button class="layui-btn layui-btn-primary down-all">全部展开</button>
+		
+        <div class="test-tree-table" lay-filter="test1"></div>
+        <!--主体 end-->
+    </div>
+</div>

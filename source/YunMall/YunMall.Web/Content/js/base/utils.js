@@ -2,6 +2,12 @@ window.utils = {
     response: {
         isError: function (data) {
             return data === null || data.Code === null || data.Code === 1;
+        },
+        isList: function(data) {
+            return data.data != null;
+        },
+        isEmpty: function(data) {
+            return data.data == null || data.data.length <= 0;
         }
     },
     date: {

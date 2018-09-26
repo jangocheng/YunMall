@@ -14,8 +14,8 @@ namespace YunMall.Entity.json {
             {
                 this.data = new List<T>();
             }
-            else
-            {
+            else {
+                this.count = data.Count;
                 this.data = data;
             }
         }
