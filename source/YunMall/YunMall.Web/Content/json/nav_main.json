@@ -54,7 +54,7 @@
         {
           "text": "交易清单",
           "icon": "&#xe63c;",
-          "href": "/management/finance/pay"
+          "href": "/finance/pays"
         },
         {
           "text": "会计账簿",

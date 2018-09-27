@@ -37,5 +37,10 @@ namespace YunMall.Entity
         /// </summary>
         public static bool Debug { get; set; }
 
+        /// <summary>
+        /// 热点账户ID
+        /// </summary>
+        public static int HotAccountID { get; set; } = 1;
+
     }
 }

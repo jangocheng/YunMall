@@ -17,8 +17,7 @@ namespace YunMall.Web.BLL.finance {
         private readonly IAccountsRepository accountsRepository;
 
         [InjectionConstructor]
-        public AccountsServiceImpl(IAccountsRepository accountsRepository)
-        {
+        public AccountsServiceImpl(IAccountsRepository accountsRepository) : base(accountsRepository){
             this.accountsRepository = accountsRepository;
         }
 
@@ -26,16 +25,17 @@ namespace YunMall.Web.BLL.finance {
             return accountsRepository.Count();
         }
 
-        public override IList<Accounts> GetPageLimit(int page, string limit, string condition, int type, string beginTime, string endTime) {
+        public override IList<Accounts> GetAccountPageLimit(int page, string limit, string condition, int type, string beginTime, string endTime) {
             page = ConditionUtil.ExtractPageIndex(page, limit);
             String where = ExtractLimitWhere(condition, type, beginTime, endTime);
-            List<Accounts> list = accountsRepository.SelectLimit(page, limit, type, beginTime, endTime, where);
+            IList<Accounts> list = accountsRepository.SelectLimit(page, limit, type, beginTime, endTime, where);
             return list;
         }
 
-        public override int GetPageLimitCount(string condition, int state, string beginTime, string endTime) {
-            String where = ExtractLimitWhere(condition, state, beginTime, endTime);
-            return accountsRepository.SelectLimitCount(state, beginTime, endTime, where);
+
+        public override int GetPageLimitCount(string condition, int type, string beginTime, string endTime) {
+            String where = ExtractLimitWhere(condition, type, beginTime, endTime);
+            return accountsRepository.SelectLimitCount(type, beginTime, endTime, where);
         }
 
         protected override string ExtractLimitWhere(string condition, int type, string beginTime, string endTime) {
@@ -81,6 +81,6 @@ namespace YunMall.Web.BLL.finance {
             where = ExtractBetweenTime(beginTime, endTime, where);
             return where.Trim();
         }
-
+         
     }
 }

@@ -1,11 +1,34 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Practices.Unity;
+using YunMall.Entity;
+using YunMall.Entity.db;
 using YunMall.Entity.dbExt;
+using YunMall.Entity.ModelView;
 using YunMall.Web.BLL.util;
+using YunMall.Web.IDAL.finance;
+using YunMall.Web.IDAL.user;
 
 namespace YunMall.Web.BLL {
     public class BasePageQuery<T> {
+        private readonly IAccountsRepository accountsRepository;
+
+        [Dependency]
+        public IUserRepository userRepository { get; set; }
+
+        [InjectionConstructor]
+        public BasePageQuery(IAccountsRepository accountsRepository)
+        {
+            this.accountsRepository = accountsRepository;
+        }
+
+        public BasePageQuery()
+        {
+        } 
+
+
         /// <summary>
         /// 查询总数 韦德 2018年9月22日16:12:46
         /// </summary>
@@ -15,6 +38,7 @@ namespace YunMall.Web.BLL {
             //return productRepository.Count();
             return 0;
         }
+
 
         /// <summary>
         /// 通用分页查询 韦德 2018年9月22日16:11:04
@@ -26,7 +50,7 @@ namespace YunMall.Web.BLL {
         /// <param name="beginTime"></param>
         /// <param name="endTime"></param>
         /// <returns></returns>
-        public virtual IList<T> GetPageLimit(int page, string limit, string condition, int type, string beginTime, string endTime)
+        public virtual IList<T> GetPageLimit<T>(int page, string limit, string condition, int type, string beginTime, string endTime)
         {
             page = ConditionUtil.ExtractPageIndex(page, limit);
             String where = ExtractLimitWhere(condition, type, beginTime, endTime);
@@ -40,13 +64,13 @@ namespace YunMall.Web.BLL {
         /// 通用分页查询总数 韦德 2018年9月22日16:11:16
         /// </summary>
         /// <param name="condition"></param>
-        /// <param name="state"></param>
+        /// <param name="type"></param>
         /// <param name="beginTime"></param>
         /// <param name="endTime"></param>
         /// <returns></returns>
-        public virtual int GetPageLimitCount(string condition, int state, string beginTime, string endTime)
+        public virtual int GetPageLimitCount(string condition, int type, string beginTime, string endTime)
         {
-            String where = ExtractLimitWhere(condition, state, beginTime, endTime);
+            String where = ExtractLimitWhere(condition, type, beginTime, endTime);
             //return productRepository.SelectLimitCount(state, beginTime, endTime, where);
             return 0;
         }
@@ -125,6 +149,75 @@ namespace YunMall.Web.BLL {
                 where += $" AND t1.is_enable = {isEnable}";
             }
             return where;
+        }
+
+
+
+        /// <summary>
+        /// 查询会计账目分页
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="limit"></param>
+        /// <param name="condition"></param>
+        /// <param name="type"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public virtual IList<Accounts> GetAccountPageLimit(int page, string limit, string condition, int type,
+            string beginTime, string endTime) {
+            return null;
+        }
+
+
+        /// <summary>
+        /// 查询交易流水分页
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="limit"></param>
+        /// <param name="condition"></param>
+        /// <param name="type"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public virtual IList<PaysDetail> GetPayPageLimit(int page, string limit, string condition, int tradeType, int type, string beginTime,
+            string endTime) {
+            return null;
+        }
+
+        /// <summary>
+        /// 查询用户收入与支出金额 韦德 2018年9月27日15:50:35
+        /// </summary>
+        /// <param name="userDetail"></param>
+        /// <returns></returns>
+        public virtual IDictionary<string, string> GetUserAmount(UserDetail userDetail) {
+            // 查询收入与支出数据
+            IDictionary<string, string> data = accountsRepository.SelectAmount(userDetail.User.Uid);
+            // 查询系统公户信息
+            var dataList = userRepository.Query<User>(new QueryParam() {
+                StrWhere = $"uid={Constants.HotAccountID}"
+            });
+            if (dataList != null && dataList.Count > 0) {
+                data.Add("account", dataList.FirstOrDefault().Username);
+                data.Add("amount", "0");// TODO 等钱包表设计好之后，这里改为查询钱包表数据
+            }
+            else {
+                data.Add("account",  "查询失败");
+                data.Add("amount", "查询失败");
+            }
+            return data;
+        }
+
+
+        /// <summary>
+        /// 查询分页总数 韦德 2018年9月22日16:12:21
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="type"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public virtual int GetPaysPageLimitCount(string condition, int tradeType, int type, string beginTime, string endTime) {
+            return 0;
         }
     }
 }

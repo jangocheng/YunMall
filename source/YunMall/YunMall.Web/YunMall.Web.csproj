@@ -185,6 +185,7 @@
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\ManageController.cs" />
     <Compile Include="Areas\Finance\Controllers\AccountsController.cs" />
+    <Compile Include="Areas\Finance\Controllers\PaysController.cs" />
     <Compile Include="Areas\Finance\FinanceAreaRegistration.cs" />
     <Compile Include="Areas\Product\Controllers\ManageController.cs" />
     <Compile Include="Areas\Product\Controllers\PublishController.cs" />
@@ -404,6 +405,7 @@
     <Content Include="Areas\Category\Views\Manage\EditView.cshtml" />
     <Content Include="Areas\Finance\Views\web.config" />
     <Content Include="Areas\Finance\Views\Accounts\Index.cshtml" />
+    <Content Include="Areas\Finance\Views\Pays\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />

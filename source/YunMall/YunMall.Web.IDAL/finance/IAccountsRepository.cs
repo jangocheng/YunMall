@@ -24,6 +24,13 @@ namespace YunMall.Web.IDAL.finance {
         /// <param name="endTime"></param>
         /// <param name="where"></param>
         /// <returns></returns>
-        List<Accounts> SelectLimit(int page, string limit, int state, string beginTime, string endTime, string where);
+        IList<Accounts> SelectLimit(int page, string limit, int state, string beginTime, string endTime, string where);
+
+        /// <summary>
+        /// 查询收入支出金额
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        IDictionary<string, string> SelectAmount(int uid);
     }
 }

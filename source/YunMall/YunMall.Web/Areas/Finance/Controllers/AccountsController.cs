@@ -17,7 +17,7 @@ namespace YunMall.Web.Areas.Finance.Controllers
     [AuthenticationFilter(Role = "admin")]
     public class AccountsController : BaseController
     {
-        [Dependency]
+        [Dependency(name: "AccountsServiceImpl")]
         public IFinanceService AccountsService { get; set; }
 
         // GET: Finance/Accounts
@@ -42,7 +42,7 @@ namespace YunMall.Web.Areas.Finance.Controllers
             int count = 0;
             if (condition != null && condition.Contains("[add]")) condition = condition.Replace("[add]", "+");
             if (condition != null && condition.Contains("[reduce]")) condition = condition.Replace("[reduce]", "-");
-            IList<Accounts> list = AccountsService.GetPageLimit(page.Value, limit, condition, type.HasValue ? type.Value : 0, beginTime, endTime);
+            IList<Accounts> list = AccountsService.GetAccountPageLimit(page.Value, limit, condition, type.HasValue ? type.Value : 0, beginTime, endTime);
             JsonArrayResult<Accounts> jsonArrayResult = new JsonArrayResult<Accounts>(0, list);
             if (condition.IsEmpty()
                 && beginTime.IsEmpty()

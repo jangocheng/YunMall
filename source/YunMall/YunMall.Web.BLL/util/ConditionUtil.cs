@@ -71,5 +71,30 @@ namespace YunMall.Web.BLL.util {
             condition += tb + " = " + value + "  ";
             return condition;
         }
+
+
+        /**
+         * 准确不匹配
+         * @param column
+         * @param value
+         * @param isJoin
+         * @param alias
+         * @return
+         */
+        public static String NotMatch(String column, String value, bool isJoin, String alias)
+        {
+            String condition = "";
+            if (!isJoin)
+            {
+                alias = "";
+            }
+            else
+            {
+                alias += ".";
+            }
+            String tb = alias + "`" + column + "`";
+            condition += tb + " != " + value + "  ";
+            return condition;
+        }
     }
 }

@@ -21,6 +21,11 @@ namespace YunMall.Web.BLL.finance {
             this.dictionarysRepository = dictionarysRepository;
         }
 
+        public IList<Accounts> GetAccountPageLimit(int page, string limit, string condition, int type, string beginTime, string endTime)
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetCount()
         {
             throw new NotImplementedException();
@@ -31,7 +36,22 @@ namespace YunMall.Web.BLL.finance {
             throw new NotImplementedException();
         }
 
-        public int GetPageLimitCount(string condition, int state, string beginTime, string endTime)
+        public int GetPageLimitCount(string condition, int type, string beginTime, string endTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<PaysDetail> GetPayPageLimit(int page, string limit, string condition, int tradeType, int type, string beginTime, string endTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetPaysPageLimitCount(string condition, int tradeType, int type, string beginTime, string endTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDictionary<string, string> GetUserAmount(UserDetail userDetail)
         {
             throw new NotImplementedException();
         }

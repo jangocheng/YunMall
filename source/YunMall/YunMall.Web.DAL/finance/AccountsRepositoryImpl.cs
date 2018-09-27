@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Text;
 using DF.Common;
 using DF.DBUtility.MySql;
@@ -43,7 +45,7 @@ namespace YunMall.Web.DAL.finance {
         /// <param name="endTime"></param>
         /// <param name="where"></param>
         /// <returns></returns>
-        public List<Accounts> SelectLimit(int page, string limit, int state, string beginTime, string endTime, string where)
+        public IList<Accounts> SelectLimit(int page, string limit, int state, string beginTime, string endTime, string where)
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("SELECT t1.* FROM accounts t1 ");
@@ -51,6 +53,24 @@ namespace YunMall.Web.DAL.finance {
             var dataSet = DBHelperMySql.Query(builder.ToString());
             if (dataSet == null || dataSet.Tables.Count == 0) return null;
             return dataSet.Tables[0].ToList<Accounts>();
+        }
+
+        /// <summary>
+        /// 查询收入支出金额
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        public IDictionary<string, string> SelectAmount(int uid) {
+            StringBuilder builder = new StringBuilder();
+            builder.Append($"SELECT (SELECT SUM(amount) FROM pays WHERE fromUid != {uid}) AS incomeAmount, ");
+            builder.AppendFormat($"(SELECT SUM(amount) FROM pays WHERE fromUid = {uid}) AS expendAmount FROM pays LIMIT 1");
+            var dataSet = DBHelperMySql.Query(builder.ToString());
+            if (dataSet == null || dataSet.Tables.Count == 0) return null;
+            var convertDictionary = dataSet.Tables[0].Rows.Cast<DataRow>().ToDictionary(x => x[0].ToString(), x => x[1].ToString());
+            IDictionary<string, string> dictionary = new Dictionary<string, string>();
+            dictionary.Add("incomeAmount", Convert.ToString(convertDictionary.First().Key));
+            dictionary.Add("expendAmount", Convert.ToString(convertDictionary.First().Value));
+            return dictionary;
         }
 
         /// <summary>

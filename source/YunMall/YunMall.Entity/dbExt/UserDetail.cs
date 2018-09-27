@@ -16,5 +16,15 @@ namespace YunMall.Entity.dbExt
 
         /*permissions*/
         public IList<Permission> Permissions { get; set; }
+
+        /// <summary>
+        /// 收入金额
+        /// </summary>
+        public double IncomeAmount { get; set; }
+
+        /// <summary>
+        /// 支出金额
+        /// </summary>
+        public double ExpendAmount { get; set; }
     }
 }

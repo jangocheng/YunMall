@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YunMall.Utility.jsonData;
 
 namespace YunMall.Entity.json
 {
@@ -22,6 +23,12 @@ namespace YunMall.Entity.json
         {
             Code = 0;
             Msg = msg ?? throw new ArgumentNullException(nameof(msg));
+        }
+
+        public HttpResp(object msg)
+        {
+            Code = 0;
+            Msg = JsonUtil.ToJson(msg);
         }
     }
 }

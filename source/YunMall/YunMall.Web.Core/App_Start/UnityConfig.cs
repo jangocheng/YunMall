@@ -67,14 +67,28 @@ namespace YunMall.Web.Core
 
 
             // 财务逻辑和仓储接口 2018年9月26日09:43:45
+            container.RegisterType<IPaysRepository, PaysRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IPaysRepository>(new InterfaceInterceptor());
+
+
             container.RegisterType<IAccountsRepository, AccountsRepositoryImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IAccountsRepository>(new InterfaceInterceptor());
+
+
+
+            container.RegisterType<IFinanceService, AccountsServiceImpl>("AccountsServiceImpl", new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());
+
+            container.RegisterType<IFinanceService, PaysServiceImpl>("PaysServiceImpl", new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());
+             
 
             container.RegisterType<IFinanceService, FinanceServiceImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());
 
-            container.RegisterType<IFinanceService, AccountsServiceImpl>(new ContainerControlledLifetimeManager())
-                .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());
+
+            container.RegisterType<IDictionarysRepository, DictionarysRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IDictionarysRepository>(new InterfaceInterceptor());
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
