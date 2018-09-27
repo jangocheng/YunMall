@@ -1,0 +1,104 @@
+﻿@using System.Web.Optimization
+@model dynamic
+
+@{
+    ViewBag.Title = "财务会计账目";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section current_page {
+    <a><cite>财务会计账目管理</cite></a>
+}
+
+@section styles {
+    @Styles.Render("~/content/css/module/finance/index.css")
+}
+
+@section scripts {
+    @Scripts.Render("~/content/js/module/finance/accounts.js")
+
+    <!-- 表格操作按钮集 -->
+    <script type="text/html" id="barOption">
+        <a name="item-view" class="layui-btn layui-btn layui-btn-xs" lay-event="detail">查看</a>
+        <a name="item-edit" class="layui-btn layui-btn layui-btn-xs layui-btn-normal" lay-event="edit">编辑</a>
+        <a name="item-remove" class="layui-btn layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+    </script>
+    <script>
+        layui.use(['laydate'], function(){
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: "#date"
+            });
+            laydate.render({
+                elem: "#date2"
+            });
+        });
+    </script>
+}
+
+<div class="layui-row my-container-padding">
+        <div class="layui-col-md12" style="">
+            <!--主体 begin-->
+            <!-- 工具集 -->
+            <div class="my-btn-box">
+                <!--下拉列表-->
+                <div class="layui-form">
+                    <!--交易类型 begin-->
+                    <div class="layui-inline">
+                        <label class="layui-form-label">交易类型</label>
+                    </div>
+                    <div class="layui-inline">
+                        <select name="trade_type" lay-verify="required">
+                            <option value="">请选择一项条件</option>
+                            <option value="0">全部</option>
+                            <option value="1">收入</option>
+                            <option value="2">支出</option>
+                        </select>
+                    </div>
+                    <!--交易类型 end-->
+                    <!--特殊过滤 begin-->
+                    <div class="layui-inline">
+                        <label class="layui-form-label" style="margin-left: -20px; !important">特殊过滤</label>
+                    </div>
+                    <div class="layui-inline">
+                        <select name="filter_type">
+                            <option value="0">默认</option>
+                            <option value="1">交易额</option>
+                        </select>
+                    </div>
+                    <!--特殊过滤 end-->
+                    <!--交易日 begin-->
+                    <div class="layui-inline">
+                        <label class="layui-form-label">开始交易日</label>
+                    </div>
+                    <div class="layui-inline">
+                        <input name="trade_date_begin" type="text" class="layui-input" id="date">
+                    </div>
+                    <!--交易日 end-->
+                    <!--交易日 begin-->
+                    <div class="layui-inline">
+                        <label class="layui-form-label">截止交易日</label>
+                    </div>
+                    <div class="layui-inline">
+                        <input name="trade_date_end" type="text" class="layui-input" id="date2">
+                    </div>
+                    <!--交易日 end-->
+
+                    <span class="fl layui-inline" style="margin-right: -20px;">
+                        <a class="layui-btn btn-add btn-default" id="btn-refresh-my-data-table"><i class="layui-icon layui-icon-refresh"></i></a>
+                    </span>
+                    <span class="fr">
+                        <span class="layui-form-label">搜索条件：</span>
+                        <div class="layui-input-inline">
+                            <input id="my-data-table-condition" type="text" autocomplete="off" placeholder="请输入搜索条件" class="layui-input">
+                        </div>
+                        <button id="my-data-table-query" class="layui-btn mgl-20">查询</button>
+                    </span>
+                </div>
+
+            </div>
+            <!-- 表格 -->
+            <div id="my-data-table" class="my-data-table" lay-filter="my-data-table"></div>
+            <!--主体 end-->
+        </div>
+    </div>

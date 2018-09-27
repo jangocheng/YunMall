@@ -8,7 +8,6 @@ namespace YunMall.Web.IDAL.user {
     /// </summary>
     public interface IUserRepository : IAbsBaseRepository
     {
-        int SelectLimitCount(int state, string beginTime, string endTime, string where);
-        List<ProductDetail> SelectLimit(int page, string limit, int state, string beginTime, string endTime, string where);
+        
     }
 }

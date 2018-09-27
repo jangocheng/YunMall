@@ -28,35 +28,6 @@ namespace YunMall.Web.IBLL.user {
         RegisterResult Register(string username, string password, string contact);
 
 
-        /// <summary>
-        /// 通用分页查询 韦德 2018年9月22日16:11:04
-        /// </summary>
-        /// <param name="page"></param>
-        /// <param name="limit"></param>
-        /// <param name="condition"></param>
-        /// <param name="state"></param>
-        /// <param name="beginTime"></param>
-        /// <param name="endTime"></param>
-        /// <returns></returns>
-        IList<ProductDetail> GetLimit(int page, string limit, string condition, int state, string beginTime, string endTime);
-
-
-        /// <summary>
-        /// 查询总数 韦德 2018年9月22日16:12:26
-        /// </summary>
-        /// <returns></returns>
-        int GetCount();
-
-
-        /// <summary>
-        /// 查询分页总数 韦德 2018年9月22日16:12:21
-        /// </summary>
-        /// <param name="condition"></param>
-        /// <param name="state"></param>
-        /// <param name="beginTime"></param>
-        /// <param name="endTime"></param>
-        /// <returns></returns>
-        int GetLimitCount(string condition, int state, string beginTime, string endTime);
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using YunMall.Entity.dbExt;
+﻿using System.Collections.Generic;
+using YunMall.Entity.dbExt;
 
 namespace YunMall.Web.IDAL.product {
     public interface IProductRepository : IAbsBaseRepository
@@ -9,5 +10,27 @@ namespace YunMall.Web.IDAL.product {
         /// <param name="value"></param>
         /// <returns></returns>
         ProductDetail QueryDetail(int value);
+
+        /// <summary>
+        /// 查询分页总数
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        int SelectLimitCount(int state, string beginTime, string endTime, string where);
+
+        /// <summary>
+        /// 查询分页
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="limit"></param>
+        /// <param name="state"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        List<ProductDetail> SelectLimit(int page, string limit, int state, string beginTime, string endTime, string where);
     }
 }

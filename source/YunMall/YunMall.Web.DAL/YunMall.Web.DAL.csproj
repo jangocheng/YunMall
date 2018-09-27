@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbsBaseRepository.cs" />
+    <Compile Include="finance\DictionarysRepositoryImpl.cs" />
+    <Compile Include="finance\PaysRepositoryImpl.cs" />
+    <Compile Include="finance\AccountsRepositoryImpl.cs" />
     <Compile Include="product\CategoryRepositoryImpl.cs" />
     <Compile Include="product\ProductRepositoryImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

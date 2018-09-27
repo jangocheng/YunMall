@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="finance\IAccountsRepository.cs" />
+    <Compile Include="finance\IDictionarysRepository.cs" />
+    <Compile Include="finance\IPaysRepository.cs" />
     <Compile Include="IAbsBaseRepository.cs" />
     <Compile Include="product\ICategoryRepository.cs" />
     <Compile Include="product\IProductRepository.cs" />

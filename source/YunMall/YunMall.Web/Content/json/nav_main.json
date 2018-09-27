@@ -59,7 +59,7 @@
         {
           "text": "会计账簿",
           "icon": "&#xe63c;",
-          "href": "/management/finance/accounts"
+          "href": "/finance/accounts"
         }
       ]
     },

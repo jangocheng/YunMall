@@ -184,6 +184,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\ManageController.cs" />
+    <Compile Include="Areas\Finance\Controllers\AccountsController.cs" />
+    <Compile Include="Areas\Finance\FinanceAreaRegistration.cs" />
     <Compile Include="Areas\Product\Controllers\ManageController.cs" />
     <Compile Include="Areas\Product\Controllers\PublishController.cs" />
     <Compile Include="Areas\Product\ProductAreaRegistration.cs" />
@@ -205,6 +207,7 @@
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\module\bootstrap.css" />
     <Content Include="Content\css\module\category\manage.css" />
+    <Content Include="Content\css\module\finance\index.css" />
     <Content Include="Content\css\module\product\manage.css" />
     <Content Include="Content\css\module\product\publish.css" />
     <Content Include="Content\css\style.css" />
@@ -344,6 +347,9 @@
     <Content Include="Content\js\common\jquery-3.3.1.min.js" />
     <Content Include="Content\js\module\bootstrap.js" />
     <Content Include="Content\js\module\category\manage.js" />
+    <Content Include="Content\js\module\finance\accounts.js" />
+    <Content Include="Content\js\module\finance\pay.js" />
+    <Content Include="Content\js\module\finance\recharge.js" />
     <Content Include="Content\js\module\product\manage.js" />
     <Content Include="Content\js\module\product\publish.js" />
     <Content Include="favicon.ico" />
@@ -367,6 +373,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Category\Models\" />
     <Folder Include="Areas\Category\Views\Shared\" />
+    <Folder Include="Areas\Finance\Models\" />
+    <Folder Include="Areas\Finance\Views\Shared\" />
     <Folder Include="Areas\Product\Models\" />
     <Folder Include="Areas\Product\Views\Shared\" />
     <Folder Include="Areas\Security\Controllers\" />
@@ -394,6 +402,8 @@
     <Content Include="Content\json\dataGrid.json" />
     <Content Include="Areas\Category\Views\Manage\AddView.cshtml" />
     <Content Include="Areas\Category\Views\Manage\EditView.cshtml" />
+    <Content Include="Areas\Finance\Views\web.config" />
+    <Content Include="Areas\Finance\Views\Accounts\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />

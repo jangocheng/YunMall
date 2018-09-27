@@ -45,18 +45,18 @@ namespace YunMall.Web.Areas.Product.Controllers
         /// <returns></returns>
         public JsonResult GetProducts(int? page, string limit, string condition, int? state, string beginTime, string endTime) {
             int count = 0;
-            IList<ProductDetail> list = UserService.GetLimit(page.Value, limit, condition, state.HasValue ? state.Value : 0, beginTime, endTime);
+            IList<ProductDetail> list = ProductService.GetLimit(page.Value, limit, condition, state.HasValue ? state.Value : 0, beginTime, endTime);
             JsonArrayResult<ProductDetail> jsonArrayResult = new JsonArrayResult<ProductDetail>(0, list);
             if (condition.IsEmpty()
                 && beginTime.IsEmpty()
                 && endTime.IsEmpty()
                 && (state == 0))
             {
-                count = UserService.GetCount();
+                count = ProductService.GetCount();
             }
             else
             {
-                count = UserService.GetLimitCount(condition, state.HasValue ? state.Value : 0, beginTime, endTime);
+                count = ProductService.GetLimitCount(condition, state.HasValue ? state.Value : 0, beginTime, endTime);
             }
             jsonArrayResult.count = count;
             return Json(jsonArrayResult);

@@ -48,7 +48,10 @@
     <Compile Include="dbExt\CategoryDetail.cs" />
     <Compile Include="dbExt\ProductDetail.cs" />
     <Compile Include="dbExt\UserDetail.cs" />
+    <Compile Include="db\Accounts.cs" />
     <Compile Include="db\Category.cs" />
+    <Compile Include="db\Dictionarys.cs" />
+    <Compile Include="db\Pays.cs" />
     <Compile Include="db\Permission.cs" />
     <Compile Include="db\PermissionRelation.cs" />
     <Compile Include="db\Product.cs" />

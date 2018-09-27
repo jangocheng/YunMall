@@ -52,7 +52,7 @@ CREATE TABLE `permission_relations` (
   `permissionList` varchar(32) NOT NULL COMMENT '权限id数组',
   PRIMARY KEY (`relationId`),
   UNIQUE KEY `uq_permission` (`uid`,`permissionList`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限关系表';
 
 INSERT INTO `yunmall`.`permission_relations` (`uid`, `permissionList`) VALUES ('1', '1');
 
@@ -302,3 +302,75 @@ SET @strsql_count = CONCAT(
 END
 ;;
 DELIMITER ;
+
+
+
+
+
+
+
+
+
+/*财务会计账目表*/
+CREATE TABLE `accounts` (
+  `accountsId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `payId` bigint(50) NOT NULL COMMENT '交易记录id',
+  `tradeAccountId` int(11) NOT NULL COMMENT '交易主体账户id',
+  `tradeAccountName` varchar(32) NOT NULL COMMENT '交易主体账户名称',
+  `accountsType` int(11) NOT NULL COMMENT '账目类型(1=进账,2=出账)',
+  `currency` int(11) NOT NULL DEFAULT '0' COMMENT '货币种类(0=现金,1=虚拟货币)',
+  `amount` decimal(12,2) NOT NULL COMMENT '账目总额',
+  `beforeBalance` decimal(12,2) NOT NULL COMMENT '操作前余额',
+  `afterBalance` decimal(12,2) NOT NULL COMMENT '操作后余额',
+  `addTime` datetime NOT NULL COMMENT '发生时间',
+  `remark` varchar(255) DEFAULT NULL COMMENT '摘要',
+  PRIMARY KEY (`accountsId`),
+  KEY `dex_balance` (`beforeBalance`,`afterBalance`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='财务会计账目表';
+
+
+/*财务交易记录表*/
+CREATE TABLE `pays` (
+  `payId` bigint(20) NOT NULL,
+  `fromUid` int(11) NOT NULL COMMENT '交易主体账户id',
+  `fromName` varchar(32) NOT NULL COMMENT '交易主体账户名称',
+  `toUid` int(11) NOT NULL COMMENT '交易对方账户id',
+  `toName` varchar(32) NOT NULL COMMENT '交易对方账户名称',
+  `channelType` int(11) NOT NULL COMMENT '渠道类型',
+  `channelName` varchar(32) NOT NULL COMMENT '渠道名称',
+  `productType` int(11) NOT NULL COMMENT '商品类别',
+  `productName` varchar(32) NOT NULL COMMENT '商品名称',
+  `tradeType` int(11) NOT NULL COMMENT '交易类型',
+  `tradeName` varchar(32) NOT NULL COMMENT '交易名称',
+  `addTime` datetime NOT NULL COMMENT '发生时间',
+  `amount` decimal(12,2) NOT NULL COMMENT '交易总额',
+  `systemRecordId` bigint(20) NOT NULL COMMENT '系统交易流水单号',
+  `remark` varchar(255) DEFAULT NULL COMMENT '摘要',
+  `channelRecordId` varchar(40) DEFAULT NULL COMMENT '渠道交易流水单号',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '状态(0=正常,1=退款)',
+  `toAccountTime` datetime DEFAULT NULL COMMENT '渠道交易到账响应时间',
+  PRIMARY KEY (`payId`),
+  UNIQUE KEY `uq_systemRecordId` (`systemRecordId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='财务交易记录表';
+
+
+
+/*数据字典表*/
+CREATE TABLE `dictionarys` (
+  `dictionaryId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) DEFAULT NULL,
+  `value` text NOT NULL,
+  PRIMARY KEY (`dictionaryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='数据字典表';
+
+
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.channel.internal', '站内交易');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.channel.alipay', '支付宝');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.product.sms', '短信');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.product.currency', '通用货币');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.product.goods', '商品');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.recharge', '充值');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.withdraw', '提现');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.deduction', '扣费');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.consume', '消费');
+

@@ -4,13 +4,17 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Unity.WebApi;
 using System.Web;
+using YunMall.Web.BLL.finance;
 using YunMall.Web.BLL.product;
 using YunMall.Web.BLL.user;
+using YunMall.Web.DAL.finance;
 using YunMall.Web.DAL.product;
 using YunMall.Web.IBLL.user;
 using YunMall.Web.IDAL.user;
 using YunMall.Web.DAL.user;
+using YunMall.Web.IBLL.finance;
 using YunMall.Web.IBLL.product;
+using YunMall.Web.IDAL.finance;
 using YunMall.Web.IDAL.product;
 
 namespace YunMall.Web.Core
@@ -61,6 +65,16 @@ namespace YunMall.Web.Core
                 .Configure<Interception>().SetInterceptorFor<ICategoryService>(new InterfaceInterceptor());
 
 
+
+            // 财务逻辑和仓储接口 2018年9月26日09:43:45
+            container.RegisterType<IAccountsRepository, AccountsRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IAccountsRepository>(new InterfaceInterceptor());
+
+            container.RegisterType<IFinanceService, FinanceServiceImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());
+
+            container.RegisterType<IFinanceService, AccountsServiceImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
