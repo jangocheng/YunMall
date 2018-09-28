@@ -75,3 +75,15 @@ F:\repository\YunMall\source\YunMall\YunMall.Web.Core\obj\Debug\YunMall.Web.Core
 F:\repository\YunMall\source\YunMall\YunMall.Web.Core\obj\Debug\YunMall.Web.Core.csproj.CopyComplete
 F:\repository\YunMall\source\YunMall\YunMall.Web.Core\obj\Debug\YunMall.Web.Core.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web.Core\obj\Debug\YunMall.Web.Core.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\YunMall.Utility.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\DF.Redis.Cache.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Interfaces.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Redis.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Common.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Text.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\YunMall.Utility.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\DF.Redis.Cache.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Interfaces.xml
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Redis.xml
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Common.xml
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Text.xml

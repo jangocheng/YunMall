@@ -1,11 +1,20 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Linq;
+using System.Text;
+using DF.Common;
 using Microsoft.Practices.Unity;
+using YunMall.Entity;
 using YunMall.Entity.db;
 using YunMall.Entity.dbExt;
+using YunMall.Entity.ModelView;
 using YunMall.Web.BLL.util;
+using YunMall.Web.Exceptions;
 using YunMall.Web.IBLL.finance;
 using YunMall.Web.IDAL.finance;
+using YunMall.Web.IDAL.user;
 
 namespace YunMall.Web.BLL.finance {
     /// <summary>
@@ -13,12 +22,21 @@ namespace YunMall.Web.BLL.finance {
     /// </summary>
     public class PaysServiceImpl : BasePageQuery<Pays>, IFinanceService
     {
+
         private readonly IPaysRepository paysRepository;
+        private readonly IUserRepository userRepository;
+        private readonly IWalletRepository walletRepository;
+        private readonly IAccountsRepository accountsRepository;
+
 
         [InjectionConstructor]
-        public PaysServiceImpl(IPaysRepository paysRepository) {
+        public PaysServiceImpl(IPaysRepository paysRepository, IUserRepository userRepository, IWalletRepository walletRepository, IAccountsRepository accountsRepository) {
             this.paysRepository = paysRepository;
+            this.userRepository = userRepository;
+            this.walletRepository = walletRepository;
+            this.accountsRepository = accountsRepository;
         }
+
 
         public int GetPaysPageLimitCount(string condition, int tradeType, int type, string beginTime, string endTime) {
             String where = ExtractLimitWhere(condition, type, beginTime, endTime);
@@ -36,8 +54,7 @@ namespace YunMall.Web.BLL.finance {
             String where = ExtractLimitWhere(condition, tradeType, type, beginTime, endTime);
             IList<PaysDetail> list = paysRepository.SelectLimit(page, limit, tradeType, type, beginTime, endTime, where);
             return list;
-        }
-         
+        } 
 
         protected  string ExtractLimitWhere(string condition, int tradeType, int type, string beginTime, string endTime)
         {
@@ -79,6 +96,163 @@ namespace YunMall.Web.BLL.finance {
             }
             return where.Trim();
         }
+
+        #region 人工充值
+
+        /// <summary>
+        /// 人工充值转账
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public bool Recharge(int uid, double amount) {
+            // 1.封装参数
+            IDictionary<string, DbParameter[]> dictionary = new Dictionary<string, DbParameter[]>();
+            PayParam payParam = RechargeUtil.GetParam(uid, amount);
+
+            // 2.检查甲方钱包
+            var cause = string.Empty;
+            if(!CheckFinance(Constants.HotAccountID, amount, ref cause)) throw new MsgException(cause);
+
+            // 3.生成流水账
+            Pays payAccounts = RechargeUtil.GetPayAccounts(Constants.HotAccountID, uid, payParam);
+            paysRepository.InsertAccounts(payAccounts, ref dictionary);
+
+            // 4.扣减双方钱包余额
+            var users = GetUsers(Constants.HotAccountID, uid);
+            if(users == null || users.Count < 2) throw new MsgException("加载用户信息超时");
+            var owner = users[0];
+            var customer = users[1];
+            walletRepository.OutAccounts(owner.Uid, amount, owner.Version, ref dictionary);
+            walletRepository.PutAccounts(customer.Uid, amount, customer.Version, ref dictionary);
+
+            // 5.生成往来账
+            payParam.FromUsername = owner.Username;
+            payParam.ToUsername = customer.Username;
+            var currentAccounts = GetCurrentAccounts(payParam);
+            accountsRepository.BatchInsert(currentAccounts, ref dictionary);
+
+            return paysRepository.CommitTransactionLock(dictionary);
+        }
          
+        #endregion
+
+        #region 通用模块
+
+        /// <summary>
+        /// 查询甲方财务信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+
+        private UserFinanceDetail GetOwnerFinanceDetail(int uid) {
+            return userRepository.SelectFinanceDetail(uid);
+        }
+
+        /// <summary>
+        /// 检查甲方财务信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="amount"></param>
+        /// <param name="cause"></param>
+        /// <returns></returns>
+        private bool CheckFinance(int uid, double amount, ref string cause) {
+            var ownerFinanceDetail = GetOwnerFinanceDetail(uid);
+            if (Math.Abs(ownerFinanceDetail.Balance) < 0) cause = "账户已欠费";
+            if (Math.Abs(ownerFinanceDetail.Balance) < amount) cause = "账户余额不足";
+            if (Math.Abs(ownerFinanceDetail.Balance - amount) < 0) cause = "扣款余额不足";
+            if (cause.Length == 0) return true;
+            return false;
+        }
+
+
+        /// <summary>
+        /// 查询多个用户的资料
+        /// </summary>
+        /// <param name="uids"></param>
+        /// <returns></returns>
+        private IList<UserFinanceDetail> GetUsers(params int[] uids) {
+            IList<UserFinanceDetail>  list = userRepository.SelectFinanceDetails(uids);
+            return list;
+        }
+
+        /// <summary>
+        /// 生成往来账
+        /// </summary>
+        /// <param name="payParam"></param>
+        /// <returns></returns>
+        private IList<Accounts> GetCurrentAccounts(PayParam payParam) {
+            // 生成甲方账单
+            Accounts owner = new Accounts() {
+                AccountsId = IdWorkTool.Instance().GetId(),
+                PayId = payParam.SystemRecordId,
+                TradeAccountId = payParam.FromUid,
+                TradeAccountName = payParam.FromUsername,
+                AccountsType = 2,
+                Amount = payParam.Amount,
+                Remark = payParam.Remark,
+                Currency = payParam.Currency,
+            };
+
+
+            // 生成乙方账单
+            Accounts customer = new Accounts() {
+                AccountsId = IdWorkTool.Instance().GetId(),
+                PayId = payParam.SystemRecordId,
+                TradeAccountId = payParam.ToUid,
+                TradeAccountName = payParam.ToUsername,
+                AccountsType = 1,
+                Amount = payParam.Amount,
+                Remark = payParam.Remark,
+                Currency = payParam.Currency
+            };
+
+            IList<Accounts> accountses = new List<Accounts>();
+            accountses.Add(owner);
+            accountses.Add(customer);
+
+            return accountses;
+        }
+        #endregion
+
+        #region 充值模块
+
+        class RechargeUtil
+        {
+
+            public static PayParam GetParam(int uid, double amount)
+            {
+                return new PayParam()
+                {
+                    Amount = amount,
+                    Currency = 0,
+                    FromUid = Constants.HotAccountID,
+                    ToUid = uid,
+                    Remark = "人工充值"
+                };
+            }
+
+            public static Pays GetPayAccounts(int fromUid, int toUid, PayParam payParam)
+            {
+                Pays pays = new Pays()
+                {
+                    PayId = IdWorkTool.Instance().GetId(),
+                    FromUid = fromUid,
+                    ToUid = toUid,
+                    ChannelType = Constants.DynamicMap.DefaultChannelType,
+                    ProductType = Constants.DynamicMap.DefaultProductType,
+                    TradeType = Constants.DynamicMap.DefaultTradeType,
+                    Remark = payParam.Remark,
+                    Amount = payParam.Amount,
+                    Status = 0,
+                    SystemRecordId = IdWorkTool.Instance().GetId()
+                };
+                return pays;
+            }
+             
+        }
+
+        #endregion
+
     }
 }

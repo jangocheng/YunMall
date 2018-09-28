@@ -49,6 +49,7 @@
     <Compile Include="dbExt\PaysDetail.cs" />
     <Compile Include="dbExt\ProductDetail.cs" />
     <Compile Include="dbExt\UserDetail.cs" />
+    <Compile Include="dbExt\UserFinanceDetail.cs" />
     <Compile Include="db\Accounts.cs" />
     <Compile Include="db\Category.cs" />
     <Compile Include="db\Dictionarys.cs" />
@@ -57,11 +58,13 @@
     <Compile Include="db\PermissionRelation.cs" />
     <Compile Include="db\Product.cs" />
     <Compile Include="db\User.cs" />
+    <Compile Include="db\Wallet.cs" />
     <Compile Include="enums\LinkChannels.cs" />
     <Compile Include="enums\LoginResult.cs" />
     <Compile Include="enums\OrderErrors.cs" />
     <Compile Include="enums\RegisterResult.cs" />
     <Compile Include="enums\UserType.cs" />
+    <Compile Include="exceptions\MsgException.cs" />
     <Compile Include="jsonData\HttpResp.cs" />
     <Compile Include="jsonData\JsonArrayResult.cs" />
     <Compile Include="jsonData\JsonResult.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="ModelView\LinkParam.cs" />
     <Compile Include="ModelView\PageModel.cs" />
     <Compile Include="ModelView\PageParam.cs" />
+    <Compile Include="ModelView\PayParam.cs" />
     <Compile Include="ModelView\QueryParam.cs" />
     <Compile Include="ModelView\TaskReq.cs" />
     <Compile Include="model\GenerateIdAttribute.cs" />

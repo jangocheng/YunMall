@@ -90,6 +90,10 @@ namespace YunMall.Web.Core
             container.RegisterType<IDictionarysRepository, DictionarysRepositoryImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IDictionarysRepository>(new InterfaceInterceptor());
 
+
+            container.RegisterType<IWalletRepository, WalletRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IWalletRepository>(new InterfaceInterceptor());
+
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

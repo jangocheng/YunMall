@@ -8,6 +8,18 @@ namespace YunMall.Web.IDAL.user {
     /// </summary>
     public interface IUserRepository : IAbsBaseRepository
     {
-        
+        /// <summary>
+        /// 查询用户财务详情
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        UserFinanceDetail SelectFinanceDetail(int uid);
+
+        /// <summary>
+        /// 查询多个用户的财务详情
+        /// </summary>
+        /// <param name="uids"></param>
+        /// <returns></returns>
+        IList<UserFinanceDetail> SelectFinanceDetails(int[] uids);
     }
 }

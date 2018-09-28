@@ -1,0 +1,115 @@
+﻿@using System.Web.Optimization
+@model dynamic
+
+@{
+    ViewBag.Title = "人工充值";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section current_page {
+    <a><cite>人工充值</cite></a>
+}
+
+@section styles {
+    <style>
+        .my-view {
+            padding: 20px;
+        }
+
+        .layui-form {
+            background-color: #fff;
+        }
+
+        .my-content {
+            width: 660px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-weight: bold;
+            height: 50px;
+        }
+    </style>
+}
+
+@section scripts {
+    @Scripts.Render("~/content/js/common/jsencrypt.min.js")
+    @Scripts.Render("~/content/js/common/base64.js")
+    @Scripts.Render("~/content/js/module/finance/recharge.js")
+
+    <script>
+        layui.use(['form'], function () {
+            var form = layui.form,
+                layer = layui.layer;
+
+            // 表单提交验证
+            form.on('submit(my-form)', function (data) {
+                var username = $('#username').val(),
+                    amount = $('#amount').val();
+
+                var isSystem = $("#isSystem").prop("checked");
+
+                if (!isSystem) {
+                    service.recharge({
+                        username: username,
+                        amount: parseFloat(amount)
+                        //sign: service.getSign("username=" + username + "&amount=" + amount)
+                    }, function (data) {
+                        if (utils.response.isError(data)) return layer.msg(data.Msg);
+                        layer.closeAll();
+                        layer.msg("充值成功");
+                    })
+                } else {
+                    service.changeBalance({
+                        username: username,
+                        amount: parseFloat(amount)
+                        //sign: service.getSign("username=" + username + "&amount=" + amount)
+                    }, function (data) {
+                        if (utils.response.isError(data)) return layer.msg(data.Msg);
+                        layer.closeAll();
+                        layer.msg("充值成功");
+                    })
+                }
+
+
+                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+            form.render();
+        });
+
+    </script>
+
+}
+
+
+<div class="layui-form layui-form-pane my-view layui-row my-container-padding" xmlns:th="http://www.thymeleaf.org">
+    <h3 class="detail-module-title">人工充值渠道</h3>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">用&nbsp;户&nbsp;名</label>
+
+        <div class="layui-input-inline">
+            <input type="text" id="username" autocomplete="off"
+                   name="username" placeholder="请输入用户名" maxlength="11" lay-verify="required" class="layui-input" value="">
+        </div>
+        <div class="layui-form-mid layui-word-aux" style="color: red !important;">* 充值前请您仔细地检查用户名，避免造成损失！</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">充值金额</label>
+
+        <div class="layui-input-block">
+            <input type="text" id="amount" autocomplete="off"
+                   name="amount" placeholder="￥" lay-verify="required" class="layui-input" value="" style="width: 190px">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">系统资金</label>
+
+        <div class="layui-input-block">
+            <input type="checkbox" id="isSystem" name="like[read]" title="无流水充值">
+        </div>
+    </div>
+    <div class="layui-form-item ">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-fluid layui-btn-warm">充值</button>
+    </div>
+</div>

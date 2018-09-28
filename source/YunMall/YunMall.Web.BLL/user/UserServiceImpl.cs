@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using DF.Common;
 using DF.Common.StringHelper;
 using Microsoft.Practices.Unity;
@@ -11,6 +12,7 @@ using YunMall.Entity.enums;
 using YunMall.Entity.ModelView;
 using YunMall.Web.BLL.util;
 using YunMall.Web.IBLL.user;
+using YunMall.Web.IDAL.finance;
 using YunMall.Web.IDAL.user;
 
 namespace YunMall.Web.BLL.user {
@@ -22,13 +24,15 @@ namespace YunMall.Web.BLL.user {
         private readonly IUserRepository userRepository;
         private readonly IPermissionRepository permissionRepository;
         private readonly IPermissionRelationRepository permissionRelationRepository;
+        private readonly IWalletRepository walletRepository;
 
         [InjectionConstructor]
-        public UserServiceImpl(IUserRepository userRepository, IPermissionRepository permissionRepository, IPermissionRelationRepository permissionRelationRepository)
+        public UserServiceImpl(IUserRepository userRepository, IPermissionRepository permissionRepository, IPermissionRelationRepository permissionRelationRepository, IWalletRepository walletRepository)
         {
             this.userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
             this.permissionRepository = permissionRepository ?? throw new ArgumentNullException(nameof(permissionRepository));
             this.permissionRelationRepository = permissionRelationRepository ?? throw new ArgumentNullException(nameof(permissionRelationRepository));
+            this.walletRepository = walletRepository ?? throw new ArgumentNullException(nameof(walletRepository));
         }
 
 
@@ -93,10 +97,31 @@ namespace YunMall.Web.BLL.user {
             // 2.关联身份权限
             hsTable = AddPermissionRelation(pk, hsTable);
 
-            // 3.无锁事务提交
+            // 3.开通钱包
+            walletRepository.Insert(new Wallet() {
+                Balance = 0,
+                UpdateTime = DateTime.Now,
+                UserId = Convert.ToInt32(pk),
+                Version = 0
+            }, ref hsTable);
+
+            // 4.无锁事务提交
             userRepository.CommitTransaction(hsTable);
 
             return RegisterResult.R00000;
+        }
+
+        /// <summary>
+        /// 根据用户名查询用户信息
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public User GetUserByName(string username) {
+            var list = userRepository.Query<User>(new QueryParam() {
+                StrWhere = $"username = '{username}'"
+            });
+            if (list == null || list.Count == 0) return null;
+            return list.First();
         }
 
         private Hashtable AddPermissionRelation(long pk, Hashtable hsTable) {

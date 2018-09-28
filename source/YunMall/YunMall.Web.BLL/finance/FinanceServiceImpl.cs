@@ -26,6 +26,10 @@ namespace YunMall.Web.BLL.finance {
             throw new NotImplementedException();
         }
 
+        public bool Recharge(int uid, double amount) {
+            throw new NotImplementedException();
+        }
+
         public int GetCount()
         {
             throw new NotImplementedException();

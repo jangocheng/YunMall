@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Common;
 using YunMall.Entity.db;
 using YunMall.Entity.dbExt;
 
@@ -25,5 +26,12 @@ namespace YunMall.Web.IDAL.finance {
         /// <param name="where"></param>
         /// <returns></returns>
         IList<PaysDetail> SelectLimit(int page, string limit, int tradeType, int type, string beginTime, string endTime, string where);
+
+        /// <summary>
+        /// 插入交易流水
+        /// </summary>
+        /// <param name="payAccounts"></param>
+        /// <param name="dictionary"></param>
+        void InsertAccounts(Pays payAccounts, ref IDictionary<string, DbParameter[]> dictionary);
     }
 }

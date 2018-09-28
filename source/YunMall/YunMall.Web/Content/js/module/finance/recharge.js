@@ -1,5 +1,4 @@
-/*!财务模块-交易清单 韦德 2018年8月5日22:50:57*/
-var route = "./pay";
+var route = "./recharge";
 var service;
 var tableIndex;
 (function () {
@@ -18,7 +17,7 @@ function initService(r) {
          * @param callback
          */
         recharge: function (param, callback) {
-            $.get(route + "/toRecharge",param, function (data) {
+            $.get(route + "/ToRecharge",param, function (data) {
                 callback(data);
             })
         },

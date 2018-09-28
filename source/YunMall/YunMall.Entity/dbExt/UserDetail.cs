@@ -26,5 +26,6 @@ namespace YunMall.Entity.dbExt
         /// 支出金额
         /// </summary>
         public double ExpendAmount { get; set; }
+
     }
 }

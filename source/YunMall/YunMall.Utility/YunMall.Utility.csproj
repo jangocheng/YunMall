@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="joiner\JoinUtil.cs" />
     <Compile Include="login\CookieHelper.cs" />
     <Compile Include="login\CookieInfo.cs" />
     <Compile Include="login\CookieModel.cs" />

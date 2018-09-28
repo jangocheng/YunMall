@@ -7,6 +7,7 @@ using System.Web.Http.Results;
 using System.Web.Mvc;
 using YunMall.Entity;
 using YunMall.Entity.json;
+using YunMall.Web.Exceptions;
 
 namespace YunMall.Web.Filters
 {
@@ -37,6 +38,11 @@ namespace YunMall.Web.Filters
 
             var error = filterContext.Exception;
             var message = error.Message;//错误信息 
+
+
+            var msgException = typeof(MsgException);
+            var type = filterContext.Exception.GetType();
+
             var url = HttpContext.Current.Request.RawUrl;//错误发生地址 
 
             Console.Error.WriteLine(String.Format(url + "::" + message));
@@ -53,13 +59,27 @@ namespace YunMall.Web.Filters
                 };//跳转至错误提示页面 
             }
             else {
-                filterContext.Result = new JsonResult()
-                {
-                    ContentEncoding = Encoding.UTF8,
-                    ContentType = "application/json",
-                    Data = new HttpResp(1, "o(╥﹏╥)o 系统发生故障啦~~~"),
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                };//跳转至错误提示页面 
+
+                if (type.Equals(msgException)) {
+                    filterContext.Result = new JsonResult()
+                    {
+                        ContentEncoding = Encoding.UTF8,
+                        ContentType = "application/json",
+                        Data = new HttpResp(1, message),
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                    };//跳转至错误提示页面 
+                }
+                else {
+                    filterContext.Result = new JsonResult()
+                    {
+                        ContentEncoding = Encoding.UTF8,
+                        ContentType = "application/json",
+                        Data = new HttpResp(1, "o(╥﹏╥)o 系统发生故障啦~~~"),
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                    };//跳转至错误提示页面 
+                }
+
+               
             }
 
 

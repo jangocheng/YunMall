@@ -49,7 +49,7 @@
         {
           "text": "人工充值",
           "icon": "&#xe63c;",
-          "href": "/management/finance/recharge"
+          "href": "/finance/recharge"
         },
         {
           "text": "交易清单",

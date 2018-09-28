@@ -219,5 +219,17 @@ namespace YunMall.Web.BLL {
         public virtual int GetPaysPageLimitCount(string condition, int tradeType, int type, string beginTime, string endTime) {
             return 0;
         }
+
+
+        /// <summary>
+        /// 人工充值转账
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public virtual bool Recharge(int uid, double amount) {
+            return false;
+        }
+
     }
 }

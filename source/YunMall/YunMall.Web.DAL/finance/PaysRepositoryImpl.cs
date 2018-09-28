@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Text;
 using DF.Common;
 using DF.DBUtility.MySql;
@@ -53,6 +54,49 @@ namespace YunMall.Web.DAL.finance {
             var dataSet = DBHelperMySql.Query(builder.ToString());
             if (dataSet == null || dataSet.Tables.Count == 0) return null;
             return dataSet.Tables[0].ToList<PaysDetail>();
+        }
+
+        /// <summary>
+        /// 插入交易流水
+        /// </summary>
+        /// <param name="payAccounts"></param>
+        /// <param name="dictionary"></param>
+        public void InsertAccounts(Pays payAccounts, ref IDictionary<string, DbParameter[]> dictionary) {
+            var random = Guid.NewGuid().ToString().Replace("-", "");
+            var paras = new List<MySqlParameter>();
+            StringBuilder builder = new StringBuilder();
+            builder.Append(
+                "INSERT INTO `pays` (`payId`, `fromUid`, `fromName`, `toUid`, `toName`, `channelType`, `channelName`, `productType`, `productName`, `tradeType`, `tradeName`, `addTime`, `amount`, `systemRecordId`, `remark`, `status`) VALUES(");
+            builder.Append("?"+ random + "PayId,");
+            builder.Append("?" + random + "FromUid,");
+            builder.Append("(SELECT username FROM users WHERE uid = ?" + random + "FromUid),");
+            builder.Append("?" + random + "ToUid,");
+            builder.Append("(SELECT username FROM users WHERE uid = ?" + random + "ToUid),");
+            builder.Append("?" + random + "ChannelType,");
+            builder.Append("(SELECT `value` FROM dictionarys WHERE dictionaryId = ?" + random + "ChannelType),");
+            builder.Append("?" + random + "ProductType,");
+            builder.Append("(SELECT `value` FROM dictionarys WHERE dictionaryId = ?" + random + "ProductType),");
+            builder.Append("?" + random + "TradeType,");
+            builder.Append("(SELECT `value` FROM dictionarys WHERE dictionaryId = ?" + random + "TradeType),");
+            builder.Append("NOW(),");
+            builder.Append("?" + random + "Amount,");
+            builder.Append("?" + random + "SystemRecordId,");
+            builder.Append("?" + random + "Remark,");
+            builder.Append("?" + random + "Status");
+            builder.Append(")");
+
+            paras.Add(new MySqlParameter("?" + random + "PayId", payAccounts.PayId));
+            paras.Add(new MySqlParameter("?" + random + "FromUid", payAccounts.FromUid));
+            paras.Add(new MySqlParameter("?" + random + "ToUid", payAccounts.ToUid));
+            paras.Add(new MySqlParameter("?" + random + "ChannelType", payAccounts.ChannelType));
+            paras.Add(new MySqlParameter("?" + random + "ProductType", payAccounts.ProductType));
+            paras.Add(new MySqlParameter("?" + random + "TradeType", payAccounts.TradeType));
+            paras.Add(new MySqlParameter("?" + random + "Amount", payAccounts.Amount));
+            paras.Add(new MySqlParameter("?" + random + "SystemRecordId", payAccounts.SystemRecordId));
+            paras.Add(new MySqlParameter("?" + random + "Remark", payAccounts.Remark));
+            paras.Add(new MySqlParameter("?" + random + "Status", payAccounts.Status));
+
+            dictionary.Add(builder.ToString(), paras.ToArray());
         }
 
         /// <summary>

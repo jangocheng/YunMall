@@ -27,7 +27,11 @@ namespace YunMall.Web.IBLL.user {
         /// <returns></returns>
         RegisterResult Register(string username, string password, string contact);
 
-
-
+        /// <summary>
+        /// 根据用户名查询用户信息
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        User GetUserByName(string username);
     }
 }

@@ -374,3 +374,18 @@ INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.withdraw
 INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.deduction', '扣费');
 INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.consume', '消费');
 
+
+
+/*钱包表*/
+CREATE TABLE `wallets` (
+  `walletId` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL COMMENT '用户id',
+  `balance` decimal(12,2) NOT NULL DEFAULT '0.00' COMMENT '余额',
+  `updateTime` datetime NOT NULL COMMENT '最后一次更新时间',
+  `version` int(11) DEFAULT '0' COMMENT '乐观锁',
+  PRIMARY KEY (`walletId`),
+  UNIQUE KEY `uq_walletId_userId` (`walletId`,`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户钱包表';
+
+
+INSERT INTO `wallets` (`userId`, `balance`, `updateTime`, `version`) VALUES ('1', '100000', '2018-09-28 11:49:20', '0');
