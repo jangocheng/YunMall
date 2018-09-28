@@ -21,6 +21,8 @@ namespace YunMall.Web.Areas.Finance.Controllers
         [Dependency]
         public IUserService UserService { get; set; }
 
+        [Dependency(name: "PayBusinessServiceImpl")]
+        public IPayService PayBusinessService { get; set; }
 
         // GET: Finance/Recharge
         public ActionResult Index()
@@ -31,8 +33,19 @@ namespace YunMall.Web.Areas.Finance.Controllers
 
         public JsonResult ToRecharge(string username, double amount) {
             User user = UserService.GetUserByName(username);
-            bool result = PaysService.Recharge(user.Uid, amount);
+            if(user == null) return Json(new HttpResp(1, "查询不到此用户"));
+            bool result = PayBusinessService.Recharge(user.Uid, amount);
             if(result) return Json(new HttpResp("充值成功"));
+            return Json(new HttpResp(1, "充值失败"));
+        }
+
+
+        public JsonResult DirectRecharge(string username, double amount)
+        {
+            User user = UserService.GetUserByName(username);
+            if (user == null) return Json(new HttpResp(1, "查询不到此用户"));
+            bool result = PayBusinessService.DirectRecharge(user.Uid, amount);
+            if (result) return Json(new HttpResp("充值成功"));
             return Json(new HttpResp(1, "充值失败"));
         }
     }

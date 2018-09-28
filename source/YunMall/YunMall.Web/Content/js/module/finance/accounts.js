@@ -107,10 +107,10 @@ function getTableColumns() {
                 return utils.date.dateConvert(d.AddTime);
             }}
         , {field: 'AccountsType', title: '交易类型', width: 120, templet: function (d) {
-                return d.AccountsType == 1 ? "增" : "减";
+                return d.AccountsType == 1 ? "进账" : "出账";
             }}
         , {field: 'Amount', title: '交易额', width: 120, templet: function (d) {
-                if(d.accountsType == 1){
+            if (d.AccountsType == 1){
                     return "<span style='color: #2fc253;font-size: 15px;'>+" + d.Amount + "</span>";
                 }else{
                     return "<span style='color: #c2330f;font-size: 15px;'>-" + d.Amount + "</span>";

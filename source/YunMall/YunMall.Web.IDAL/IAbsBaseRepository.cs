@@ -228,7 +228,7 @@ namespace YunMall.Web.IDAL
 
         #region 反射获取属性名
 
-        string JoinFields<T>(T model, int index);
+        string JoinFields<T>(T model, int index, out MySqlParameter[] param);
 
         #endregion
 

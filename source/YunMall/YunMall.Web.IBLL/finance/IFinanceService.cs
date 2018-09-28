@@ -19,14 +19,7 @@ namespace YunMall.Web.IBLL.finance {
         /// <returns></returns>
         IList<Accounts> GetAccountPageLimit(int page, string limit, string condition, int type, string beginTime, string endTime);
 
-        /// <summary>
-        /// 人工充值转账
-        /// </summary>
-        /// <param name="uid"></param>
-        /// <param name="amount"></param>
-        /// <returns></returns>
-        bool Recharge(int uid, double amount);
-
+        
 
         /// <summary>
         /// 查询交易流水分页

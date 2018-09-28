@@ -21,10 +21,10 @@ namespace YunMall.Web.DAL.finance {
             return base.JoinFieldValues(model, out param);
         }
 
-        protected override string GetInsertValues<T>(T item, int index, ref IList<MySqlParameter> param)
+        protected override string GetInsertValues<T>(T item, int index, out MySqlParameter[] param)
         {
             var model = item as Dictionarys;
-            return base.JoinFields(model, index);
+            return base.JoinFields(model, index, out param);
         }
     }
 }

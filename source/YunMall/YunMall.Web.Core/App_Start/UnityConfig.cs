@@ -81,7 +81,10 @@ namespace YunMall.Web.Core
 
             container.RegisterType<IFinanceService, PaysServiceImpl>("PaysServiceImpl", new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());
-             
+
+            container.RegisterType<IPayService, PaysServiceImpl>("PayBusinessServiceImpl", new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IPayService>(new InterfaceInterceptor());
+            
 
             container.RegisterType<IFinanceService, FinanceServiceImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());

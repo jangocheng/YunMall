@@ -34,10 +34,10 @@ namespace YunMall.Web.DAL.user {
             return base.JoinFieldValues(model, out param);
         }
 
-        protected override string GetInsertValues<T>(T item, int index, ref IList<MySqlParameter> param)
+        protected override string GetInsertValues<T>(T item, int index, out MySqlParameter[] param)
         {
             var model = item as User;
-            return base.JoinFields(model, index);
+            return base.JoinFields(model, index, out param);
         }
 
         /// <summary>

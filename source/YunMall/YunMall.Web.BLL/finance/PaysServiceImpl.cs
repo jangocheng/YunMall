@@ -20,7 +20,7 @@ namespace YunMall.Web.BLL.finance {
     /// <summary>
     /// 财务交易流水表
     /// </summary>
-    public class PaysServiceImpl : BasePageQuery<Pays>, IFinanceService
+    public class PaysServiceImpl : BasePageQuery<Pays>, IFinanceService, IPayService
     {
 
         private readonly IPaysRepository paysRepository;
@@ -127,14 +127,53 @@ namespace YunMall.Web.BLL.finance {
             walletRepository.PutAccounts(customer.Uid, amount, customer.Version, ref dictionary);
 
             // 5.生成往来账
-            payParam.FromUsername = owner.Username;
-            payParam.ToUsername = customer.Username;
             var currentAccounts = GetCurrentAccounts(payParam);
-            accountsRepository.BatchInsert(currentAccounts, ref dictionary);
+            accountsRepository.BatchInsertAccounts(currentAccounts, ref dictionary);
 
             return paysRepository.CommitTransactionLock(dictionary);
         }
-         
+
+
+        /// <summary>
+        /// 直接充值
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public bool DirectRecharge(int uid, double amount)
+        {
+            // 1.生成参数
+            IDictionary<string, DbParameter[]> dictionary = new Dictionary<string, DbParameter[]>();
+            PayParam payParam = RechargeUtil.GetDirectParam(uid, amount);
+
+            // 2.生成流水账
+            Pays payAccounts = RechargeUtil.GetPayAccounts(Constants.HotAccountID, uid, payParam);
+            paysRepository.InsertAccounts(payAccounts, ref dictionary);
+
+            // 3.目标账户进账
+            var user = userRepository.SelectFinanceDetail(uid);
+            walletRepository.PutAccounts(user.Uid, amount, user.Version, ref dictionary);
+
+            // 4.生成往来账
+            var list = new List<Accounts>() {
+                new Accounts()
+                    {
+                        AccountsId = IdWorkTool.Instance().GetId(),
+                        PayId = payParam.SystemRecordId,
+                        TradeAccountId = payParam.ToUid,
+                        TradeAccountName = payParam.ToUsername,
+                        AccountsType = 1,
+                        Amount = payParam.Amount,
+                        Remark = payParam.Remark,
+                        Currency = payParam.Currency,
+                        AddTime = DateTime.Now
+                    }
+            }; 
+            accountsRepository.BatchInsertAccounts(list, ref dictionary);
+
+            return walletRepository.CommitTransactionLock(dictionary);
+        }
+
         #endregion
 
         #region 通用模块
@@ -192,11 +231,12 @@ namespace YunMall.Web.BLL.finance {
                 Amount = payParam.Amount,
                 Remark = payParam.Remark,
                 Currency = payParam.Currency,
+                AddTime = DateTime.Now
             };
 
-
             // 生成乙方账单
-            Accounts customer = new Accounts() {
+            Accounts customer = new Accounts()
+            {
                 AccountsId = IdWorkTool.Instance().GetId(),
                 PayId = payParam.SystemRecordId,
                 TradeAccountId = payParam.ToUid,
@@ -204,15 +244,16 @@ namespace YunMall.Web.BLL.finance {
                 AccountsType = 1,
                 Amount = payParam.Amount,
                 Remark = payParam.Remark,
-                Currency = payParam.Currency
+                Currency = payParam.Currency,
+                AddTime = DateTime.Now
             };
 
-            IList<Accounts> accountses = new List<Accounts>();
-            accountses.Add(owner);
-            accountses.Add(customer);
-
-            return accountses;
+            var list = new List<Accounts>();
+            list.Add(owner);
+            list.Add(customer);
+            return list;
         }
+
         #endregion
 
         #region 充值模块
@@ -232,16 +273,28 @@ namespace YunMall.Web.BLL.finance {
                 };
             }
 
-            public static Pays GetPayAccounts(int fromUid, int toUid, PayParam payParam)
+            public static PayParam GetDirectParam(int uid, double amount)
             {
+                return new PayParam()
+                {
+                    Amount = amount,
+                    Currency = 0,
+                    FromUid = Constants.HotAccountID,
+                    ToUid = Constants.HotAccountID,
+                    Remark = "直接充值"
+                };
+            }
+
+            public static Pays GetPayAccounts(int fromUid, int toUid, PayParam payParam) {
+                payParam.SystemRecordId = IdWorkTool.Instance().GetId();
                 Pays pays = new Pays()
                 {
-                    PayId = IdWorkTool.Instance().GetId(),
+                    PayId = payParam.SystemRecordId,
                     FromUid = fromUid,
                     ToUid = toUid,
                     ChannelType = Constants.DynamicMap.DefaultChannelType,
                     ProductType = Constants.DynamicMap.DefaultProductType,
-                    TradeType = Constants.DynamicMap.DefaultTradeType,
+                    TradeType = Constants.DynamicMap.RechargeTradeType,
                     Remark = payParam.Remark,
                     Amount = payParam.Amount,
                     Status = 0,

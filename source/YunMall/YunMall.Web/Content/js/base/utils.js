@@ -22,6 +22,8 @@ window.utils = {
             return Y+M+D+h+m+s;
         },
         dateConvert: function (cellval) {
+            if (cellval.indexOf("-") != -1) return "-";
+
             var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));
 
             var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;

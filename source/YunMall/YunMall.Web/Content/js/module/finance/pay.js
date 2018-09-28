@@ -6,11 +6,14 @@ var tableIndex;
 
     // 获取系统账户信息
     service.getSystemAccount(function(data) {
-        if (utils.response.isError(data)) return layer.msg("查询失败");
+        if (utils.response.isError(data)) {
+            if (data.Msg == "查询失败") return;
+            return layer.msg("查询失败");
+        }
         var obj = JSON.parse(data.Msg);
         $("#sys_username").text(obj.account);
         $("#sys_balance").text(obj.amount);
-        $("#income-amount").text(obj.incomeAmount);
+        $("#income-amount").text(obj.incomeAmount === "" ? "0" : obj.incomeAmount);
         $("#expend-amount").text(obj.expendAmount);
     });
 

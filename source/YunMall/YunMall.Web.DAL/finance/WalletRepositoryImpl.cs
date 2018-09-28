@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.Common;
+using System.Linq;
 using System.Text;
+using DF.Common;
 using DF.DBUtility.MySql;
 using MySql.Data.MySqlClient;
 using YunMall.Entity.db;
@@ -59,6 +61,18 @@ namespace YunMall.Web.DAL.finance {
             dictionary.Add(builder.ToString(), paras.ToArray());
         }
 
+        /// <summary>
+        /// 查询钱包信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        public Wallet SelectById(int uid) {
+            var dataSet = DBHelperMySql.Query("SELECT * FROM wallets WHERE userId = " + uid);
+            var list = dataSet.ToList<Wallet>();
+            if (list == null || list.Count == 0) return null;
+            return list.First();
+        }
+
         protected override string GetInsertFields()
         {
             return base.Fields;
@@ -70,10 +84,10 @@ namespace YunMall.Web.DAL.finance {
             return base.JoinFieldValues(model, out param);
         }
 
-        protected override string GetInsertValues<T>(T item, int index, ref IList<MySqlParameter> param)
+        protected override string GetInsertValues<T>(T item, int index, out MySqlParameter[] param)
         {
             var model = item as Wallet;
-            return base.JoinFields(model, index);
+            return base.JoinFields(model, index, out param);
         }
     }
 }

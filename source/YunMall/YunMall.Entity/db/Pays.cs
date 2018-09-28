@@ -1,10 +1,12 @@
 ﻿using System;
+using YunMall.Web.Models;
 
 namespace YunMall.Entity.db {
     /// <summary>
     /// 财务交易记录表
     /// </summary>
     public class Pays {
+        [GenerateId]
         public long PayId { get; set; }
 
         /// <summary> 
@@ -15,6 +17,7 @@ namespace YunMall.Entity.db {
         /// <summary> 
         /// 交易主体账户名称 
         /// </summary> 
+        [IgnoreField]
         public string FromName { get; set; }
 
         /// <summary> 
@@ -25,6 +28,7 @@ namespace YunMall.Entity.db {
         /// <summary> 
         /// 交易对方账户名称 
         /// </summary> 
+        [IgnoreField]
         public string ToName { get; set; }
 
         /// <summary> 
@@ -35,6 +39,7 @@ namespace YunMall.Entity.db {
         /// <summary> 
         /// 渠道名称 
         /// </summary> 
+        [IgnoreField]
         public string ChannelName { get; set; }
 
         /// <summary> 
@@ -45,6 +50,7 @@ namespace YunMall.Entity.db {
         /// <summary> 
         /// 商品名称 
         /// </summary> 
+        [IgnoreField]
         public string ProductName { get; set; }
 
         /// <summary> 
@@ -55,6 +61,7 @@ namespace YunMall.Entity.db {
         /// <summary> 
         /// 交易名称 
         /// </summary> 
+        [IgnoreField]
         public string TradeName { get; set; }
 
         /// <summary> 

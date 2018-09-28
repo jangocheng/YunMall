@@ -34,9 +34,21 @@ namespace YunMall.Web.DAL.utils
             }
 
 
+            // 排除需要忽略的字段
+            IList<string> ignoreFields = new List<string>();
+            foreach (var propertyInfo in t.GetProperties())
+            {
+                var customAttributes = propertyInfo.GetCustomAttributes(typeof(IgnoreFieldAttribute), true);
+                if (customAttributes.Length > 0)
+                {
+                    ignoreFields.Add(propertyInfo.Name);
+                }
+            }
+
+
             foreach (var fieldInfo in fis) {
                 var name = fieldInfo.Name.Substring(1, fieldInfo.Name.IndexOf(">") - 1);
-                if (name == generateIdFieldName) continue;
+                if (name == generateIdFieldName || ignoreFields.Contains(name)) continue;
                 list.Add(name);
             }
 

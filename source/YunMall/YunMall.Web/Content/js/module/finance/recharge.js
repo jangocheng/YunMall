@@ -35,8 +35,8 @@ function initService(r) {
          * @param param
          * @param callback
          */
-        changeBalance: function (param, callback) {
-            $.get(route + "/changeBalance",param, function (data) {
+        directRecharge: function (param, callback) {
+            $.get(route + "/DirectRecharge",param, function (data) {
                 callback(data);
             })
         }

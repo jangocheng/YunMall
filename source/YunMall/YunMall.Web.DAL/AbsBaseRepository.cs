@@ -393,8 +393,10 @@ namespace YunMall.Web.DAL
             IList<MySqlParameter> parameters = new List<MySqlParameter>();
             foreach (var item in param)
             {
-                index++;
-                strSql.Append(GetInsertValues(item, index, ref parameters));
+                index++; 
+                MySqlParameter[] arr;
+                strSql.Append(GetInsertValues(item, index, out arr));
+                arr.ToList().ForEach(a => parameters.Add(a));
             }
             strSql.Remove(strSql.Length - 1, 1);
             DFTable.Add(strSql, parameters.ToArray());
@@ -419,8 +421,9 @@ namespace YunMall.Web.DAL
         /// <param name="item"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        protected virtual string GetInsertValues<T>(T item, int index, ref IList<MySqlParameter> parameters)
+        protected virtual string GetInsertValues<T>(T item, int index, out MySqlParameter[] parameters)
         {
+            parameters = new MySqlParameter[0];
             return string.Empty;
         }
         #endregion
@@ -447,7 +450,9 @@ namespace YunMall.Web.DAL
             foreach (var item in param)
             {
                 index++;
-                strSql.Append(GetInsertValues(item, index, ref parameters));
+                MySqlParameter[] arr;
+                strSql.Append(GetInsertValues(item, index, out arr) + ",");
+                arr.ToList().ForEach(a => parameters.Add(a));
             }
             strSql.Remove(strSql.Length - 1, 1);
             DFTable.Add(strSql.ToString(), parameters.ToArray());
@@ -562,7 +567,9 @@ namespace YunMall.Web.DAL
             foreach (var item in param)
             {
                 index++;
-                strSql.Append(GetInsertValues(item, index, ref parameters));
+                MySqlParameter[] arr;
+                strSql.Append(GetInsertValues(item, index, out arr));
+                arr.ToList().ForEach(a => parameters.Add(a));
             }
             strSql.Remove(strSql.Length - 1, 1);
             DFTable.Add(strSql, parameters.ToArray());
@@ -593,7 +600,9 @@ namespace YunMall.Web.DAL
             foreach (var item in param)
             {
                 index++;
-                strSql.Append(GetInsertValues(item, index, ref parameters));
+                MySqlParameter[] arr;
+                strSql.Append(GetInsertValues(item, index, out arr));
+                arr.ToList().ForEach(a => parameters.Add(a)); 
             }
             strSql.Remove(strSql.Length - 1, 1);
             DFTable.Add(strSql.ToString(), parameters.ToArray());
@@ -603,7 +612,7 @@ namespace YunMall.Web.DAL
 
         #region 反射获取属性名
 
-        public virtual string JoinFields<T>(T model, int index) {
+        public virtual string JoinFields<T>(T model, int index, out MySqlParameter[]  param) {
             var obj = new object();
             var fieldList = EntityUtil.GetFieldList(model, ref obj);
             var fieldNameList = EntityUtil.GetFieldNameList(model);
@@ -611,8 +620,9 @@ namespace YunMall.Web.DAL
 
             foreach (var fieldInfo in fieldList)
             {
-                paras.Add(new MySqlParameter("?" + index + fieldInfo.Name.GetFieldName(), fieldInfo.GetValue(obj)));
+                paras.Add(new MySqlParameter("?" + index + fieldInfo.Name.GetFieldName(), fieldInfo.GetValue(model)));
             }
+            param = paras.ToArray();
 
             StringBuilder builder = new StringBuilder();
             builder.Append("(");
@@ -620,13 +630,13 @@ namespace YunMall.Web.DAL
             {
                 var name = fieldNameList[i];
                 builder.Append("?" + index + name);
-                if (i < fieldNameList.Count) builder.Append(",");
+                if ((i+1) < fieldNameList.Count) builder.Append(",");
             }
-            builder.Append("?" + string.Join(",?", fieldNameList));
             builder.Append(")");
 
             return builder.ToString();
         }
+
 
         #endregion
 

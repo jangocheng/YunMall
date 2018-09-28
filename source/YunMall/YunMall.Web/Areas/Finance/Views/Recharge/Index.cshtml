@@ -60,7 +60,7 @@
                         layer.msg("充值成功");
                     })
                 } else {
-                    service.changeBalance({
+                    service.directRecharge({
                         username: username,
                         amount: parseFloat(amount)
                         //sign: service.getSign("username=" + username + "&amount=" + amount)
@@ -106,7 +106,7 @@
         <label class="layui-form-label">系统资金</label>
 
         <div class="layui-input-block">
-            <input type="checkbox" id="isSystem" name="like[read]" title="无流水充值">
+            <input type="checkbox" id="isSystem" name="like[read]" title="直接充值">
         </div>
     </div>
     <div class="layui-form-item ">

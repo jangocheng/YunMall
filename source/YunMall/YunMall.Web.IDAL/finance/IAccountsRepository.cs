@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Common;
 using YunMall.Entity.db;
 
 namespace YunMall.Web.IDAL.finance {
@@ -32,5 +33,12 @@ namespace YunMall.Web.IDAL.finance {
         /// <param name="uid"></param>
         /// <returns></returns>
         IDictionary<string, string> SelectAmount(int uid);
+        
+        /// <summary>
+        /// 批量插入流水
+        /// </summary>
+        /// <param name="currentAccounts"></param>
+        /// <param name="dictionary"></param>
+        void BatchInsertAccounts(IList<Accounts> currentAccounts, ref IDictionary<string, DbParameter[]> dictionary);
     }
 }

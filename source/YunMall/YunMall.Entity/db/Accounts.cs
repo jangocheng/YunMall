@@ -1,4 +1,5 @@
 ﻿using System;
+using YunMall.Web.Models;
 
 namespace YunMall.Entity.db {
 
@@ -6,6 +7,7 @@ namespace YunMall.Entity.db {
     /// 财务会计账目表
     /// </summary>
     public class Accounts {
+        [GenerateId]
         public long AccountsId { get; set; }
 
         /// <summary> 

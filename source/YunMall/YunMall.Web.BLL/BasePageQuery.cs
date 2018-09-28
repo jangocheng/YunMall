@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DF.Common;
 using Microsoft.Practices.Unity;
 using YunMall.Entity;
 using YunMall.Entity.db;
@@ -17,6 +18,9 @@ namespace YunMall.Web.BLL {
 
         [Dependency]
         public IUserRepository userRepository { get; set; }
+
+        [Dependency]
+        public IWalletRepository WalletRepository { get; set; }
 
         [InjectionConstructor]
         public BasePageQuery(IAccountsRepository accountsRepository)
@@ -190,15 +194,23 @@ namespace YunMall.Web.BLL {
         /// <param name="userDetail"></param>
         /// <returns></returns>
         public virtual IDictionary<string, string> GetUserAmount(UserDetail userDetail) {
-            // 查询收入与支出数据
-            IDictionary<string, string> data = accountsRepository.SelectAmount(userDetail.User.Uid);
             // 查询系统公户信息
-            var dataList = userRepository.Query<User>(new QueryParam() {
+            var dataList = userRepository.Query<User>(new QueryParam()
+            {
                 StrWhere = $"uid={Constants.HotAccountID}"
             });
+
+            // 查询收入与支出数据
+            IDictionary<string, string> data = accountsRepository.SelectAmount(userDetail.User.Uid);
+            if (data == null && dataList == null) return null;
+
+            if(data == null) data = new Dictionary<string, string>();
+
+
             if (dataList != null && dataList.Count > 0) {
                 data.Add("account", dataList.FirstOrDefault().Username);
-                data.Add("amount", "0");// TODO 等钱包表设计好之后，这里改为查询钱包表数据
+                Wallet wallet = WalletRepository.SelectById(Constants.HotAccountID);
+                data.Add("amount", Convert.ToString(wallet.Balance));
             }
             else {
                 data.Add("account",  "查询失败");
