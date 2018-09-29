@@ -48,6 +48,7 @@
     <Compile Include="finance\IPaysRepository.cs" />
     <Compile Include="finance\IWalletRepository.cs" />
     <Compile Include="IAbsBaseRepository.cs" />
+    <Compile Include="order\IOrderRepository.cs" />
     <Compile Include="product\ICategoryRepository.cs" />
     <Compile Include="product\IProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

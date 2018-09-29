@@ -57,6 +57,7 @@
     <Compile Include="finance\PaysRepositoryImpl.cs" />
     <Compile Include="finance\AccountsRepositoryImpl.cs" />
     <Compile Include="finance\WalletRepositoryImpl.cs" />
+    <Compile Include="order\OrderRepositoryImpl.cs" />
     <Compile Include="product\CategoryRepositoryImpl.cs" />
     <Compile Include="product\ProductRepositoryImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

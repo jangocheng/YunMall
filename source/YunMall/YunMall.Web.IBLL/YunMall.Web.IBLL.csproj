@@ -43,6 +43,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="finance\IFinanceService.cs" />
     <Compile Include="finance\IPayService.cs" />
+    <Compile Include="order\IOrderService.cs" />
     <Compile Include="product\ICategoryService.cs" />
     <Compile Include="product\IProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

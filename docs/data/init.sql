@@ -389,3 +389,27 @@ CREATE TABLE `wallets` (
 
 
 INSERT INTO `wallets` (`userId`, `balance`, `updateTime`, `version`) VALUES ('1', '100000', '2018-09-28 11:49:20', '0');
+
+
+
+
+/*订单表*/
+CREATE TABLE `orders` (
+  `orderId` bigint(20) NOT NULL,
+  `pid` int(11) NOT NULL COMMENT '商品id',
+  `pname` varchar(32) DEFAULT NULL COMMENT '商品名称',
+  `sid` int(11) NOT NULL COMMENT '商家id',
+  `sname` varchar(32) DEFAULT NULL COMMENT '商家名称',
+  `uid` int(11) NOT NULL COMMENT '用户id',
+  `uname` varchar(32) DEFAULT NULL COMMENT '用户名称',
+  `tradeType` int(11) NOT NULL DEFAULT '0' COMMENT '交易方式(0=站内,1=支付宝)',
+  `amount` decimal(10,2) NOT NULL COMMENT '交易额',
+  `payId` bigint(20) DEFAULT NULL COMMENT '流水id',
+  `addTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `editTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  `remark` varchar(255) DEFAULT NULL COMMENT '摘要',
+  PRIMARY KEY (`orderId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';
+
+
+

@@ -188,6 +188,8 @@
     <Compile Include="Areas\Finance\Controllers\PaysController.cs" />
     <Compile Include="Areas\Finance\Controllers\RechargeController.cs" />
     <Compile Include="Areas\Finance\FinanceAreaRegistration.cs" />
+    <Compile Include="Areas\Order\Controllers\BuyController.cs" />
+    <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
     <Compile Include="Areas\Product\Controllers\ManageController.cs" />
     <Compile Include="Areas\Product\Controllers\PublishController.cs" />
     <Compile Include="Areas\Product\ProductAreaRegistration.cs" />
@@ -338,6 +340,7 @@
     <Content Include="Content\images\button_bg.png" />
     <Content Include="Content\images\lazy-vcode.png" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\order_logo.png" />
     <Content Include="Content\js\base\index.js" />
     <Content Include="Content\js\base\utils.js" />
     <Content Include="Content\js\common\autopage.js" />
@@ -377,6 +380,8 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Areas\Finance\Models\" />
     <Folder Include="Areas\Finance\Views\Shared\" />
+    <Folder Include="Areas\Order\Models\" />
+    <Folder Include="Areas\Order\Views\Shared\" />
     <Folder Include="Areas\Product\Models\" />
     <Folder Include="Areas\Product\Views\Shared\" />
     <Folder Include="Areas\Security\Controllers\" />
@@ -407,6 +412,8 @@
     <Content Include="Areas\Finance\Views\Accounts\Index.cshtml" />
     <Content Include="Areas\Finance\Views\Pays\Index.cshtml" />
     <Content Include="Areas\Finance\Views\Recharge\Index.cshtml" />
+    <Content Include="Areas\Order\Views\web.config" />
+    <Content Include="Areas\Order\Views\Buy\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />

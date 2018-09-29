@@ -5,16 +5,20 @@ using System.Web.Mvc;
 using Unity.WebApi;
 using System.Web;
 using YunMall.Web.BLL.finance;
+using YunMall.Web.BLL.order;
 using YunMall.Web.BLL.product;
 using YunMall.Web.BLL.user;
 using YunMall.Web.DAL.finance;
+using YunMall.Web.DAL.order;
 using YunMall.Web.DAL.product;
 using YunMall.Web.IBLL.user;
 using YunMall.Web.IDAL.user;
 using YunMall.Web.DAL.user;
 using YunMall.Web.IBLL.finance;
+using YunMall.Web.IBLL.order;
 using YunMall.Web.IBLL.product;
 using YunMall.Web.IDAL.finance;
+using YunMall.Web.IDAL.order;
 using YunMall.Web.IDAL.product;
 
 namespace YunMall.Web.Core
@@ -75,7 +79,6 @@ namespace YunMall.Web.Core
                 .Configure<Interception>().SetInterceptorFor<IAccountsRepository>(new InterfaceInterceptor());
 
 
-
             container.RegisterType<IFinanceService, AccountsServiceImpl>("AccountsServiceImpl", new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IFinanceService>(new InterfaceInterceptor());
 
@@ -96,6 +99,14 @@ namespace YunMall.Web.Core
 
             container.RegisterType<IWalletRepository, WalletRepositoryImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IWalletRepository>(new InterfaceInterceptor());
+
+
+            // 订单逻辑和仓储接口 2018年9月26日09:43:45
+            container.RegisterType<IOrderService, OrderServiceImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IOrderService>(new InterfaceInterceptor());
+
+            container.RegisterType<IOrderRepository, OrderRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IOrderRepository>(new InterfaceInterceptor());
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
