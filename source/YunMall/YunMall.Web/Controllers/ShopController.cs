@@ -6,10 +6,14 @@ using System.Web.Mvc;
 
 namespace YunMall.Web.Controllers
 {
-    public class ProductController : Controller {
-        // GET: Product
-        [HttpGet]
-        public ActionResult Index() {
+    /// <summary>
+    /// 商家商铺控制器
+    /// </summary>
+    public class ShopController : BaseController
+    {
+        // GET: Shop
+        public ActionResult Index()
+        {
             return View();
         }
     }

@@ -1,0 +1,193 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F3F4F9;
+}
+
+.container {
+    background-color: #F3F4F9;
+}
+
+.head {
+    width: 99%;
+    height: 100px;
+    background-color: #fff;
+    position: relative;
+    top: 10px;
+    border-bottom: 1px solid #DADEE7;
+    margin: 0 auto;
+}
+
+    .head .navigation {
+        width: 1140px;
+        height: 100px;
+        margin: 0 auto;
+        line-height: 100px;
+    }
+
+.navigation .logo {
+    float: left;
+    display: inline-block;
+    background-image: url(/content/images/order_logo.png);
+    height: 100px;
+    width: 200px;
+    background-repeat: no-repeat;
+}
+
+.content {
+    background-color: #fff;
+    margin: 0 auto;
+    width: 1100px;
+    min-height: 780px;
+    position: relative;
+    top: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px #cacaca;
+    padding: 20px;
+}
+
+.item-line {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 50px;
+    line-height: 50px;
+}
+
+.table-product {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .table-product thead {
+        background-color: #F5F8FA;
+        line-height: 50px;
+        display: table-header-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+
+    .table-product tbody td {
+        height: 110px;
+        text-align: center;
+    }
+
+    .table-product tbody img {
+        background: #cacaca;
+        width: 100px;
+        border-radius: 5px;
+    }
+
+
+.button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+    .button:hover {
+        opacity: 0.8;
+    }
+
+.button-red {
+    background-color: #f17676;
+}
+
+.button-lg {
+    width: 180px;
+    height: 40px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.price {
+    color: #FF4400;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.num {
+    height: 30px;
+    width: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px solid #a5a5a5;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+a:link {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #275DD6;
+    text-decoration: underline;
+}
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    background-color: #f17676;
+}
+
+.payment li {
+    width: 130px;
+    height: 44px;
+}
+
+    .payment li[data-type='alipay'] {
+        background-image: url(/content/images/alipay.png);
+        background-repeat: no-repeat;
+        background-size: 130px;
+    }
+
+
+.layui-layer-btn .layui-layer-btn0 {
+    border-color: #F17676 !important;
+    background-color: #F17676 !important;
+    color: #fff;
+}
+
+
+.layui-layer, .layui-layer-title {
+    border-radius: 15px !important;
+}
+
+.layui-layer-prompt .layui-layer-input {
+    border: none !important;
+    border-bottom: 1px solid #e6e6e6 !important;
+}
+
+
+.break-line-20 {
+    height: 20px;
+    width: 100%;
+}
+
+.vertical-line-20 {
+    height: 100%;
+    width: 20px;
+}

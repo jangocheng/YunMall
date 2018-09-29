@@ -198,7 +198,7 @@
     <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Filters\AuthenticationFilter.cs" />
     <Compile Include="Filters\MvcExceptionFilter.cs" />
     <Compile Include="Filters\MvcSecurityFilter.cs" />
@@ -212,6 +212,7 @@
     <Content Include="Content\css\module\bootstrap.css" />
     <Content Include="Content\css\module\category\manage.css" />
     <Content Include="Content\css\module\finance\index.css" />
+    <Content Include="Content\css\module\order\buy.css" />
     <Content Include="Content\css\module\product\manage.css" />
     <Content Include="Content\css\module\product\publish.css" />
     <Content Include="Content\css\style.css" />
@@ -355,6 +356,7 @@
     <Content Include="Content\js\module\finance\accounts.js" />
     <Content Include="Content\js\module\finance\pay.js" />
     <Content Include="Content\js\module\finance\recharge.js" />
+    <Content Include="Content\js\module\order\buy.js" />
     <Content Include="Content\js\module\product\manage.js" />
     <Content Include="Content\js\module\product\publish.js" />
     <Content Include="favicon.ico" />
@@ -417,8 +419,8 @@
     <None Include="packages.config" />
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout - 复制.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shared\_ShopLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YunMall.Entity\YunMall.Entity.csproj">

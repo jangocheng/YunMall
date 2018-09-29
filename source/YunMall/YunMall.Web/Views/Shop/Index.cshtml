@@ -1,0 +1,327 @@
+﻿@using YunMall.Entity
+@model dynamic
+
+@{
+    ViewBag.Title = "订单窗口";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+}
+
+@section styles {
+    <style>
+        .head .navigation {
+            width: 1140px;
+            height: 100%;
+            margin: 0 auto;
+            line-height: 100px;
+        }
+
+        .head {
+            width: 100%;
+            height: 110px;
+            background-color: #fff;
+            border-bottom: 1px solid #DADEE7;
+            margin: 0 auto;
+            top: 0px;
+            position: initial;
+            padding-top: 15px;
+        }
+
+        .navigation .logo {
+            background-image: url(/content/images/shop_logo.png);
+            height: 100px;
+            width: 310px;
+        }
+
+        .navigation ul {
+            list-style: none;
+            float: right;
+        }
+
+            .navigation ul li {
+                display: inline-block;
+                float: left;
+                width: 95px;
+                line-height: 95px;
+                text-align: center;
+                cursor: pointer;
+                margin-left: 20px;
+            }
+
+                .navigation ul li span {
+                    display: inline-block;
+                    line-height: 45px;
+                    width: 100px;
+                    border-radius: 8px;
+                }
+
+                    .navigation ul li span:hover {
+                        background-color: #F5F8FA;
+                    }
+
+        .active span {
+            background-color: #dbe7ef;
+            border-radius: 8px;
+            color: #345369;
+        }
+
+        .content {
+            top: 0px;
+        }
+
+        .notice {
+            width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #FEF9CE;
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 15px;
+            color: #a06f00;
+        }
+
+        .notice .close {
+            float: right;
+            font-size: 22px;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        .body { 
+            margin: 0 auto;
+            width: 1140px;
+            min-height: 780px;
+            position: relative;
+            border-radius: 8px;
+        }
+
+            .body .left {
+                float: left;
+                background-color: #fff;
+                width: 310px;
+                height: 100%;
+                min-height: 820px;
+                display: inline-block;
+                border-radius: 8px;
+                box-shadow: 0px 1px 1px #cacaca;
+                padding: 20px;
+            }
+
+
+            .body .right {
+                float: right;
+                background-color: #fff;
+                width: 730px;
+                height: 100%;
+                min-height: 820px;
+                display: inline-block;
+                border-radius: 8px;
+                box-shadow: 0px 1px 1px #cacaca;
+                padding: 20px;
+            }
+
+
+        .item-line {
+            min-height: 25px;
+            line-height: 25px;
+        }
+
+        h3 {
+            font-weight: bold;
+            color: #515151;
+        }
+
+        .merchant span{
+            font-size: 15px;
+            line-height: 60px;
+        }
+
+        .merchant .stress {
+            color: #6982bc;
+            font-size: 18px;
+            font-weight: bold;
+            font-style: italic;
+            background-color: #F5F8FA;
+            width: 100%;
+            display: inline-block;
+            text-align: left;
+            border-radius: 8px;
+            text-indent: 20px;
+        }
+
+        em {
+            font-size: 12px;
+            font-style: initial;
+            font-weight: normal;
+            color: #929292;
+            float: left;
+            padding-left: 10px;
+            display: inline-block;
+            position: relative;
+            top: 3px;
+        }
+
+        .left-category-tags {
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            padding: 20px;
+        }
+
+        .left-category-tags li {
+            width: 85px;
+            line-height: 50px;
+            background-color: #fff8f5;
+            border-radius: 5px;
+            display: inline-block;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .ico_bzj, .ico_bzy, .ico_bzt {
+            background: url(/content/images/ico_jyt.png) no-repeat 0 0;
+            width: 57px;
+            height: 23px;
+            padding-top: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            color: #fff;
+            font-weight: normal;
+            font-size: 12px;
+            padding-left: 35px;
+            line-height: 23px;
+            font-style: normal;
+        }
+
+        .ico_bzj a, .ico_bzy a, .ico_bzt a {
+            color: #fff !important;
+        }
+
+        .ico_bzy {
+            background-position: 0 -42px;
+        }
+
+        .ico_bzt {
+            background-position: 0 -80px;
+        }
+
+        .ico_integrity_40, .ico_integrity_30, .ico_integrity_20, .ico_integrity_10 {
+            background: url(/content/images/ico_jyt.png) no-repeat 0 0;
+            width: 57px;
+            height: 23px;
+            padding-top: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            color: #fff;
+            font-weight: normal;
+            font-size: 12px;
+            padding-left: 35px;
+            line-height: 23px;
+        }
+    </style>
+}
+
+@section scripts {
+    <script>
+        $(function() {
+            $("i[name='closeNotice']").click(function() {
+                $(this).parent().fadeOut(1000, function () {
+                    $(this).prev().remove();
+                });
+            });
+        })
+    </script>
+}
+
+<div class="head">
+    <div class="navigation">
+        <span class="logo"></span>
+        <span style="float: left">
+            admin@qq.com
+        </span>
+        <span style="float: left; margin-left: 20px;">
+            <i class="ico_bzj">金牌商家</i>
+        </span>
+        <span style="float: left; margin-left: 20px;">
+            <i class="ico_bzy">银牌商家</i>
+        </span>
+        <span style="float: left; margin-left: 20px;">
+            <i class="ico_bzt">普通商家</i>
+        </span>
+        <ul>
+            <li class="active"><span>首页</span></li>
+            <li><span>游客订单</span></li>
+            <li><span>关于我们</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="break-line-20"></div>
+
+<div class="notice">
+    <i class="layui-icon layui-icon-close-fill close" name="closeNotice"></i>
+    <p>1.这里可以写一些公告信息</p>
+    <p>1.这里可以写一些公告信息</p>
+    <p>1.这里可以写一些公告信息</p>
+    <p>1.这里可以写一些公告信息</p>
+    <p>1.这里可以写一些公告信息</p>
+    <p>1.这里可以写一些公告信息</p>
+    <p>1.这里可以写一些公告信息</p>
+    <p>1.这里可以写一些公告信息</p>
+</div>
+
+
+<div class="break-line-20"></div>
+
+<div class="body">
+    <div class="left">
+        <div class="item-line">
+            <h3>卖家信息</h3>
+        </div>
+        
+        <div class="item-line merchant">
+            <span style="text-align: center; display: block;">
+                <img src="/content/images/shop_left_title.png" />
+            </span>
+            <span class="stress">
+                <em>商户账号：</em>
+                admin@qq.com
+            </span>
+
+
+            <span style="text-align: center; display: block;">
+                <img src="/content/images/shop_left_title2.png" />
+            </span>
+            <span class="stress">
+                <em>联系QQ：</em>
+                2175656094
+            </span>
+            
+            <span style="text-align: center; display: block;">
+                <img src="/content/images/shop_left_title3.png" />
+            </span>
+            <span>
+                <ul class="left-category-tags">
+                    <li>中国移动</li>
+                    <li>中国联通</li>
+                    <li>中国电信</li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    
+    <div class="vertical-line-20"></div>
+
+    <div class="right">
+        <div class="item-line">
+            <h3>经营商品</h3>
+        </div>
+    </div>
+</div>
+
+
+<div style="line-height: 120px; width: 1140px; margin: 0 auto; text-align: center; font-size: 12px; color: #a5a5a5;">
+    <span>2018 - @Constants.Brand</span>
+</div>

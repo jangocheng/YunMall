@@ -3,431 +3,95 @@
 @model dynamic
 
 @{
-    ViewBag.Title = "提交订单 - " + Constants.Title;
+    ViewBag.Title = "订单窗口";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
 }
 
-    
-<title>提交订单 - @Constants.Title</title>
+@section scripts {
+    @Scripts.Render("~/Content/js/module/order/buy.js")
+}
 
-@Styles.Render("~/Content/frame/layui/css/layui.css")
-@Styles.Render("~/Content/css/animate.css")
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        background-color: #F3F4F9;
-    }
-
-    .container {
-        background-color: #F3F4F9;
-    }
-
-    .head {
-        width: 99%;
-        height: 100px;
-        background-color: #fff;
-        position: relative;
-        top: 10px;
-        border-bottom: 1px solid #DADEE7;
-        margin: 0 auto;
-    }
-
-        .head .navigation {
-            width: 1200px;
-            height: 100px;
-            margin: 0 auto;
-            line-height: 100px;
-        }
-
-    .navigation .logo {
-        float: left;
-        display: inline-block;
-        background-image: url(/content/images/order_logo.png);
-        height: 100px;
-        width: 300px;
-    }
-
-    .content {
-        background-color: #fff;
-        margin: 0 auto;
-        width: 1100px;
-        min-height: 780px;
-        position: relative;
-        top: 30px;
-        border-radius: 5px;
-        box-shadow: 0px 1px 1px #cacaca;
-        padding: 20px;
-    }
-
-    .item-line {
-        display: block;
-        width: 100%;
-        margin: 0 auto;
-        min-height: 50px;
-        line-height: 50px;
-    }
-
-    .table-product {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-        .table-product thead {
-            background-color: #F5F8FA;
-            line-height: 50px;
-            display: table-header-group;
-            vertical-align: middle;
-            border-color: inherit;
-        }
-
-        .table-product tbody td {
-            height: 110px;
-            text-align: center;
-        }
-
-        .table-product tbody img {
-            background: #cacaca;
-            width: 100px;
-            border-radius: 5px;
-        }
-
-
-    .button {
-        width: 100px;
-        height: 30px;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        cursor: pointer;
-    }
-
-        .button:hover {
-            opacity: 0.8;
-        }
-
-    .button-red {
-        background-color: #f17676;
-    }
-
-    .button-lg {
-        width: 180px;
-        height: 40px;
-    }
-
-    .title {
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    .price {
-        color: #FF4400;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    .num {
-        height: 30px;
-        width: 50px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: bold;
-        border: none;
-        border-bottom: 1px solid #a5a5a5;
-        outline: none;
-    }
-
-    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-    }
-
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
-
-    a:link {
-        color: #000000;
-        text-decoration: none;
-    }
-
-    a:visited {
-        color: #000000;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: #275DD6;
-        text-decoration: underline;
-    }
-
-    .layui-laypage .layui-laypage-curr .layui-laypage-em {
-        background-color: #f17676;
-    }
-
-    .payment li {
-        width: 130px;
-        height: 44px;
-    }
-
-        .payment li[data-type='alipay'] {
-            background-image: url(/content/images/alipay.png);
-            background-repeat: no-repeat;
-            background-size: 130px;
-        }
-</style>
-
-
-<div class="container">
-    <div class="head">
-        <div class="navigation">
-            <span class="logo"></span>
-            <span style="float:right;position: relative;right: 30px;color: #9f9f9f;">主旋律科技有限公司</span>
-        </div>
-
-        <div class="content">
-            <div class="item-line">
-                <h3 style="font-weight: bold;">商品清单</h3>
-            </div>
-
-            <div class="item-line">
-                <table class="table-product">
-                    <thead>
-                        <tr>
-                            <th style="width:198px">缩略图</th>
-                            <th style="width:198px">商品名</th>
-                            <th style="width:198px">价格</th>
-                            <th style="width:198px">数量</th>
-                            <th style="width:198px">操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--
-                        <tr>
-                            <td>
-                                <img src="/Content/upload_image/20180921/636731695907172444.jpg" />
-                            </td>
-                            <td>
-                                <a href="#" class="title">中秋节月饼(广州)</a>
-                            </td>
-                            <td>
-                                <span class="price" data-amount="128.00">128.00</span>
-                            </td>
-                            <td>
-                                <input class="num" type="number" name="name" value="1" onblur="flushPrice(this)" onkeypress="return /[\d]/.test(String.fromCharCode(event.keyCode))" />
-                            </td>
-                            <td>
-                                <button class="button button-red">移除</button>
-                            </td>
-                        </tr>-->
-
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="item-line">
-                <div id="page" style="text-align: center"></div>
-            </div>
-
-
-            <div class="item-line">
-                <h3 style="font-weight: bold;">支付方式</h3>
-            </div>
-
-            <div class="item-line">
-                <ul class="payment">
-                    <li data-type="alipay" title="支付宝支付">
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="item-line" style="text-align: right">
-                <h3 style="color: #a5a5a5">支付总额</h3>
-                <span style="display: inline-block; float: left; color:#e54f4f">支付中如遇到问题，请您及时联系 @Constants.Brand 客服人员</span>
-                <p></p>
-            </div>
-
-            <div class="item-line" style="text-align: right">
-                <h1 style="font-size: 42px; font-weight: bold; color: #FF4400; display: inline-block">￥</h1>
-                <h1 style="font-size: 42px; font-weight: bold; color: #FF4400; display: inline-block" id="total">0</h1>
-                <h3 style="display: inline-block; margin-left: 10px; font-size: 12px; color: #000">元</h3>
-
-            </div>
-
-            <span style="display: block; float: left; color:#cacaca">防骗防盗：系统并不存在卡单，请勿相信也不要随意打开陌生人发来的链接</span>
-            <button class="button button-red button-lg" style="float: right; margin-top: 20px;background-color: #fc6363;">去支付</button>
-        </div>
+<div class="head">
+    <div class="navigation">
+        <span class="logo"></span>
     </div>
 
+    <div class="content">
+        <div class="item-line">
+            <h3 style="font-weight: bold;">商品清单</h3>
+        </div>
+
+        <div class="item-line" style="min-height: 380px;">
+            <table class="table-product">
+                <thead>
+                <tr>
+                    <th style="width:198px">缩略图</th>
+                    <th style="width:198px">商品名</th>
+                    <th style="width:198px">价格</th>
+                    <th style="width:198px">数量</th>
+                    <th style="width:198px">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--
+                <tr>
+                    <td>
+                        <img src="/Content/upload_image/20180921/636731695907172444.jpg" />
+                    </td>
+                    <td>
+                        <a href="#" class="title">中秋节月饼(广州)</a>
+                    </td>
+                    <td>
+                        <span class="price" data-amount="128.00">128.00</span>
+                    </td>
+                    <td>
+                        <input class="num" type="number" name="name" value="1" onblur="flushPrice(this)" onkeypress="return /[\d]/.test(String.fromCharCode(event.keyCode))" />
+                    </td>
+                    <td>
+                        <button class="button button-red">移除</button>
+                    </td>
+                </tr>-->
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="item-line">
+            <div id="page" style="text-align: center"></div>
+        </div>
+
+        <div class="item-line">
+            <h3 style="font-weight: bold;height:60px">支付方式</h3>
+        </div>
+
+        <div class="item-line" style="padding-left: 25px;">
+            <ul class="payment">
+                <li data-type="alipay" title="支付宝支付">
+                </li>
+            </ul>
+        </div>
+
+        <div class="item-line" style="text-align: right;">
+            <h3 style="color: #a5a5a5">支付总额</h3>
+            <span style="display: inline-block; float: left; color: #e54f4f; padding-left: 25px;">支付中如遇到问题，请您及时联系客服人员</span>
+            <p></p>
+        </div>
+
+        <div class="item-line" style="text-align: right">
+            <h1 style="font-size: 42px; font-weight: bold; color: #FF4400; display: inline-block">￥</h1>
+            <h1 style="font-size: 42px; font-weight: bold; color: #FF4400; display: inline-block" id="total">0</h1>
+            <h3 style="display: inline-block; margin-left: 10px; font-size: 12px; color: #000">元</h3>
+
+        </div>
+
+        <span style="display: block; float: left; color: #cacaca; padding-left: 25px;">防骗防盗：系统并不存在卡单，请勿相信也不要随意打开陌生人发来的链接</span>
+        <button id="goPay" class="button button-red button-lg" style="float: right; margin-top: 20px;background-color: #fc6363;">去支付</button>
+    </div>
+    
+    
+    <div style="position: relative; top: 60px;width: 1140px; margin: 0 auto; text-align: center; font-size: 12px; color: #a5a5a5;">
+        <span>2018 - @Constants.Brand</span>
+    </div>
 </div>
 
 
-
-
-@Scripts.Render("~/Content/js/common/jquery-2.0.0.min.js")
-@Scripts.Render("~/Content/frame/layui/layui.all.js")
-
-<script>
-    layui.use(['laypage', 'layer'],
-        function () {
-            var laypage = layui.laypage, layer = layui.layer;
-
-            //测试数据
-            var data = [
-                {
-                    pid: 1,
-                    productName: "中秋节月饼(广州)",
-                    amount: 128,
-                    count: 1,
-                    mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-                },
-                {
-                    pid: 2,
-                    productName: "中秋节月饼(广州)",
-                    amount: 128,
-                    count: 1,
-                    mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-                },
-                {
-                    pid: 3,
-                    productName: "中秋节月饼(广州)",
-                    amount: 128,
-                    count: 1,
-                    mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-                },
-                {
-                    pid: 4,
-                    productName: "中秋节月饼(广州)",
-                    amount: 128,
-                    count: 1,
-                    mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-                },
-                {
-                    pid: 5,
-                    productName: "中秋节月饼(广州)",
-                    amount: 128,
-                    count: 1,
-                    mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-                },
-                {
-                    pid: 6,
-                    productName: "中秋节月饼(广州)",
-                    amount: 128,
-                    count: 1,
-                    mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-                },
-                {
-                    pid: 7,
-                    productName: "中秋节月饼(广州)",
-                    amount: 128,
-                    count: 1,
-                    mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-                }
-            ];
-
-
-            //调用分页
-            laypage.render({
-                elem: 'page'
-                , count: data.length
-                , limit: 3
-                , jump: function (obj) {
-                    jumpPage(obj);
-                }
-            });
-
-            function jumpPage(obj) {
-                //模拟渲染
-                drawTable(obj);
-
-
-                var total = 0;
-                for (var i = 0; i < data.length; i++) {
-                    total += data[i].amount;
-                }
-                $("#total").text(total);
-
-                $(".num").keydown(function () {
-                    return /[\d]/.test(String.fromCharCode(event.keyCode));
-                });
-                $(".num").blur(function () {
-                    var amount = $(this).parent().prev().find("span").data("amount");
-                    var pid = $(this).parent().prev().find("span").data("pid");
-                    var count = $(this).val();
-                    $(this).parent().prev().find("span").text(count * parseFloat(amount));
-
-
-                    for (var i = 0; i < data.length; i++) {
-                        if (pid === data[i].pid) {
-                            data[i].amount = count * parseFloat(amount);
-                            data[i].count = count;
-                        };
-                    }
-
-                    total = 0;
-                    for (var i = 0; i < data.length; i++) {
-                        total += data[i].amount;
-                    }
-                    $("#total").text(total);
-                });
-
-                $("button[name='remove']").click(function () {
-                    var pid = $(this).parent().prev().find("span").data("pid");
-                    $(this).parent().parent().hide(500, function () {
-                        var index = 0;
-                        for (var i = 0; i < data.length; i++) {
-                            if (pid === data[i].pid) {
-                                index = i;
-                            };
-                        }
-                        data.splice(index, 1);
-
-                        laypage.render({
-                            elem: 'page'
-                            , count: data.length
-                            , limit: 3
-                            , jump: function (obj) {
-                                jumpPage(obj);
-                            }
-                        });
-                    });
-
-                });
-            }
-
-            function drawTable(obj) {
-                var arr = []
-                    , thisData = data.concat().splice(obj.curr * obj.limit - obj.limit, obj.limit);
-                layui.each(thisData, function (index, item) {
-                    var str = "";
-                    str += "<tr>";
-                    str += "  <td>";
-                    str += '      <img src="' + item.mainImage + '" />';
-                    str += "</td>";
-                    str += "<td>";
-                    str += '  <a href="#" class="title">' + item.productName + '</a>';
-                    str += "</td>";
-                    str += "<td>";
-                    str += '  <span class="price"  data-pid="' + item.pid + '" data-amount="' + item.amount + '">' + item.amount + '</span>';
-                    str += "</td>";
-                    str += "<td>";
-                    str +=
-                        '  <input class="num" type="number" name="name" value="' + item.count + '"/>';
-                    str += "</td>";
-                    str += "<td>";
-                    str += '  <button class="button button-red" name="remove">移除</button>';
-                    str += "</td>";
-                    str += "</tr>";
-                    str += "</tr>";
-                    arr.push(str);
-                });
-                $("tbody").html(arr.join(''));
-            }
-
-
-        });
-
-</script>
