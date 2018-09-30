@@ -212,7 +212,7 @@
     <Content Include="Content\css\module\bootstrap.css" />
     <Content Include="Content\css\module\category\manage.css" />
     <Content Include="Content\css\module\finance\index.css" />
-    <Content Include="Content\css\module\order\buy.css" />
+    <Content Include="Content\css\module\order\index.css" />
     <Content Include="Content\css\module\product\manage.css" />
     <Content Include="Content\css\module\product\publish.css" />
     <Content Include="Content\css\style.css" />

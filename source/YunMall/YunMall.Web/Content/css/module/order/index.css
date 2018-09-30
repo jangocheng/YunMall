@@ -41,7 +41,7 @@ body {
     background-color: #fff;
     margin: 0 auto;
     width: 1100px;
-    min-height: 780px;
+    min-height: 780px; 
     position: relative;
     top: 30px;
     border-radius: 5px;
@@ -156,7 +156,31 @@ a:hover {
 .payment li {
     width: 130px;
     height: 44px;
+    display: inline-block;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    opacity: 0.5;
 }
+
+
+    .payment li:hover {
+        opacity: 1;
+        /*border-bottom-width: 3px;
+        border-bottom-color: rgba(63,58,57,0.55);
+        border-bottom-style: dashed;*/
+        cursor: pointer;
+    }
+
+.payment-selected {
+    opacity: 1 !important;
+    cursor: pointer;
+}
+
+    .payment li[data-type='wallet'] {
+        background-image: url(/content/images/wallet.png);
+        background-repeat: no-repeat;
+        background-size: 130px;
+    }
 
     .payment li[data-type='alipay'] {
         background-image: url(/content/images/alipay.png);
@@ -190,4 +214,15 @@ a:hover {
 .vertical-line-20 {
     height: 100%;
     width: 20px;
+}
+
+
+.animated {
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+.button-disabled {
+    background-color: #dddddd !important;
 }

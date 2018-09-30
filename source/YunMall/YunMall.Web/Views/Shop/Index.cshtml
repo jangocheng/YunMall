@@ -48,6 +48,7 @@
             }
 
                 .navigation ul li span {
+                    color: #345369;
                     display: inline-block;
                     line-height: 45px;
                     width: 100px;
@@ -59,9 +60,8 @@
                     }
 
         .active span {
-            background-color: #dbe7ef;
+            background-color: #F5F8FA;
             border-radius: 8px;
-            color: #345369;
         }
 
         .content {
@@ -89,7 +89,7 @@
         .body { 
             margin: 0 auto;
             width: 1140px;
-            min-height: 780px;
+            min-height: 870px;
             position: relative;
             border-radius: 8px;
         }
@@ -140,7 +140,7 @@
             font-size: 18px;
             font-weight: bold;
             font-style: italic;
-            background-color: #F5F8FA;
+            background-color: rgba(245,247,255,0.35);
             width: 100%;
             display: inline-block;
             text-align: left;
@@ -167,18 +167,40 @@
             padding: 20px;
         }
 
-        .left-category-tags li {
-            width: 85px;
-            line-height: 50px;
-            background-color: #fff8f5;
-            border-radius: 5px;
-            display: inline-block;
-            float: left;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            text-align: center;
-            cursor: pointer;
+
+            .left-category-tags li {
+                width: 85px;
+                line-height: 50px;
+                background-color: #f5f7ff;
+                border-radius: 5px;
+                display: inline-block;
+                float: left;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+        .left-shop-car {
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            padding: 20px;
         }
+
+            .left-shop-car li {
+                width: 270px;
+                line-height: 50px;
+                background-color: #f5f7ff;
+                border-radius: 5px;
+                display: inline-block;
+                float: left;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                cursor: pointer;
+            }
+
 
         .ico_bzj, .ico_bzy, .ico_bzt {
             background: url(/content/images/ico_jyt.png) no-repeat 0 0;
@@ -220,10 +242,32 @@
             padding-left: 35px;
             line-height: 23px;
         }
+
+
+        tbody tr {
+            border-bottom: 1px solid #f3f4f9;
+        }
+
+        .button-blue {
+            background-color: rgba(63, 111, 224, 0.68);
+        }
+
+        .table-product tbody img {
+            background: #cacaca;
+            border-radius: 94px;
+            box-shadow: 3px 5px 20px #ffffff;
+            width: 80px;
+            height: 80px;
+        }
+
+        .layui-laypage .layui-laypage-curr .layui-laypage-em {
+            background-color: #7c9dea;
+        }
     </style>
 }
 
 @section scripts {
+    @Scripts.Render("~/content/js/module/shop/index.js")
     <script>
         $(function() {
             $("i[name='closeNotice']").click(function() {
@@ -298,7 +342,7 @@
                 <em>联系QQ：</em>
                 2175656094
             </span>
-            
+
             <span style="text-align: center; display: block;">
                 <img src="/content/images/shop_left_title3.png" />
             </span>
@@ -309,14 +353,47 @@
                     <li>中国电信</li>
                 </ul>
             </span>
+
+
+            <span style="text-align: center; display: block;">
+                <img src="/content/images/shop_left_title4.png" />
+            </span>
+            <span>
+                <ul id="shopCar" class="left-shop-car">
+                </ul>
+                <ul class="left-shop-car">
+                    <li style="background-color: #fff;color:#cacaca">购物车商品总数：<span id="shopCarCount">0</span></li>
+                    <li style="background-color: #fff">
+                        <button class="button button-red" style="width: 100%; height: 60px;background-color: #3f6fe0; font-size: 20px">去结算</button>
+                    </li>
+                </ul>
+            </span>
         </div>
     </div>
     
     <div class="vertical-line-20"></div>
 
     <div class="right">
-        <div class="item-line">
+        <div class="item-line" style="display: block; line-height: 50px">
             <h3>经营商品</h3>
+        </div>
+
+        <div class="item-line">
+            <table class="table-product">
+                <thead>
+                    <tr>
+                        <th style="width:198px">缩略图</th>
+                        <th style="width:198px">商品名</th>
+                        <th style="width:198px">价格</th>
+                        <th style="width:198px">购物清单</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="item-line">
+            <div id="page" style="text-align: center"></div>
         </div>
     </div>
 </div>
