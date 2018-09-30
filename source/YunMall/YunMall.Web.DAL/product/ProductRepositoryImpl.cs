@@ -76,6 +76,20 @@ namespace YunMall.Web.DAL.product {
         }
 
         /// <summary>
+        /// 查询店铺商品信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        public IList<ShopProductDetail> GetShopProducts(int uid) {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("SELECT t1.*,t2.* FROM products t1 ");
+            builder.Append("LEFT JOIN categorys t2 ON t1.categoryId = t2.cid ");
+            builder.Append($"WHERE t1.sid = {uid} ");
+            var dataSet = DBHelperMySql.Query(builder.ToString());
+            return dataSet.ToList<ShopProductDetail>();
+        }
+
+        /// <summary>
         /// 查询分页总数
         /// </summary>
         /// <param name="state"></param>

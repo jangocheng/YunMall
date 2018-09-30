@@ -48,6 +48,7 @@
     <Compile Include="dbExt\CategoryDetail.cs" />
     <Compile Include="dbExt\PaysDetail.cs" />
     <Compile Include="dbExt\ProductDetail.cs" />
+    <Compile Include="dbExt\ShopProductDetail.cs" />
     <Compile Include="dbExt\UserDetail.cs" />
     <Compile Include="dbExt\UserFinanceDetail.cs" />
     <Compile Include="db\Accounts.cs" />

@@ -44,5 +44,8 @@ namespace YunMall.Entity.db
         public DateTime AddTime { get; set; }
 
         public string Remark { get; set; }
+
+        public string ShopNotice { get; set; }
+
     }
 }

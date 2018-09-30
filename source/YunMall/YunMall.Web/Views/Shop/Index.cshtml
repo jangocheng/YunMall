@@ -1,4 +1,6 @@
 ﻿@using YunMall.Entity
+@using YunMall.Entity.db
+@using YunMall.Utility.jsonData
 @model dynamic
 
 @{
@@ -97,7 +99,7 @@
             .body .left {
                 float: left;
                 background-color: #fff;
-                width: 310px;
+                width: 730px;
                 height: 100%;
                 min-height: 820px;
                 display: inline-block;
@@ -110,7 +112,7 @@
             .body .right {
                 float: right;
                 background-color: #fff;
-                width: 730px;
+                width: 310px;
                 height: 100%;
                 min-height: 820px;
                 display: inline-block;
@@ -148,7 +150,7 @@
             text-indent: 20px;
         }
 
-        em {
+        .stress em {
             font-size: 12px;
             font-style: initial;
             font-weight: normal;
@@ -254,7 +256,6 @@
 
         .table-product tbody img {
             background: #cacaca;
-            border-radius: 94px;
             box-shadow: 3px 5px 20px #ffffff;
             width: 80px;
             height: 80px;
@@ -262,6 +263,28 @@
 
         .layui-laypage .layui-laypage-curr .layui-laypage-em {
             background-color: #7c9dea;
+        }
+
+        a:link {
+            color: #6982BC;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #6982BC;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #275DD6;
+            text-decoration: underline;
+        }
+
+
+        .title {
+            font-size: 12px;
+            font-weight: normal;
+            color: #345369 !important;
         }
     </style>
 }
@@ -279,21 +302,46 @@
     </script>
 }
 
+<input type="hidden" id="products" value="@JsonUtil.ToJson(ViewBag.Products)"/>
+
 <div class="head">
     <div class="navigation">
         <span class="logo"></span>
         <span style="float: left">
-            admin@qq.com
+            @ViewBag.User.Username
         </span>
-        <span style="float: left; margin-left: 20px;">
-            <i class="ico_bzj">金牌商家</i>
-        </span>
-        <span style="float: left; margin-left: 20px;">
-            <i class="ico_bzy">银牌商家</i>
-        </span>
-        <span style="float: left; margin-left: 20px;">
-            <i class="ico_bzt">普通商家</i>
-        </span>
+        @{
+                var user = ViewBag.User;
+
+                switch (user.Level) {
+                    case 1:
+                        <span style="float: left; margin-left: 20px;">
+                            <i class="ico_bzj">企业商铺</i>
+                        </span>
+                        break;
+                    case 2:
+                        <span style="float: left; margin-left: 20px;">
+                            <i class="ico_bzj">企业商铺</i>
+                        </span>
+                        break;
+                    case 3:
+                        <span style="float: left; margin-left: 20px;">
+                            <i class="ico_bzj">金牌商家</i>
+                        </span>
+                        break;
+                    case 4:
+                        <span style="float: left; margin-left: 20px;">
+                            <i class="ico_bzy">银牌商家</i>
+                        </span>
+                        break;
+                    case 5:
+                        <span style="float: left; margin-left: 20px;">
+                            <i class="ico_bzt">普通商家</i>
+                        </span>
+                        break;
+                }
+            }
+
         <ul>
             <li class="active"><span>首页</span></li>
             <li><span>游客订单</span></li>
@@ -306,14 +354,9 @@
 
 <div class="notice">
     <i class="layui-icon layui-icon-close-fill close" name="closeNotice"></i>
-    <p>1.这里可以写一些公告信息</p>
-    <p>1.这里可以写一些公告信息</p>
-    <p>1.这里可以写一些公告信息</p>
-    <p>1.这里可以写一些公告信息</p>
-    <p>1.这里可以写一些公告信息</p>
-    <p>1.这里可以写一些公告信息</p>
-    <p>1.这里可以写一些公告信息</p>
-    <p>1.这里可以写一些公告信息</p>
+    <p>
+        @Html.Raw(user.ShopNotice)
+    </p>
 </div>
 
 
@@ -321,59 +364,6 @@
 
 <div class="body">
     <div class="left">
-        <div class="item-line">
-            <h3>卖家信息</h3>
-        </div>
-        
-        <div class="item-line merchant">
-            <span style="text-align: center; display: block;">
-                <img src="/content/images/shop_left_title.png" />
-            </span>
-            <span class="stress">
-                <em>商户账号：</em>
-                admin@qq.com
-            </span>
-
-
-            <span style="text-align: center; display: block;">
-                <img src="/content/images/shop_left_title2.png" />
-            </span>
-            <span class="stress">
-                <em>联系QQ：</em>
-                2175656094
-            </span>
-
-            <span style="text-align: center; display: block;">
-                <img src="/content/images/shop_left_title3.png" />
-            </span>
-            <span>
-                <ul class="left-category-tags">
-                    <li>中国移动</li>
-                    <li>中国联通</li>
-                    <li>中国电信</li>
-                </ul>
-            </span>
-
-
-            <span style="text-align: center; display: block;">
-                <img src="/content/images/shop_left_title4.png" />
-            </span>
-            <span>
-                <ul id="shopCar" class="left-shop-car">
-                </ul>
-                <ul class="left-shop-car">
-                    <li style="background-color: #fff;color:#cacaca">购物车商品总数：<span id="shopCarCount">0</span></li>
-                    <li style="background-color: #fff">
-                        <button class="button button-red" style="width: 100%; height: 60px;background-color: #3f6fe0; font-size: 20px">去结算</button>
-                    </li>
-                </ul>
-            </span>
-        </div>
-    </div>
-    
-    <div class="vertical-line-20"></div>
-
-    <div class="right">
         <div class="item-line" style="display: block; line-height: 50px">
             <h3>经营商品</h3>
         </div>
@@ -381,12 +371,12 @@
         <div class="item-line">
             <table class="table-product">
                 <thead>
-                    <tr>
-                        <th style="width:198px">缩略图</th>
-                        <th style="width:198px">商品名</th>
-                        <th style="width:198px">价格</th>
-                        <th style="width:198px">购物清单</th>
-                    </tr>
+                <tr>
+                    <th style="width:198px">主图</th>
+                    <th style="width:198px">商品名</th>
+                    <th style="width:198px">价格</th>
+                    <th style="width:198px">购物清单</th>
+                </tr>
                 </thead>
                 <tbody></tbody>
             </table>
@@ -394,6 +384,63 @@
 
         <div class="item-line">
             <div id="page" style="text-align: center"></div>
+        </div>
+        
+    </div>
+    
+    <div class="vertical-line-20"></div>
+
+    <div class="right">
+        <div class="item-line">
+            <h3>卖家信息</h3>
+        </div>
+
+        <div class="item-line merchant">
+            <span style="text-align: center; display: block;">
+                <img src="/content/images/shop_left_title.png"/>
+            </span>
+            <span class="stress">
+                <em>商户账号：</em>
+                @user.Username
+            </span>
+
+
+            <span style="text-align: center; display: block;">
+                <img src="/content/images/shop_left_title2.png"/>
+            </span>
+            <span class="stress">
+                <em>联系QQ：</em>
+                @user.QQ
+            </span>
+
+            <span style="text-align: center; display: block;">
+                <img src="/content/images/shop_left_title3.png"/>
+            </span>
+            <span>
+                <ul class="left-category-tags">
+                    @{
+                        var categorys = ViewBag.Categorys;
+                        foreach (var category in categorys) {
+                            <li>@category</li>
+                        }
+                    }
+                </ul>
+            </span>
+
+
+            <span style="text-align: center; display: block;">
+                <img src="/content/images/shop_left_title4.png"/>
+            </span>
+            <span>
+                <ul id="shopCar" class="left-shop-car">
+                </ul>
+                <ul class="left-shop-car">
+                    <li style="background-color: #fff; color: #cacaca">购物车商品总数：<span id="shopCarCount">0</span></li>
+                    <li style="background-color: #fff">
+                        <button class="button button-red" style="width: 100%; height: 60px; background-color: #3f6fe0; font-size: 20px">去结算</button>
+                    </li>
+                </ul>
+            </span>
         </div>
     </div>
 </div>

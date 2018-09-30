@@ -32,5 +32,12 @@ namespace YunMall.Web.IDAL.product {
         /// <param name="where"></param>
         /// <returns></returns>
         List<ProductDetail> SelectLimit(int page, string limit, int state, string beginTime, string endTime, string where);
+
+        /// <summary>
+        /// 查询店铺商品信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        IList<ShopProductDetail> GetShopProducts(int uid);
     }
 }

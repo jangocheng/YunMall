@@ -3,58 +3,7 @@
         var laypage = layui.laypage, layer = layui.layer;
 
         //测试数据
-        var data = [
-            {
-                pid: 1,
-                productName: "中秋节月饼中秋节月饼中秋节月饼",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 2,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 3,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 4,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 5,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 6,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 7,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            }
-        ];
-
+        var data = JSON.parse($("#products").val());
 
         // 购物车
         var shopCarData = []; 
@@ -142,13 +91,13 @@
                 var str = "";
                 str += "<tr>";
                 str += "  <td>";
-                str += '      <img style="" src="' + item.mainImage + '" />';
+                str += '      <img style="" src="' + item.MainImage + '" />';
                 str += "</td>";
                 str += "<td>";
-                str += '  <a href="#" class="title">' + item.productName + '</a>';
+                str += '  <a href="#" class="title">' + item.ProductName + '</a>';
                 str += "</td>";
                 str += "<td>";
-                str += '  <span class="price" style="font-size: 20px"  data-pid="' + item.pid + '" data-amount="' + item.amount + '">' + item.amount + '</span>';
+                str += '  <span class="price" style="font-size: 20px"  data-pid="' + item.Pid + '" data-amount="' + item.Amount + '">' + item.Amount + '</span>';
                 str += "</td>";
                 str += "<td>";
                 str +=

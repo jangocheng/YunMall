@@ -12,6 +12,14 @@ namespace YunMall.Web.IBLL.product {
         /// <returns></returns>
         bool CreateProduct(Product product, ref string cause);
 
+
+        /// <summary>
+        /// 查询店铺商品信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        IList<ShopProductDetail> GetShopProducts(int uid);
+
         /// <summary>
         /// 上架商品 韦德 2018年9月24日17:00:43
         /// </summary>

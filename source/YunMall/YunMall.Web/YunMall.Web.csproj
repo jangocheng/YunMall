@@ -356,6 +356,7 @@
     <Content Include="Content\js\module\finance\accounts.js" />
     <Content Include="Content\js\module\finance\pay.js" />
     <Content Include="Content\js\module\finance\recharge.js" />
+    <Content Include="Content\js\module\shop\index.js" />
     <Content Include="Content\js\module\order\buy.js" />
     <Content Include="Content\js\module\product\manage.js" />
     <Content Include="Content\js\module\product\publish.js" />

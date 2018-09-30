@@ -19,6 +19,13 @@ namespace YunMall.Web.IBLL.user {
         LoginResult Login(string username, string password, ref UserDetail user);
 
         /// <summary>
+        /// 根据id查询用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        User GetUserById(int id);
+
+        /// <summary>
         /// 注册 韦德 2018年9月17日17:51:18
         /// </summary>
         /// <param name="username"></param>

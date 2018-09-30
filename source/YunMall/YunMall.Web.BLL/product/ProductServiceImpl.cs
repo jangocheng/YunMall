@@ -54,6 +54,15 @@ namespace YunMall.Web.BLL.product {
         }
 
         /// <summary>
+        /// 查询店铺商品信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        public IList<ShopProductDetail> GetShopProducts(int uid) {
+            return productRepository.GetShopProducts(uid);
+        }
+
+        /// <summary>
         /// 上架商品 韦德 2018年9月24日17:01:24
         /// </summary>
         /// <param name="userId"></param>

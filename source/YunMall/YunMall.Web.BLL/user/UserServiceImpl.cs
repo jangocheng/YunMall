@@ -78,6 +78,20 @@ namespace YunMall.Web.BLL.user {
         }
 
         /// <summary>
+        /// 根据id查询用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public User GetUserById(int id) {
+            var list = userRepository.Query<User>(new QueryParam()
+            {
+                StrWhere = $"uid = '{id}'"
+            });
+            if (list == null || list.Count == 0) return null;
+            return list.First();
+        }
+
+        /// <summary>
         /// 注册 韦德 2018年9月17日17:51:18
         /// </summary>
         /// <param name="username"></param>
