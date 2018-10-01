@@ -98,7 +98,8 @@ namespace YunMall.Web.Areas.Product.Controllers
                     Type = type,
                     Description = description,
                     Sid = user.Uid,
-                    MainImage = mainImage
+                    MainImage = mainImage,
+                    Status =  0
                 }, ref cause);
 
                 if (result) return Json(new HttpResp("编辑成功"));

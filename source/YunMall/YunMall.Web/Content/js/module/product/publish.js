@@ -4,6 +4,7 @@
     $('input[name="price"]').eq(0).bind('input propertychange', function () {
         var returnRate = $("#returnRate").val();
         var realPrice = parseFloat($(this).val()) - (parseFloat($(this).val()) * parseFloat(returnRate) / 100);
+        if (isNaN(realPrice)) realPrice = 0;
         $("label[name='realAmount']").text("￥" + realPrice);
     });
 

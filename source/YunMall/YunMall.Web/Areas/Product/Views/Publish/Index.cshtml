@@ -1,5 +1,6 @@
 ﻿@using System.Web.Optimization
 @using YunMall.Entity.dbExt
+@using YunMall.Utility.jsonData
 
 @{
     ViewBag.Title = "发布商品";
@@ -87,6 +88,14 @@
                                                     }
                                                 }
                                             </optgroup>
+                                                        }
+                                        else {
+                                            foreach (var item in categoryDetails) {
+                                                if (item.ParentId == categoryDetail.Cid) {
+                                                    <option value="@item.Cid">@item.CategoryName</option>
+                                                }
+                                            }
+
                                         }
                                     }
                                 }
@@ -195,8 +204,8 @@
                                                     }
                                                 }
                                             </optgroup>
-                                        }
-                                    }
+                                            }
+                                        }  
                                 }
                             </select>
                         </div>

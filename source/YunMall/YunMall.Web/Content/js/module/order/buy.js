@@ -1,60 +1,28 @@
-﻿layui.use(['laypage', 'layer'],
+﻿function findProduct(arr, id) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].Pid === id) {
+            return arr[i];
+        }
+    }
+}
+
+layui.use(['laypage', 'layer'],
     function () {
         var laypage = layui.laypage, layer = layui.layer;
 
         //测试数据
-        var data = [
-            {
-                pid: 1,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 2,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 3,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 4,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 5,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 6,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            },
-            {
-                pid: 7,
-                productName: "中秋节月饼(广州)",
-                amount: 128,
-                count: 1,
-                mainImage: "/Content/upload_image/20180921/636731695907172444.jpg"
-            }
-        ];
+        var nData = JSON.parse($("#products").val());
+        var data = [];
+        var productMaps = JSON.parse($("#productMaps").val());
 
+        for (var j = 0; j < productMaps.length; j++) {
+            var key = productMaps[j];
+            var product = findProduct(nData, key.Pid);
+            if (product != null) {
+                product.Count = key.Count;
+                data.push(product);
+            }
+        }  
 
         //调用分页
         laypage.render({
@@ -68,12 +36,16 @@
 
         $("#goPay").click(function() {
             layer.prompt({ title: '请输入支付密码', formType: 1 },
-                function(pass, index) {
+                function (pass, index) {
+
+                    $.post("/order/buy/payment",
+                        {
+                            type: 0,
+                            security: pass,
+                            products: 
+                        });
+
                     layer.close(index);
-                    /*layer.prompt({title: '随便写点啥，并确认', formType: 2}, function(text, index){
-                        layer.close(index);
-                        layer.msg('演示完毕！您的口令：'+ pass +'<br>您最后写下了：'+text);
-                    });*/
                 });
         });
 
@@ -88,19 +60,17 @@
         function jumpPage(obj) {
             //模拟渲染
             drawTable(obj);
-
-
+             
             var total = 0;
             for (var i = 0; i < data.length; i++) {
-                total += data[i].amount;
+                total += data[i].Amount * data[i].Count;
             }
             $("#total").text(total);
 
             $(".num").keydown(function () {
-                var ignores = [8, 18, 144, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105];
-                console.log(event.keyCode);
+                var ignores = [8, 18, 144, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105]; 
                 for (var i = 0; i < ignores.length; i++) {
-                    if (event.keyCode == ignores[i]) {
+                    if (event.keyCode === ignores[i]) {
                         return true;
                     }
                 }
@@ -110,21 +80,24 @@
                 var amount = $(this).parent().prev().find("span").data("amount");
                 var pid = $(this).parent().prev().find("span").data("pid");
                 var count = $(this).val();
+                if (count === null || count.length <= 0) count = 1;
+                if (count * amount <= 0) return;
                 $(this).parent().prev().find("span").text(count * parseFloat(amount));
 
 
                 for (var i = 0; i < data.length; i++) {
-                    if (pid === data[i].pid) {
-                        data[i].amount = count * parseFloat(amount);
-                        data[i].count = count;
+                    if (pid === data[i].Pid) {
+                        data[i].Amount = count * parseFloat(amount);
+                        data[i].Count = count;
                     };
                 }
 
                 total = 0;
                 for (var i = 0; i < data.length; i++) {
-                    total += data[i].amount;
+                    total += data[i].Amount * data[i].Count;
                 }
                 $("#total").text(total);
+
             });
 
             $("button[name='remove']").click(function () {
@@ -158,17 +131,29 @@
                 var str = "";
                 str += "<tr>";
                 str += "  <td>";
-                str += '      <img src="' + item.mainImage + '" />';
+                str += '      <img src="' + item.MainImage + '" />';
                 str += "</td>";
                 str += "<td>";
-                str += '  <a href="#" class="title">' + item.productName + '</a>';
+                if (item.ProductName.length > 10) {
+                    str += '  <a href="javascript:void(0)" class="title " data-pid="' + item.Pid + '"  title="' +
+                        item.ProductName +
+                        '">' +
+                        item.ProductName.substr(0, 10).trim() +
+                        '...</a>';
+                } else {
+                    str += '  <a href="javascript:void(0)" class="title "  data-pid="' + item.Pid + '"  title="' +
+                        item.ProductName +
+                        '">' +
+                        item.ProductName +
+                        '</a>';
+                }
                 str += "</td>";
                 str += "<td>";
-                str += '  <span class="price"  data-pid="' + item.pid + '" data-amount="' + item.amount + '">' + item.amount + '</span>';
+                str += '  <span class="price"  data-pid="' + item.Pid + '" data-amount="' + item.Amount + '">' + item.Amount + '</span>';
                 str += "</td>";
                 str += "<td>";
                 str +=
-                    '  <input class="num" type="number" name="name" value="' + item.count + '"/>';
+                    '  <input class="num" type="number" name="name" value="' + item.Count + '"/>';
                 str += "</td>";
                 str += "<td>";
                 str += '  <button class="button button-red" name="remove">移除</button>';
@@ -177,7 +162,7 @@
                 str += "</tr>";
                 arr.push(str);
             });
-            $("tbody").html(arr.join(''));
+            $("tbody").html(arr.join('')); 
         }
 
     });

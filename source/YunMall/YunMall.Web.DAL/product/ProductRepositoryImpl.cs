@@ -82,11 +82,28 @@ namespace YunMall.Web.DAL.product {
         /// <returns></returns>
         public IList<ShopProductDetail> GetShopProducts(int uid) {
             StringBuilder builder = new StringBuilder();
-            builder.Append("SELECT t1.*,t2.* FROM products t1 ");
+            builder.Append("SELECT t1.*,t3.cid, t3.categoryName AS parentName, t2.* FROM products t1 ");
             builder.Append("LEFT JOIN categorys t2 ON t1.categoryId = t2.cid ");
-            builder.Append($"WHERE t1.sid = {uid} ");
+            builder.Append("LEFT JOIN categorys t3 ON t2.parentId = t3.cid ");
+            builder.Append($"WHERE t1.sid = {uid} AND t1.status = 1 ");
             var dataSet = DBHelperMySql.Query(builder.ToString());
             return dataSet.ToList<ShopProductDetail>();
+        }
+
+        /// <summary>
+        /// 查询商品信息列表
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        public IList<ProductDetail> QueryDetails(string pid) {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("SELECT t1.*,t2.roleId,t2.level,t3.* FROM products t1 ");
+            builder.Append("LEFT JOIN users t2 ON t1.sid = t2.uid ");
+            builder.Append("LEFT JOIN permissions t3 ON t2.roleId = t3.permissionId ");
+            builder.Append($"WHERE pid IN({pid}); ");
+            var dateSet = DBHelperMySql.Query(builder.ToString());
+            if (dateSet == null || dateSet.Tables.Count <= 0) return null;
+            return dateSet.Tables[0].ToList<ProductDetail>();
         }
 
         /// <summary>

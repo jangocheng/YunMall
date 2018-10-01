@@ -46,6 +46,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DF.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DF.Common\bin\Debug\DF.Common.dll</HintPath>
+    </Reference>
     <Reference Include="DF.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DF.Log\DF.Log\bin\Debug\DF.Log.dll</HintPath>
@@ -215,6 +219,7 @@
     <Content Include="Content\css\module\order\index.css" />
     <Content Include="Content\css\module\product\manage.css" />
     <Content Include="Content\css\module\product\publish.css" />
+    <Content Include="Content\css\module\shop\index.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\frame\echarts\echarts.min.js" />
     <Content Include="Content\frame\layui\css\layui.css" />
@@ -422,6 +427,7 @@
     <Content Include="Views\Management\Index.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shared\_ShopLayout.cshtml" />
+    <Content Include="Views\Shop\Preview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YunMall.Entity\YunMall.Entity.csproj">

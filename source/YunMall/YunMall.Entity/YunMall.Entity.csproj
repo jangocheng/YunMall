@@ -77,6 +77,7 @@
     <Compile Include="ModelView\PageParam.cs" />
     <Compile Include="ModelView\PayParam.cs" />
     <Compile Include="ModelView\QueryParam.cs" />
+    <Compile Include="ModelView\ShopCarParam.cs" />
     <Compile Include="ModelView\TaskReq.cs" />
     <Compile Include="model\IgnoreFieldAttribute.cs" />
     <Compile Include="model\GenerateIdAttribute.cs" />

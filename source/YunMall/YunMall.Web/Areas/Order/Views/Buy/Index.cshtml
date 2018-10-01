@@ -1,5 +1,6 @@
 ﻿@using System.Web.Optimization
 @using YunMall.Entity
+@using YunMall.Utility.jsonData
 @model dynamic
 
 @{
@@ -7,12 +8,16 @@
     Layout = "~/Views/Shared/_ShopLayout.cshtml";
 }
 
-@section styles { 
+@section styles {
 }
 
 @section scripts {
     @Scripts.Render("~/Content/js/module/order/buy.js")
 }
+
+
+<input type="hidden" id="productMaps" value="@JsonUtil.ToJson(ViewBag.ProductMaps)" />
+<input type="hidden" id="products" value="@JsonUtil.ToJson(ViewBag.Products)" />
 
 <div class="head">
     <div class="navigation">
@@ -27,33 +32,33 @@
         <div class="item-line" style="min-height: 380px;">
             <table class="table-product">
                 <thead>
-                <tr>
-                    <th style="width:198px">缩略图</th>
-                    <th style="width:198px">商品名</th>
-                    <th style="width:198px">价格</th>
-                    <th style="width:198px">数量</th>
-                    <th style="width:198px">操作</th>
-                </tr>
+                    <tr>
+                        <th style="width:198px">缩略图</th>
+                        <th style="width:198px">商品名</th>
+                        <th style="width:198px">价格</th>
+                        <th style="width:198px">数量</th>
+                        <th style="width:198px">操作</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <!--
-                <tr>
-                    <td>
-                        <img src="/Content/upload_image/20180921/636731695907172444.jpg" />
-                    </td>
-                    <td>
-                        <a href="#" class="title">中秋节月饼(广州)</a>
-                    </td>
-                    <td>
-                        <span class="price" data-amount="128.00">128.00</span>
-                    </td>
-                    <td>
-                        <input class="num" type="number" name="name" value="1" onblur="flushPrice(this)" onkeypress="return /[\d]/.test(String.fromCharCode(event.keyCode))" />
-                    </td>
-                    <td>
-                        <button class="button button-red">移除</button>
-                    </td>
-                </tr>-->
+                    <!--
+                    <tr>
+                        <td>
+                            <img src="/Content/upload_image/20180921/636731695907172444.jpg" />
+                        </td>
+                        <td>
+                            <a href="#" class="title">中秋节月饼(广州)</a>
+                        </td>
+                        <td>
+                            <span class="price" data-amount="128.00">128.00</span>
+                        </td>
+                        <td>
+                            <input class="num" type="number" name="name" value="1" onblur="flushPrice(this)" onkeypress="return /[\d]/.test(String.fromCharCode(event.keyCode))" />
+                        </td>
+                        <td>
+                            <button class="button button-red">移除</button>
+                        </td>
+                    </tr>-->
 
                 </tbody>
             </table>
@@ -93,7 +98,7 @@
         <span style="display: block; float: left; color: #cacaca; padding-left: 25px; width: 100%">防骗防盗：系统并不存在卡单，请勿相信也不要随意打开陌生人发来的链接</span>
         <button id="goPay" class="button button-red button-lg" style="float: right; margin-top: 20px;background-color: #fc6363;">去支付</button>
     </div>
-    
+
     <div id="direct" class="content" style="display: none;min-height: 480px;">
         <div class="break-line-100"></div>
         <div class="break-line-20"></div>
@@ -103,7 +108,7 @@
             <span style="position: relative; right: 165px; top: 100px; font-size: 15px; font-weight: bold">订单支付中，请稍后……</span>
         </div>
     </div>
-    <div style="position: relative; top: 60px;width: 1140px; margin: 0 auto; text-align: center; font-size: 12px; color: #a5a5a5;">
+    <div style="position: relative; top: 60px;width: 1140px; margin: 0 auto; text-align: center; font-size: 12px; color: #a5a5a5;height: 40px;">
         <span>2018 - @Constants.Brand</span>
     </div>
 </div>

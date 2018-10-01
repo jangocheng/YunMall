@@ -153,7 +153,10 @@ namespace YunMall.Web.BLL.user {
                 {
                     Username = username,
                     Password = MD5Encrypt.MD5(MD5Encrypt.MD5(username + password)),
-                    QQ = contact
+                    QQ = contact,
+                    ParentId = "0",
+                    Level = 0,
+                    RoleId = "0",
                 }, ref pk);
             }
             catch (Exception e) {

@@ -1,12 +1,12 @@
-﻿layui.use(['laypage', 'layer'],
+﻿// 购物车
+window.shopCarData = []; 
+
+layui.use(['laypage', 'layer'],
     function () {
         var laypage = layui.laypage, layer = layui.layer;
 
         //测试数据
         var data = JSON.parse($("#products").val());
-
-        // 购物车
-        var shopCarData = []; 
 
         //调用分页
         laypage.render({
@@ -94,7 +94,19 @@
                 str += '      <img style="" src="' + item.MainImage + '" />';
                 str += "</td>";
                 str += "<td>";
-                str += '  <a href="#" class="title">' + item.ProductName + '</a>';
+                if (item.ProductName.length > 30) {
+                    str += '  <a href="javascript:void(0)" class="title preview" data-pid="' + item.Pid + '"  title="' +
+                        item.ProductName +
+                        '">' +
+                        item.ProductName.substr(0, 30).trim() +
+                        '...</a>';
+                } else {
+                    str += '  <a href="javascript:void(0)" class="title preview"  data-pid="' + item.Pid + '"  title="' +
+                        item.ProductName +
+                        '">' +
+                        item.ProductName + 
+                        '</a>';
+                }
                 str += "</td>";
                 str += "<td>";
                 str += '  <span class="price" style="font-size: 20px"  data-pid="' + item.Pid + '" data-amount="' + item.Amount + '">' + item.Amount + '</span>';
@@ -122,10 +134,7 @@
             $("button[name='addShopCar']").click(function () {
                 var name = $(this).parent().prev().prev().text();
                 var pid = $(this).parent().prev().find("span").data("pid");
-                shopCarData.push({
-                    pid: pid,
-                    pname: name,
-                });
+                shopCarData.push(pid);
                 $("#shopCarCount").text(shopCarData.length);
                 $(this).animate({ width: "90px", height: "35px" }, 300, null, function () {
                     $(this).animate({ width: "100px", height: "30px" }, 300);
@@ -140,5 +149,39 @@
                     }
                 });
             });
+             
+
+            // 预览商品信息
+            $(".preview").bind("click", function() {
+                $.get('/shop/preview',
+                    {
+                        pid: $(this).data("pid")
+                    }, function (str) {
+                        layer.open({
+                            area: ["800px","650px"],
+                            title: "商品详情",
+                            type: 1,
+                            content: str //注意，如果str是object，那么需要字符拼接。
+                        });
+                    });
+            });
+
+            // 去结算
+            $("button[name='goPayment']").bind("click", function() {
+                var href = '/order/buy?products=';
+                if (shopCarData.length === 0 ) {
+                    // 请选择商品
+                    return layer.msg("请您至少选中一件商品");
+                } else if (shopCarData.length != 0) {
+                    href += shopCarData.join(",");
+                } else {
+                    return layer.msg("未知错误");
+                }
+                location.href = href;
+            });
         }
+
+
     });
+
+

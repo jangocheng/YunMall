@@ -39,5 +39,12 @@ namespace YunMall.Web.IDAL.product {
         /// <param name="uid"></param>
         /// <returns></returns>
         IList<ShopProductDetail> GetShopProducts(int uid);
+
+        /// <summary>
+        /// 查询商品信息列表
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        IList<ProductDetail> QueryDetails(string pid);
     }
 }

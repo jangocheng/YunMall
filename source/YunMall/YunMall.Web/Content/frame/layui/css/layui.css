@@ -827,7 +827,7 @@ a {
 
 .layui-layout-admin .layui-body {
     top: 80px;
-    bottom: 44px;
+    /* bottom: 44px; */
 }
 
 .layui-layout-admin .layui-main {

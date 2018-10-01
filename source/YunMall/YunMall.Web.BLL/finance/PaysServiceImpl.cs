@@ -307,5 +307,27 @@ namespace YunMall.Web.BLL.finance {
 
         #endregion
 
+        #region 支付相关
+        /// <summary>
+        /// 验证支付密码
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="security"></param>
+        /// <param name="cause"></param>
+        /// <returns></returns>
+        public bool CheckSecurityPassword(User user, string security, ref string cause) {
+            // 1.安全hash校对
+            var securityPassword = MD5Encrypt.MD5(MD5Encrypt.MD5(user.Username + user.SecurityPassword));
+            var nSecurityPassword = MD5Encrypt.MD5(MD5Encrypt.MD5(user.Username + security));
+            if (securityPassword != nSecurityPassword){
+                cause = "支付密码不正确";
+            }
+            else {
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
     }
 }

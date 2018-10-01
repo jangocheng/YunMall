@@ -21,6 +21,13 @@ namespace YunMall.Web.IBLL.product {
         IList<ShopProductDetail> GetShopProducts(int uid);
 
         /// <summary>
+        /// 查询商品信息列表
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        IList<ProductDetail> GetShopProducts(string pid);
+
+        /// <summary>
         /// 上架商品 韦德 2018年9月24日17:00:43
         /// </summary>
         /// <param name="userId"></param>

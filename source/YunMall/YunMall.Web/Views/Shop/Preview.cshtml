@@ -1,0 +1,112 @@
+﻿@model YunMall.Entity.dbExt.ShopProductDetail
+
+<style>
+    .preview-container {
+        padding: 20px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #left, #left img {
+        width: 340px;
+    }
+
+    #right {
+        width: 350px;
+    }
+
+    #left, #right {
+        display: inline-block;
+    }
+
+    #right {
+        font-family: "Microsoft Yahei";
+    }
+
+        #right .title {
+            font-size: 25px;
+            color: #696969;
+            display: block;
+        }
+        #right span {
+            display: inline-block;
+            font-size: 12px;
+            color: #6C6C6C;
+        }
+        #right .price {
+            font-size: 30px;
+            color: #FF5722;
+            font-weight: bold;
+            line-height: 80px;
+        }
+
+    .product-detail {
+        width: 100%;
+        background-color: #FFF2E8;
+        padding-left: 20px;
+    }
+
+    .top {
+        height: 360px;
+    }
+
+    .top, .bottom {
+        display: block;
+        width: 100%;
+    }
+
+    .description {
+        padding: 20px;
+    }
+</style>
+
+
+<div class="preview-container">
+    <div class="top">
+        <div id="left" style="float: left;">
+            <img src="@Model.MainImage" alt="@Model.ProductName" />
+        </div>
+
+        <div id="right" style="float: right">
+            <div>
+                <span class="title">@(Model.ProductName.Length > 90 ? Model.ProductName.Substring(0, 90) + "..." : Model.ProductName)</span>
+            </div>
+            <div class="break-line-20"></div>
+            <div class="product-detail">
+                <span style="width:50px">价格</span>
+                <span style="color: #FF5722; font-size: 22px;width: 20px; font-family: arial;">¥</span>
+                <span class="price">@Model.Amount</span>
+                <span style="float: right; line-height: 80px; width: 50px; text-align: center; position: relative;right: 15px;">
+                    <span style="line-height: 20px; background-color: #ff5722; width: 50px; color: #fff; font-family: '宋体'">
+                        @(Model.Type == 1 ? "直充" : "非直充")
+                    </span>
+                </span>
+            </div>
+            <div class="break-line-20"></div>
+            <div style="text-align: center;width: 106%">
+                <button class="button button-red" style="width: 100%; height: 60px; background-color: #ff5722; font-size: 20px" onclick="buy(@Model.Pid)">立刻购买</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bottom">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend>商品描述</legend>
+        </fieldset>
+        <div class="description">
+            <p>
+                @Html.Raw(Model.Description)
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function buy(pid) {
+        var href = '/order/buy?products='; 
+        href += pid;
+        if (pid == null)  return layer.msg("请您至少选中一件商品"); 
+        location.href = href;
+    };
+</script>

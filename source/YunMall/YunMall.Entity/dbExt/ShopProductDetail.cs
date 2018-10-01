@@ -38,5 +38,8 @@ namespace YunMall.Entity.dbExt {
         public bool IsEnable { get; set; }
 
         public bool IsDelete { get; set; }
+
+        public string ParentName { get; set; }
+
     }
 }

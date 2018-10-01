@@ -44,8 +44,8 @@ namespace YunMall.Web.DAL.order {
             builder.Append("?orderId,");
             builder.Append("?pid,");
             builder.Append("(SELECT productName FROM products WHERE pid = ?pid),");
-            builder.Append("?sid,");
-            builder.Append("(SELECT username FROM users WHERE uid = ?sid),");
+            builder.Append("(SELECT sid FROM products WHERE pid = ?pid),");
+            builder.Append("(SELECT username FROM users WHERE uid = (SELECT sid FROM products WHERE pid = ?pid)),");
             builder.Append("?uid,");
             builder.Append("(SELECT username FROM users WHERE uid = ?uid),");
             builder.Append("?amount,");
@@ -57,7 +57,6 @@ namespace YunMall.Web.DAL.order {
             var paras = new List<MySqlParameter>();
             paras.Add(new MySqlParameter("?orderId", orders.OrderId));
             paras.Add(new MySqlParameter("?pid", orders.Pid));
-            paras.Add(new MySqlParameter("?sid", orders.Sid));
             paras.Add(new MySqlParameter("?uid", orders.Uid));
             paras.Add(new MySqlParameter("?amount", orders.Amount));
             paras.Add(new MySqlParameter("?remark", orders.Remark));

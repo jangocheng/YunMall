@@ -6,6 +6,7 @@ CREATE TABLE `users` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(16) NOT NULL COMMENT '用户名',
   `password` varchar(32) NOT NULL COMMENT '密码',
+  `securityPassword` varchar(32) DEFAULT NULL COMMENT '支付密码',
   `level` int(11) DEFAULT '0' COMMENT '等级(0=会员,1=管理员,2=供货商,3=甲级代理商,4=乙级代理商,5=普通代理商)',
   `roleId` varchar(32) DEFAULT NULL COMMENT '角色id',
   `parentId` int(11) DEFAULT NULL COMMENT '上级用户id',
@@ -19,6 +20,7 @@ CREATE TABLE `users` (
   `realName` varchar(32) DEFAULT NULL COMMENT '户主真实姓名',
   `addTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
   `remark` varchar(255) DEFAULT NULL COMMENT '摘要',
+  `shopNotice` text COMMENT '店铺公告',
   PRIMARY KEY (`uid`),
   UNIQUE KEY `uq_user` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';

@@ -24,6 +24,9 @@ namespace YunMall.Web.BLL.order {
         /// 创建订单
         /// </summary>
         /// <param name="orders"></param>
+        /// <para>
+        ///  
+        /// </para>
         /// <returns></returns>
         public bool PlaceOrder(Orders orders) {
             // 1.校验商品是否存在

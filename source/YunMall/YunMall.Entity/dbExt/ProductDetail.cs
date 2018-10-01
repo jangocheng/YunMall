@@ -24,6 +24,9 @@ namespace YunMall.Entity.dbExt {
 
         public DateTime EditTime { get; set; }
 
+        public int Count { get; set; }
+
+
         /*users*/
         public int Uid { get; set; }
 

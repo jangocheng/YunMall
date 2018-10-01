@@ -63,6 +63,15 @@ namespace YunMall.Web.BLL.product {
         }
 
         /// <summary>
+        /// 查询商品信息列表
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        public IList<ProductDetail> GetShopProducts(string pid) {
+            return productRepository.QueryDetails(pid);
+        }
+
+        /// <summary>
         /// 上架商品 韦德 2018年9月24日17:01:24
         /// </summary>
         /// <param name="userId"></param>
@@ -129,7 +138,8 @@ namespace YunMall.Web.BLL.product {
             builder.Append($"mainImage='{product.MainImage}',");
             builder.Append($"type={product.Type},");
             builder.Append($"description='{product.Description}',");
-            builder.Append($"categoryId='{product.CategoryId}'");
+            builder.Append($"categoryId='{product.CategoryId}',");
+            builder.Append($"status=0");
             return productRepository.Update(builder.ToString(), $"sid = {product.Sid} AND pid = {product.Pid}");
         }
 
