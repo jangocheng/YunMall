@@ -58,6 +58,13 @@ namespace YunMall.Web.BLL.user {
                 User = list.First()
             };
 
+            queryParam = new QueryParam();
+            queryParam.StrWhere = $"userId = {user.User.Uid}";
+            var wallets = walletRepository.Query<Wallet>(queryParam);
+            if (!(wallets != null && wallets.Count > 0)) return LoginResult.L00001;
+            user.Wallet = wallets.First();
+
+
             // 查询用户权限列表
             var permissions = permissionRepository.SelectList(user.User.Uid);
             if (!(permissions != null && permissions.Count > 0)) return LoginResult.L00006;

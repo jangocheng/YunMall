@@ -372,6 +372,7 @@ namespace YunMall.Web.BLL.finance {
             // 5.生成往来账
             var currentAccounts = GetCurrentAccounts(payParam);
             accountsRepository.BatchInsertAccounts(currentAccounts, ref dictionary);
+
         }
 
 

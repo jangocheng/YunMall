@@ -12,6 +12,9 @@ namespace YunMall.Entity.dbExt
         /*users*/
         public User User { get; set; }
 
+        /*wallets*/
+        public Wallet Wallet { get; set; }
+
         public IList<User> ParentUsers { get; set; }
 
         /*permissions*/

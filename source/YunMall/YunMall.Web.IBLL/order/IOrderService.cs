@@ -24,6 +24,6 @@ namespace YunMall.Web.IBLL.order {
         /// </summary>
         /// <param name="dictionary"></param>
         /// <returns></returns>
-        bool CommitLock(IDictionary<string, DbParameter[]> dictionary);
+        bool CommitTransation(IDictionary<string, DbParameter[]> dictionary);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -24,17 +25,17 @@ namespace YunMall.Web.DAL.finance {
         /// <param name="amount"></param>
         /// <param name="version"></param>
         /// <param name="dictionary"></param>
-        public void OutAccounts(int uid, double amount, int version, ref IDictionary<string, DbParameter[]> dictionary)
-        {
+        public void OutAccounts(int uid, double amount, int version, ref IDictionary<string, DbParameter[]> dictionary) {
+            var random = Guid.NewGuid().ToString().Replace("-", "").Trim();
             StringBuilder builder = new StringBuilder();
             builder.Append(
-                "UPDATE wallets SET balance = balance - ?amount, updateTime = NOW(), version = version + 1 ");
-            builder.Append(" WHERE `userId`= ?uid AND balance > 0 AND (balance - ?amount) > 0 AND version = ?version ");
+                "UPDATE wallets SET balance = balance - ?" + random + "amount, updateTime = NOW(), version = version + 1 ");
+            builder.Append(" WHERE `userId`= ?" + random +  "uid AND balance > 0 AND (balance - ?" + random + "amount) > 0 AND version = ?" + random + "version ");
             var paras = new List<MySqlParameter>
             {
-                new MySqlParameter("?amount", amount),
-                new MySqlParameter("?uid", uid),
-                new MySqlParameter("?version", version)
+                new MySqlParameter("?" + random + "amount", amount),
+                new MySqlParameter("?" + random + "uid", uid),
+                new MySqlParameter("?" + random + "version", version)
             };
             dictionary.Add(builder.ToString(), paras.ToArray());
         }
@@ -48,15 +49,16 @@ namespace YunMall.Web.DAL.finance {
         /// <param name="dictionary"></param>
         public void PutAccounts(int uid, double amount, int version, ref IDictionary<string, DbParameter[]> dictionary)
         {
+            var random = Guid.NewGuid().ToString().Replace("-", "").Trim();
             StringBuilder builder = new StringBuilder();
             builder.Append(
-                "UPDATE wallets SET balance = balance + ?amount, updateTime = NOW(), version = version + 1 ");
-            builder.Append(" WHERE `userId`= ?uid AND version = ?version ");
+                "UPDATE wallets SET balance = balance + ?" + random + "amount, updateTime = NOW(), version = version + 1 ");
+            builder.Append(" WHERE `userId`= ?" + random + "uid AND version = ?" + random  + "version ");
             var paras = new List<MySqlParameter>
             {
-                new MySqlParameter("?amount", amount),
-                new MySqlParameter("?uid", uid),
-                new MySqlParameter("?version", version)
+                new MySqlParameter("?" + random + "amount", amount),
+                new MySqlParameter("?" + random + "uid", uid),
+                new MySqlParameter("?" + random + "version", version)
             };
             dictionary.Add(builder.ToString(), paras.ToArray());
         }

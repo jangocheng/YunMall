@@ -86,8 +86,9 @@ namespace YunMall.Web.BLL.order {
         /// </summary>
         /// <param name="dictionary"></param>
         /// <returns></returns>
-        public bool CommitLock(IDictionary<string, DbParameter[]> dictionary) {
-            return orderRepository.CommitTransactionLock(dictionary);
+        public bool CommitTransation(IDictionary<string, DbParameter[]> dictionary) {
+            orderRepository.CommitTransaction(dictionary);
+            return true;
         }
     }
 }

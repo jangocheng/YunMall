@@ -43,7 +43,7 @@ namespace YunMall.Web.Areas.Order.Controllers
         // GET: Order/Buy
         public ActionResult Index(string products) {
             var session = SessionInfo.GetSession();
-
+            
             var user = session.UserDetail;
 
             var productDetails = ProductService.GetShopProducts(products);
