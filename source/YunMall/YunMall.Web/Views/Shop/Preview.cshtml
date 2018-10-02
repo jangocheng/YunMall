@@ -1,4 +1,4 @@
-﻿@model YunMall.Entity.dbExt.ShopProductDetail
+﻿@model YunMall.Entity.dbExt.ProductDetail
 
 <style>
     .preview-container {
@@ -76,11 +76,29 @@
                 <span style="width:50px">价格</span>
                 <span style="color: #FF5722; font-size: 22px;width: 20px; font-family: arial;">¥</span>
                 <span class="price">@Model.Amount</span>
-                <span style="float: right; line-height: 80px; width: 50px; text-align: center; position: relative;right: 15px;">
-                    <span style="line-height: 20px; background-color: #ff5722; width: 50px; color: #fff; font-family: '宋体'">
-                        @(Model.Type == 1 ? "直充" : "非直充")
-                    </span>
-                </span>
+                @{
+                    if (Model.Type == 0) {
+                        <span style="float: right; line-height: 80px; width: 50px; text-align: center; position: relative;right: 15px;">
+                            <span style="line-height: 20px; background-color: #ff5722; width: 50px; color: #fff; font-family: '宋体'">
+                                直充
+                            </span>
+                        </span>
+                    }else if (Model.Type == 1) {
+                        <span style="float: right; line-height: 80px; text-align: center; position: relative;right: 15px;">
+                            <span style="line-height: 20px; background-color: #ff5722; width: 80px; color: #fff; font-family: '宋体'">
+                                72小时内发货
+                            </span>
+                        </span>
+                    }
+                    else if (Model.Type == 2) {
+                        <span style="float: right; line-height: 80px; text-align: center; position: relative;right: 15px;">
+                            <span style="line-height: 20px; background-color: #ff5722; width: 80px; color: #fff; font-family: '宋体'">
+                                2小时内发货
+                            </span>
+                        </span>
+                    }
+                }
+                
             </div>
             <div class="break-line-20"></div>
             <div style="text-align: center;width: 106%">

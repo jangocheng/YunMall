@@ -82,7 +82,6 @@ namespace YunMall.Web.DAL.finance {
         public void BatchInsertAccounts(IList<Accounts> currentAccounts,
             ref IDictionary<string, DbParameter[]> dictionary) {
             var paras = new List<MySqlParameter>();
-
             StringBuilder builder = new StringBuilder();
             builder.Append(
                 "INSERT INTO `accounts` (`payId`, `tradeAccountId`, `tradeAccountName`, `accountsType`, `currency`, `amount`, `beforeBalance`, `afterBalance`, `addTime`, `remark`) VALUES");

@@ -5,9 +5,15 @@ namespace YunMall.Entity.db {
         public long OrderId { get; set; }
 
         /// <summary> 
+        /// 订单分组id 
+        /// </summary> 
+        public long GroupId { get; set; }
+
+        /// <summary> 
         /// 商品id 
         /// </summary> 
         public int Pid { get; set; }
+
 
         /// <summary> 
         /// 商品名称 

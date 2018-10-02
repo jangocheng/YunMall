@@ -87,3 +87,5 @@ F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Int
 F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Redis.xml
 F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Common.xml
 F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\ServiceStack.Text.xml
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\YunMall.Web.BLL.Facade.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web.Core\bin\Debug\YunMall.Web.BLL.Facade.pdb

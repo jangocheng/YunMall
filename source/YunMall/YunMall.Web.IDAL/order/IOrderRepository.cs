@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Data.Common;
 using YunMall.Entity.db;
 
 namespace YunMall.Web.IDAL.order {
@@ -8,7 +10,7 @@ namespace YunMall.Web.IDAL.order {
         /// 生成订单
         /// </summary>
         /// <param name="orders"></param>
-        /// <param name="hash"></param>
-        void CreateOrder(Orders orders, ref Hashtable hash);
+        /// <param name="dictionary"></param>
+        void CreateOrder(Orders orders, ref IDictionary<string, DbParameter[]> dictionary);
     }
 }

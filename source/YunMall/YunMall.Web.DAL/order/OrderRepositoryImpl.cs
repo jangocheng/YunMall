@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Text;
 using MySql.Data.MySqlClient;
 using YunMall.Entity.db;
@@ -36,32 +38,36 @@ namespace YunMall.Web.DAL.order {
         /// 生成订单
         /// </summary>
         /// <param name="orders"></param>
-        /// <param name="hash"></param>
-        public void CreateOrder(Orders orders, ref Hashtable hash) {
+        /// <param name="dictionary"></param>
+        public void CreateOrder(Orders orders, ref IDictionary<string, DbParameter[]> dictionary) {
+            var random = Guid.NewGuid().ToString().Replace("-","").Trim();
+
             StringBuilder builder = new StringBuilder();
             builder.Append(
                 "INSERT INTO `orders` (`orderId`, `pid`, `pname`, `sid`, `sname`, `uid`, `uname`, `tradeType`, `amount`,`addTime`, `editTime`, `remark`) VALUES (");
-            builder.Append("?orderId,");
-            builder.Append("?pid,");
-            builder.Append("(SELECT productName FROM products WHERE pid = ?pid),");
-            builder.Append("(SELECT sid FROM products WHERE pid = ?pid),");
-            builder.Append("(SELECT username FROM users WHERE uid = (SELECT sid FROM products WHERE pid = ?pid)),");
-            builder.Append("?uid,");
-            builder.Append("(SELECT username FROM users WHERE uid = ?uid),");
-            builder.Append("?amount,");
+            builder.Append("?" + random + "orderId,");
+            builder.Append("?" + random + "pid,");
+            builder.Append("(SELECT productName FROM products WHERE pid = ?" + random + "pid LIMIT 1),");
+            builder.Append("(SELECT sid FROM products WHERE pid = ?" + random + "pid LIMIT 1),");
+            builder.Append("(SELECT username FROM users WHERE uid = (SELECT sid FROM products WHERE pid = ?" + random + "pid LIMIT 1)),");
+            builder.Append("?" + random + "uid,");
+            builder.Append("(SELECT username FROM users WHERE uid = ?" + random + "uid LIMIT 1),");
+            builder.Append("?" + random + "tradeType,");
+            builder.Append("?" + random + "amount,");
             builder.Append("NOW(),");
             builder.Append("NOW(),");
-            builder.Append("?remark)");
+            builder.Append("?" + random + "remark)");
 
 
             var paras = new List<MySqlParameter>();
-            paras.Add(new MySqlParameter("?orderId", orders.OrderId));
-            paras.Add(new MySqlParameter("?pid", orders.Pid));
-            paras.Add(new MySqlParameter("?uid", orders.Uid));
-            paras.Add(new MySqlParameter("?amount", orders.Amount));
-            paras.Add(new MySqlParameter("?remark", orders.Remark));
+            paras.Add(new MySqlParameter("?" + random + "orderId", orders.OrderId));
+            paras.Add(new MySqlParameter("?" + random + "pid", orders.Pid));
+            paras.Add(new MySqlParameter("?" + random + "uid", orders.Uid));
+            paras.Add(new MySqlParameter("?" + random + "tradeType", orders.TradeType));
+            paras.Add(new MySqlParameter("?" + random + "amount", orders.Amount));
+            paras.Add(new MySqlParameter("?" + random + "remark", orders.Remark));
 
-            hash.Add(builder.ToString(), paras.ToArray());
+            dictionary.Add(builder.ToString(), paras.ToArray());
         }
     }
 }

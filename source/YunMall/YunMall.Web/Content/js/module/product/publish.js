@@ -67,12 +67,9 @@
             }
 
             var type = 0;
-            if ($type.eq(0).next().hasClass("layui-unselect")) type = 0;
-            if ($type.eq(1).next().hasClass("layui-unselect")) type = 1;
-            if ($type.eq(0).next().hasClass("layui-unselect") && $type.eq(1).next().hasClass("layui-unselect")) type = 2;
-
-
-            
+            if ($type.eq(0).next().hasClass("layui-form-checked")) type = 0;
+            if ($type.eq(1).next().hasClass("layui-form-checked")) type = 1;
+            if ($type.eq(0).next().hasClass("layui-form-checked") && $type.eq(1).next().hasClass("layui-form-checked")) type = 2;
 
             $.post("./publish/add",
                 {

@@ -166,3 +166,5 @@ F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.csproj.Co
 F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.csproj.CopyComplete
 F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.dll
 F:\repository\YunMall\source\YunMall\YunMall.Web\obj\Debug\YunMall.Web.pdb
+F:\repository\YunMall\source\YunMall\YunMall.Web\bin\YunMall.Web.BLL.Facade.dll
+F:\repository\YunMall\source\YunMall\YunMall.Web\bin\YunMall.Web.BLL.Facade.pdb

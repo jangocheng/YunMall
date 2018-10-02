@@ -11,6 +11,7 @@ using YunMall.Entity.db;
 using YunMall.Entity.json;
 using YunMall.Entity.ModelView;
 using YunMall.Utility.LoginUtils;
+using YunMall.Web.BLL.Facade;
 using YunMall.Web.Controllers;
 using YunMall.Web.IBLL.finance;
 using YunMall.Web.IBLL.order;
@@ -35,6 +36,9 @@ namespace YunMall.Web.Areas.Order.Controllers
 
         [Dependency]
         public IOrderService OrderService { get; set; }
+
+        [Dependency]
+        public IOrderFacade OrderFacade { get; set; }
 
         // GET: Order/Buy
         public ActionResult Index(string products) {
@@ -64,20 +68,23 @@ namespace YunMall.Web.Areas.Order.Controllers
             // 存储到页面中
             ViewBag.Products = productDetails;
             ViewBag.ProductMaps = list;
-
+            ViewBag.ProductJoiner = products;
             return View(user);
         }
 
 
-        public ActionResult Payment(int type, string security,  products) {
+        public ActionResult Payment(int type, string security, string products) {
             if (security == null || security.IsEmpty() || security.Length < 5) return Json(new HttpResp(1, "请输入支付密码"));
+            if(products == null) return Json(new HttpResp(1, "商品清单是空的哦~"));
+
 
             var session = SessionInfo.GetSession();
-            var user = session.UserDetail;
+
+            var user = UserService.GetUserById(session.Uid);
 
             // 1.安全验证
             var cause = string.Empty;
-            bool checkResult = PayService.CheckSecurityPassword(user.User, security, ref cause);
+            bool checkResult = PayService.CheckSecurityPassword(user, security, ref cause);
             if (!checkResult) return Json(new HttpResp(1, cause));
 
             // 2.判断支付类型(0=钱包支付, ^=站外支付平台)
@@ -90,10 +97,12 @@ namespace YunMall.Web.Areas.Order.Controllers
                 orderses.Add(new Orders()
                 {
                     Pid = Convert.ToInt32(p),
-                    Uid = session.Uid
+                    Uid = session.Uid,
+                    TradeType = type
                 });
             });
-            var placeOrder = OrderService.PlaceOrder(orderses);
+
+            var placeOrder = OrderFacade.PlaceOrder(orderses);
 
             if(placeOrder) return Json(new HttpResp("支付成功"));
 

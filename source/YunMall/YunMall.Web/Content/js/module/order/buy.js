@@ -37,12 +37,21 @@ layui.use(['laypage', 'layer'],
         $("#goPay").click(function() {
             layer.prompt({ title: '请输入支付密码', formType: 1 },
                 function (pass, index) {
+                    $("#list").hide();
+                    $("#direct").show();
 
                     $.post("/order/buy/payment",
                         {
                             type: 0,
                             security: pass,
-                            products: 
+                            products: $("#productJoiner").val()
+                        }, function (data) {
+                            if (utils.response.isError(data)) {
+                                $("#list").show();
+                                $("#direct").hide();
+                                return layer.alert(data.Msg);
+                            }
+                            location.href = "/";
                         });
 
                     layer.close(index);

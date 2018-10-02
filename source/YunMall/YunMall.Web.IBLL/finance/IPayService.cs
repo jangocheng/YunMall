@@ -1,4 +1,6 @@
-﻿using YunMall.Entity.db;
+﻿using System.Collections.Generic;
+using System.Data.Common;
+using YunMall.Entity.db;
 
 namespace YunMall.Web.IBLL.finance {
     public interface IPayService {
@@ -26,5 +28,16 @@ namespace YunMall.Web.IBLL.finance {
         /// <param name="cause"></param>
         /// <returns></returns>
         bool CheckSecurityPassword(User user, string security, ref string cause);
+
+        /// <summary>
+        /// 借贷转账
+        /// </summary>
+        /// <param name="fromUid"></param>
+        /// <param name="toUid"></param>
+        /// <param name="amount"></param>
+        /// <param name="remark"></param>
+        /// <param name="dictionary"></param>
+        void Transfer(int fromUid, int toUid, double amount, string remark,
+            ref IDictionary<string, DbParameter[]> dictionary);
     }
 }

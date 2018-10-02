@@ -229,7 +229,7 @@ namespace YunMall.Web.BLL.finance {
                 TradeAccountName = payParam.FromUsername,
                 AccountsType = 2,
                 Amount = payParam.Amount,
-                Remark = payParam.Remark,
+                Remark = payParam.Remark == null ? "借" : payParam.Remark,
                 Currency = payParam.Currency,
                 AddTime = DateTime.Now
             };
@@ -243,7 +243,7 @@ namespace YunMall.Web.BLL.finance {
                 TradeAccountName = payParam.ToUsername,
                 AccountsType = 1,
                 Amount = payParam.Amount,
-                Remark = payParam.Remark,
+                Remark = payParam.Remark == null ? "贷" : payParam.Remark,
                 Currency = payParam.Currency,
                 AddTime = DateTime.Now
             };
@@ -317,7 +317,7 @@ namespace YunMall.Web.BLL.finance {
         /// <returns></returns>
         public bool CheckSecurityPassword(User user, string security, ref string cause) {
             // 1.安全hash校对
-            var securityPassword = MD5Encrypt.MD5(MD5Encrypt.MD5(user.Username + user.SecurityPassword));
+            var securityPassword = user.SecurityPassword;
             var nSecurityPassword = MD5Encrypt.MD5(MD5Encrypt.MD5(user.Username + security));
             if (securityPassword != nSecurityPassword){
                 cause = "支付密码不正确";
@@ -327,6 +327,54 @@ namespace YunMall.Web.BLL.finance {
             }
             return false;
         }
+
+        #endregion
+
+        #region 借贷转账
+
+        /// <summary>
+        /// 借贷转账
+        /// </summary>
+        /// <param name="fromUid"></param>
+        /// <param name="toUid"></param>
+        /// <param name="amount"></param>
+        /// <param name="remark"></param>
+        /// <returns></returns>
+        public void Transfer(int fromUid, int toUid, double amount, string remark, ref IDictionary<string, DbParameter[]> dictionary)
+        {
+            // 1.封装参数
+            PayParam payParam = new PayParam()
+            {
+                Amount = amount,
+                Currency = 0,
+                FromUid = fromUid,
+                ToUid = toUid,
+                Remark = remark == null ? "转账" : remark
+            };
+
+            // 2.检查甲方钱包
+            var cause = string.Empty;
+            if (!CheckFinance(fromUid, amount, ref cause)) throw new MsgException(cause);
+
+            // 3.生成流水账
+            Pays payAccounts = RechargeUtil.GetPayAccounts(fromUid, toUid, payParam);
+            paysRepository.InsertAccounts(payAccounts, ref dictionary);
+
+            // 4.扣减双方钱包余额
+            var users = GetUsers(fromUid, toUid);
+            if(fromUid == toUid) throw new MsgException("您不能购买自己发布的商品");
+            if (users == null || users.Count < 2) throw new MsgException("加载用户信息超时");
+            var owner = users.First(item => item.Uid == fromUid);
+            var customer = users.First(item => item.Uid == toUid);
+            walletRepository.OutAccounts(owner.Uid, amount, owner.Version, ref dictionary);
+            walletRepository.PutAccounts(customer.Uid, amount, customer.Version, ref dictionary);
+
+            // 5.生成往来账
+            var currentAccounts = GetCurrentAccounts(payParam);
+            accountsRepository.BatchInsertAccounts(currentAccounts, ref dictionary);
+        }
+
+
 
         #endregion
     }

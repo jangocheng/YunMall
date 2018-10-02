@@ -438,6 +438,10 @@
       <Project>{cbfa2042-64dd-404c-9e40-16abbc46df35}</Project>
       <Name>YunMall.Utility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YunMall.Web.BLL.Facade\YunMall.Web.BLL.Facade.csproj">
+      <Project>{DB890E18-7FDA-4975-B85F-7B2F9698CC45}</Project>
+      <Name>YunMall.Web.BLL.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YunMall.Web.Core\YunMall.Web.Core.csproj">
       <Project>{755f262c-3839-4f5d-92b8-5ccd2d866e43}</Project>
       <Name>YunMall.Web.Core</Name>

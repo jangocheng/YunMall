@@ -20,6 +20,8 @@ using YunMall.Web.IBLL.product;
 using YunMall.Web.IDAL.finance;
 using YunMall.Web.IDAL.order;
 using YunMall.Web.IDAL.product;
+using YunMall.Web.BLL.Facade;
+using YunMall.Web.BLL.Facade.impl;
 
 namespace YunMall.Web.Core
 {
@@ -107,6 +109,15 @@ namespace YunMall.Web.Core
 
             container.RegisterType<IOrderRepository, OrderRepositoryImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IOrderRepository>(new InterfaceInterceptor());
+
+            container.RegisterType<IPayService, PaysServiceImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IPayService>(new InterfaceInterceptor());
+
+            container.RegisterType<IPaysRepository, PaysRepositoryImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IPaysRepository>(new InterfaceInterceptor());
+
+            container.RegisterType<IOrderFacade, OrderFacadeImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IOrderFacade>(new InterfaceInterceptor());
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);

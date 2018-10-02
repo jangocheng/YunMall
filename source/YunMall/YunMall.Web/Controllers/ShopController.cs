@@ -51,7 +51,7 @@ namespace YunMall.Web.Controllers
         /// <param name="pid"></param>
         /// <returns></returns>
         public ActionResult Preview(int pid) {
-            IList<ShopProductDetail> shopProductDetails = ProductService.GetShopProducts(pid);
+            IList<ProductDetail> shopProductDetails = ProductService.GetShopProducts(Convert.ToString(pid));
             if (shopProductDetails == null || shopProductDetails.Count == 0) return Redirect("/error?c=商品不存在");
             var shopProductDetail = shopProductDetails.First();
             return PartialView(shopProductDetail);

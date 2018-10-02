@@ -106,6 +106,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YunMall.Web.BLL.Facade\YunMall.Web.BLL.Facade.csproj">
+      <Project>{DB890E18-7FDA-4975-B85F-7B2F9698CC45}</Project>
+      <Name>YunMall.Web.BLL.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YunMall.Web.BLL\YunMall.Web.BLL.csproj">
       <Project>{93D37AE4-F452-4160-9DAB-54B046A0F027}</Project>
       <Name>YunMall.Web.BLL</Name>

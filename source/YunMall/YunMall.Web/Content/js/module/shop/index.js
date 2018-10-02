@@ -132,6 +132,7 @@ layui.use(['laypage', 'layer'],
 
             // 添加到购物车
             $("button[name='addShopCar']").click(function () {
+                var title = $(this).parent().parent().find("td").eq(1).find("a").attr("title");
                 var name = $(this).parent().prev().prev().text();
                 var pid = $(this).parent().prev().find("span").data("pid");
                 shopCarData.push(pid);
@@ -144,7 +145,7 @@ layui.use(['laypage', 'layer'],
                         if (name.length > 15) {
                             shortName = name.substr(0, 15);
                         }
-                        list += "<li title=" + name + ">" + shortName + "</li>";
+                        list += "<li title='" + title + "'>" + shortName + "</li>";
                         $("#shopCar").html(list);
                     }
                 });
@@ -161,6 +162,7 @@ layui.use(['laypage', 'layer'],
                             area: ["800px","650px"],
                             title: "商品详情",
                             type: 1,
+                            shadeClose : true,
                             content: str //注意，如果str是object，那么需要字符拼接。
                         });
                     });
