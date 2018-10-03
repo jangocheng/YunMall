@@ -10,6 +10,7 @@ CREATE TABLE `users` (
   `level` int(11) DEFAULT '0' COMMENT '等级(0=会员,1=管理员,2=供货商,3=甲级代理商,4=乙级代理商,5=普通代理商)',
   `roleId` varchar(32) DEFAULT NULL COMMENT '角色id',
   `parentId` int(11) DEFAULT NULL COMMENT '上级用户id',
+  `relations` varchar(64) DEFAULT '0' COMMENT '关系树',
   `depth` int(11) DEFAULT NULL COMMENT '关系深度',
   `regIp` varchar(32) DEFAULT NULL COMMENT '注册ip',
   `lastIp` varchar(32) DEFAULT NULL COMMENT '登录ip',
@@ -64,10 +65,8 @@ INSERT INTO `yunmall`.`permission_relations` (`uid`, `permissionList`) VALUES ('
 CREATE TABLE `permissions` (
   `permissionId` int(11) NOT NULL AUTO_INCREMENT,
   `roleName` varchar(32) NOT NULL,
-  `returnRate` decimal(10,2) DEFAULT '0.00' COMMENT '利润率',
   PRIMARY KEY (`permissionId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限表';
-
 
 
 INSERT INTO `yunmall`.`permissions` (`roleName`) VALUES ('admin');
@@ -375,6 +374,7 @@ INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.recharge
 INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.withdraw', '提现');
 INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.deduction', '扣费');
 INSERT INTO `dictionarys` (`name`, `value`) VALUES ('finance.pays.trade.consume', '消费');
+INSERT INTO `dictionarys` (`name`, `value`) VALUES ('product.return.rate', '10');
 
 
 

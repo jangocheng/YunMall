@@ -60,6 +60,7 @@
     <Compile Include="finance\AccountsServiceImpl.cs" />
     <Compile Include="finance\FinanceServiceImpl.cs" />
     <Compile Include="finance\PaysServiceImpl.cs" />
+    <Compile Include="order\DictionarysServiceImpl.cs" />
     <Compile Include="order\OrderServiceImpl.cs" />
     <Compile Include="product\CategoryServiceImpl.cs" />
     <Compile Include="product\ProductServiceImpl.cs" />

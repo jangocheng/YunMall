@@ -14,8 +14,5 @@ namespace YunMall.Entity.db
         public int PermissionId { get; set; }
 
         public string RoleName { get; set; }
-
-        public double ReturnRate { get; set; }
-
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.WebPages;
 using Microsoft.Practices.Unity;
+using YunMall.Entity;
 using YunMall.Entity.dbExt;
 using YunMall.Entity.json;
 using YunMall.Utility.LoginUtils;
@@ -33,8 +34,7 @@ namespace YunMall.Web.Areas.Product.Controllers
         {
             // 查询平台利率
             var session = SessionInfo.GetSession();
-            var returnRate = session.UserDetail.Permissions.First().ReturnRate;
-            ViewBag.ReturnRate = returnRate;
+            ViewBag.ReturnRate = Constants.DynamicMap.ReturnRate;
 
             // 查询经营类目
             var categoryDetails = CategoryService.GetCategoryDetails();

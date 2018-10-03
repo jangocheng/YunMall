@@ -71,7 +71,7 @@ namespace YunMall.Web.BLL.user {
             user.Permissions = permissions;
 
             // 查询上级用户
-            if (user.User.ParentId != null && user.User.ParentId.Length > 0) {
+            if (user.User.ParentId > 0) {
                 queryParam = new QueryParam();
                 queryParam.StrWhere = $"uid IN({user.User.ParentId})";
                 queryParam.OrderBy = "depth DESC";
@@ -170,7 +170,7 @@ namespace YunMall.Web.BLL.user {
                     Username = username,
                     Password = MD5Encrypt.MD5(MD5Encrypt.MD5(username + password)),
                     QQ = contact,
-                    ParentId = "0",
+                    ParentId = 0,
                     Level = 0,
                     RoleId = "0",
                 }, ref pk);

@@ -25,7 +25,9 @@ namespace YunMall.Entity.db
 
         public string RoleId { get; set; }
 
-        public string ParentId { get; set; }
+        public int ParentId { get; set; }
+
+        public string Relations { get; set; }
 
         public int Depth { get; set; }
 

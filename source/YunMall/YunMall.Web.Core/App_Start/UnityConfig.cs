@@ -119,6 +119,10 @@ namespace YunMall.Web.Core
             container.RegisterType<IOrderFacade, OrderFacadeImpl>(new ContainerControlledLifetimeManager())
                 .Configure<Interception>().SetInterceptorFor<IOrderFacade>(new InterfaceInterceptor());
 
+            // 字典逻辑和仓储接口 2018年10月3日17:48:46
+            container.RegisterType<IDictionarysService, DictionarysServiceImpl>(new ContainerControlledLifetimeManager())
+                .Configure<Interception>().SetInterceptorFor<IDictionarysService>(new InterfaceInterceptor());
+
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

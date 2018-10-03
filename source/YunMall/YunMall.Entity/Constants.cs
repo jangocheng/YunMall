@@ -48,7 +48,6 @@ namespace YunMall.Entity
             /// finance.pays.channel.internal 站内交易
             /// </summary>
             public static int DefaultChannelType { get; set; } = 1; // finance.pays.channel.internal 站内交易
-
           
             public static int AlipayChannelType { get; set; } = 2; // finance.pays.channel.alipay 支付宝
 
@@ -70,6 +69,9 @@ namespace YunMall.Entity
             public static int WithdrawTradeType { get; set; } = 7; // finance.pays.trade.withdraw 提现
 
             public static int ConsumeTradeType { get; set; } = 9; // finance.pays.trade.consume 消费
+
+            public static int ReturnRate { get; set; } = 10; // product.return.rate 平台商品统一返利率
+
 
         }
 
