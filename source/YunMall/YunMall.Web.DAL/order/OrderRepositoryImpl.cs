@@ -44,8 +44,9 @@ namespace YunMall.Web.DAL.order {
 
             StringBuilder builder = new StringBuilder();
             builder.Append(
-                "INSERT INTO `orders` (`orderId`, `pid`, `pname`, `sid`, `sname`, `uid`, `uname`, `tradeType`, `amount`,`addTime`, `editTime`, `remark`) VALUES (");
+                "INSERT INTO `orders` (`orderId`, `parentId`, `pid`, `pname`, `sid`, `sname`, `uid`, `uname`, `tradeType`, `amount`,`addTime`, `editTime`, `remark`) VALUES (");
             builder.Append("?" + random + "orderId,");
+            builder.Append("?" + random + "parentId,");
             builder.Append("?" + random + "pid,");
             builder.Append("(SELECT productName FROM products WHERE pid = ?" + random + "pid LIMIT 1),");
             builder.Append("(SELECT sid FROM products WHERE pid = ?" + random + "pid LIMIT 1),");
@@ -61,6 +62,7 @@ namespace YunMall.Web.DAL.order {
 
             var paras = new List<MySqlParameter>();
             paras.Add(new MySqlParameter("?" + random + "orderId", orders.OrderId));
+            paras.Add(new MySqlParameter("?" + random + "parentId", orders.ParentId));
             paras.Add(new MySqlParameter("?" + random + "pid", orders.Pid));
             paras.Add(new MySqlParameter("?" + random + "uid", orders.Uid));
             paras.Add(new MySqlParameter("?" + random + "tradeType", orders.TradeType));

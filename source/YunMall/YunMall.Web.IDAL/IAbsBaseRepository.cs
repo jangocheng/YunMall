@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Text;
 using YunMall.Entity.ModelView;
@@ -22,6 +23,8 @@ namespace YunMall.Web.IDAL
         /// </summary>
         /// <param name="table"></param>
         void CommitTransaction(IDictionary<string, DbParameter[]> table);
+
+        void CommitTransaction(IDictionary<string, DbParameter[]> table, IsolationLevel isolationLevel);
 
 
         bool CommitTransactionLock(IDictionary<string, DbParameter[]> table);

@@ -5,6 +5,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using DF.Common;
+using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;
 using YunMall.Entity;
 using YunMall.Entity.db;
@@ -150,11 +151,7 @@ namespace YunMall.Web.BLL.finance {
             Pays payAccounts = RechargeUtil.GetPayAccounts(Constants.HotAccountID, uid, payParam);
             paysRepository.InsertAccounts(payAccounts, ref dictionary);
 
-            // 3.目标账户进账
-            var user = userRepository.SelectFinanceDetail(uid);
-            walletRepository.PutAccounts(user.Uid, amount, user.Version, ref dictionary);
-
-            // 4.生成往来账
+            // 3.生成往来账
             var list = new List<Accounts>() {
                 new Accounts()
                     {
@@ -170,6 +167,11 @@ namespace YunMall.Web.BLL.finance {
                     }
             }; 
             accountsRepository.BatchInsertAccounts(list, ref dictionary);
+
+
+            // 4.目标账户进账
+            var user = userRepository.SelectFinanceDetail(uid);
+            walletRepository.PutAccounts(user.Uid, amount, user.Version, ref dictionary);
 
             return walletRepository.CommitTransactionLock(dictionary);
         }
@@ -211,7 +213,7 @@ namespace YunMall.Web.BLL.finance {
         /// <param name="uids"></param>
         /// <returns></returns>
         private IList<UserFinanceDetail> GetUsers(params int[] uids) {
-            IList<UserFinanceDetail>  list = userRepository.SelectFinanceDetails(uids);
+            IList<UserFinanceDetail> list = userRepository.SelectFinanceDetails(uids);
             return list;
         }
 
@@ -360,18 +362,18 @@ namespace YunMall.Web.BLL.finance {
             Pays payAccounts = RechargeUtil.GetPayAccounts(fromUid, toUid, payParam);
             paysRepository.InsertAccounts(payAccounts, ref dictionary);
 
-            // 4.扣减双方钱包余额
+            // 4.生成往来账
+            var currentAccounts = GetCurrentAccounts(payParam);
+            accountsRepository.BatchInsertAccounts(currentAccounts, ref dictionary);
+
+            // 5.扣减双方钱包余额
             var users = GetUsers(fromUid, toUid);
-            if(fromUid == toUid) throw new MsgException("您不能购买自己发布的商品");
+            if (fromUid == toUid) throw new MsgException("您不能购买自己发布的商品");
             if (users == null || users.Count < 2) throw new MsgException("加载用户信息超时");
             var owner = users.First(item => item.Uid == fromUid);
             var customer = users.First(item => item.Uid == toUid);
             walletRepository.OutAccounts(owner.Uid, amount, owner.Version, ref dictionary);
             walletRepository.PutAccounts(customer.Uid, amount, customer.Version, ref dictionary);
-
-            // 5.生成往来账
-            var currentAccounts = GetCurrentAccounts(payParam);
-            accountsRepository.BatchInsertAccounts(currentAccounts, ref dictionary);
 
         }
 

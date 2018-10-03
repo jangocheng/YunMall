@@ -8,11 +8,13 @@ using YunMall.Entity.db;
 using YunMall.Entity.json;
 using YunMall.Utility.LoginUtils;
 using YunMall.Web.Controllers;
+using YunMall.Web.Filters;
 using YunMall.Web.IBLL.finance;
 using YunMall.Web.IBLL.user;
 
 namespace YunMall.Web.Areas.Finance.Controllers
 {
+    [AuthenticationFilter(Role = "admin")]
     public class RechargeController : BaseController
     {
         [Dependency(name: "PaysServiceImpl")]

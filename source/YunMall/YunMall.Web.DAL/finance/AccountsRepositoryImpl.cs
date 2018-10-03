@@ -116,6 +116,59 @@ namespace YunMall.Web.DAL.finance {
 
         }
 
+        /// <summary>
+        /// 批量插入流水-实时计算
+        /// </summary>
+        /// <param name="currentAccounts"></param>
+        /// <param name="dictionary"></param>
+        public void BatchInsertSumAccounts(IList<Accounts> currentAccounts,
+            ref IDictionary<string, DbParameter[]> dictionary)
+        {
+            var paras = new List<MySqlParameter>();
+            StringBuilder builder = new StringBuilder();
+            builder.Append(
+                "INSERT INTO `accounts` (`payId`, `tradeAccountId`, `tradeAccountName`, `accountsType`, `currency`, `amount`, `beforeBalance`, `afterBalance`, `addTime`, `remark`) VALUES");
+            currentAccounts.ToList().ForEach(item => {
+                var random = Guid.NewGuid().ToString().Replace("-", "");
+
+                builder.Append("(?" + random + "payId,");
+                builder.Append("?" + random + "tradeAccountId,");
+                builder.Append("(SELECT username FROM users WHERE uid = ?" + random + "tradeAccountId),");
+                builder.Append("?" + random + "accountsType,");
+                builder.Append("?" + random + "currency,");
+                builder.Append("?" + random + "amount,");
+                //TODO:: 由于我的事务框架暂时没有实现自由设置事务级别, 这里先牺牲数据库性能来实现业务逻辑, 后期重构时请一定将此处改掉。
+                //builder.Append("(SELECT balance FROM wallets WHERE userId = ?" + random + "tradeAccountId),");
+                builder.Append("?beforeBalance");
+                builder.Append("?afterBalance");
+                if (item.AccountsType == 1)
+                {
+                    //builder.Append("(SELECT balance + ?" + random + "amount FROM wallets WHERE userId = ?" + random + "tradeAccountId),");
+                }
+                else if (item.AccountsType == 2)
+                {
+                    //builder.Append("(SELECT balance - ?" + random + "amount FROM wallets WHERE userId = ?" + random + "tradeAccountId),");
+                }
+                builder.Append("NOW(),");
+                builder.Append("?" + random + "remark),");
+                paras.Add(new MySqlParameter("?" + random + "payId", item.PayId));
+                paras.Add(new MySqlParameter("?" + random + "tradeAccountId", item.TradeAccountId));
+                paras.Add(new MySqlParameter("?" + random + "accountsType", item.AccountsType));
+                paras.Add(new MySqlParameter("?" + random + "currency", item.Currency));
+                paras.Add(new MySqlParameter("?" + random + "amount", item.Amount));
+
+                // 在上游实时统计出来数值
+                paras.Add(new MySqlParameter("?" + random + "beforeBalance", item.BeforeBalance));
+                paras.Add(new MySqlParameter("?" + random + "afterBalance", item.AfterBalance));
+
+                paras.Add(new MySqlParameter("?" + random + "remark", item.Remark));
+
+            });
+            var sql = builder.ToString().Substring(0, builder.ToString().Length - 1);
+            dictionary.Add(sql, paras.ToArray());
+
+        }
+
         public int SelectLimitCount(int state, string beginTime, string endTime, string where)
         {
             StringBuilder builder = new StringBuilder();

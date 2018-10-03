@@ -40,5 +40,12 @@ namespace YunMall.Web.IBLL.user {
         /// <param name="username"></param>
         /// <returns></returns>
         User GetUserByName(string username);
+
+        /// <summary>
+        /// 查询用户财务信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        UserFinanceDetail GetUserFinanceDetail(int uid);
     }
 }

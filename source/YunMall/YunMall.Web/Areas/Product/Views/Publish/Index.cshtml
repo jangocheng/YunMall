@@ -21,22 +21,6 @@
 
 <div class="layui-row">
     <div class="layui-col-md12 container">
-        <!-- navigation begin -->
-        <div class="my-container navigation">
-            <div class="work-order-topbar">
-                <div class="work-order-topbar-left">
-                    <div class="topbar-left-control">
-                        <label>关于下游用户提成计算方式</label>
-                        <em>商品价格 - (商品价格 * 提成百分比) = 实际收益</em>
-                    </div>
-                    
-                </div>
-                <div class="work-order-topbar-right">
-                    <button type="button" class="layui-btn layui-btn-normal" onclick="location.href='/product/manage'">进入商品信息管理</button>
-                </div>
-            </div>
-        </div>
-        <!-- navigation end -->
 
         <div class="break-line-20"></div>
         <input type="hidden" id="returnRate" value="@ViewBag.ReturnRate" />
@@ -44,115 +28,133 @@
         <!-- publish begin -->
         @if (Model == null)
         {
-            <div class="my-container-padding publish-panel">
-                <h3 class="detail-module-title">发布商品</h3>
-                <form id="publish" class="layui-form">
-                    <input type="hidden" id="mainImage" value="" />
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">商品名称</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="productName" maxlength="255" lay-verify="productName" autocomplete="off" placeholder="请输入商品名称" class="layui-input">
+        <div class="my-container-padding publish-panel">
+            <div class="work-order-topbar" style="line-height: 25px;">
+                <div class="work-order-topbar-left">
+                    <h3 class="detail-module-title">发布商品</h3>
+                </div>
+                <div class="work-order-topbar-right">
+                    <button type="button" class="layui-btn layui-btn-normal" onclick="location.href = '/product/manage'">进入商品信息管理</button>
+                </div>
+            </div>
+
+            <div class="break-line-20"></div>
+            <div class="break-line-20"></div>
+
+            <form id="publish" class="layui-form">
+                <input type="hidden" id="mainImage" value="" />
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商品名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="productName" maxlength="255" lay-verify="productName" autocomplete="off" placeholder="请输入商品名称" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">价格</label>
+                        <div class="layui-input-inline" style="width: 100px;">
+                            <input type="number" name="price" maxlength="10" lay-verify="price" placeholder="￥" autocomplete="off" class="layui-input">
+                        </div>
+
+                        <label class="layui-form-label" style="width: 100px">利润(P-(P*@(ViewBag.ReturnRate)%))</label>
+                        <div class="layui-input-inline" style="width: 100px;">
+                            <label class="layui-form-label" style="color: #ff5722; text-align: center; font-weight: bold; font-size: 22px; background-color: #ffe27926; border-radius: 15px; border: 1px solid #ffa707;" name="realAmount">￥0</label>
+                            <i class="layui-icon layui-icon-help tips[rate]" style="display: inline-block; position: absolute; top: 0px; left: 110px; color: #bebebe; cursor: pointer"></i>
                         </div>
                     </div>
+                </div>
 
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">价格</label>
-                            <div class="layui-input-inline" style="width: 100px;">
-                                <input type="number" name="price" maxlength="10" lay-verify="price" placeholder="￥" autocomplete="off" class="layui-input">
-                            </div>
-                            
-                            <label class="layui-form-label" style="width:100px">利润(P-(P*@(ViewBag.ReturnRate)%))</label>
-                            <div class="layui-input-inline" style="width: 100px;">
-                                <label class="layui-form-label" style="color: #ff5722; text-align: center; font-weight: bold; font-size: 22px; background-color: #ffe27926; border-radius: 15px; border: 1px solid #ffa707;" name="realAmount">￥0</label>
-                                <i class="layui-icon layui-icon-help tips[rate]" style="display: inline-block;position: absolute;top: 0px;left: 110px; color: #bebebe;cursor: pointer"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">经营类目</label>
-                        <div class="layui-input-block">
-                            <select name="category" lay-filter="required">
-                                <option value=""></option>
-                                @{
-                                    IList<CategoryDetail> categoryDetails = ViewBag.Categorys;
-                                    foreach (var categoryDetail in categoryDetails) {
-                                        if (categoryDetail.ParentId == 0) {
-                                            <optgroup label="@categoryDetail.CategoryName">
-                                                @{
-                                                    foreach (var item in categoryDetails) {
-                                                        if (item.ParentId == categoryDetail.Cid) {
-                                                            <option value="@item.Cid">@item.CategoryName</option>
-                                                        }
+                <div class="layui-form-item">
+                    <label class="layui-form-label">经营类目</label>
+                    <div class="layui-input-block">
+                        <select name="category" lay-filter="required">
+                            <option value=""></option>
+                            @{
+                                IList<CategoryDetail> categoryDetails = ViewBag.Categorys;
+                                foreach (var categoryDetail in categoryDetails)
+                                {
+                                    if (categoryDetail.ParentId == 0)
+                                    {
+                                        <optgroup label="@categoryDetail.CategoryName">
+                                            @{
+                                                foreach (var item in categoryDetails)
+                                                {
+                                                    if (item.ParentId == categoryDetail.Cid)
+                                                    {
+                                                        <option value="@item.Cid">@item.CategoryName</option>
                                                     }
                                                 }
-                                            </optgroup>
-                                                        }
-                                        else {
-                                            foreach (var item in categoryDetails) {
-                                                if (item.ParentId == categoryDetail.Cid) {
-                                                    <option value="@item.Cid">@item.CategoryName</option>
-                                                }
                                             }
-
+                                        </optgroup>
+                                    }
+                                    else
+                                    {
+                                        foreach (var item in categoryDetails)
+                                        {
+                                            if (item.ParentId == categoryDetail.Cid)
+                                            {
+                                                <option value="@item.Cid">@item.CategoryName</option>
+                                            }
                                         }
+
                                     }
                                 }
-                            </select> 
-                        </div>
+                            }
+                        </select>
                     </div>
+                </div>
 
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">商品主图</label>
-                        <div class="layui-input-block">
-                            <div class="layui-upload-drag" id="mainImageUploader">
-                                <i class="layui-icon"></i>
-                                <p>点击上传，或将文件拖拽到此处</p>
-                            </div>
-                            <div class="productImage" id="productImage">
-                                <img src="~/Content/images/defaultProduct.png" />
-                            </div>
-                            <span style="color: #ccc; display: inline-block; position: relative; float: right">
-                                <span class="layui-badge-dot"></span>
-                                &nbsp;
-                                非必填项(留空则使用商品默认主图)
-                            </span>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商品主图</label>
+                    <div class="layui-input-block">
+                        <div class="layui-upload-drag" id="mainImageUploader">
+                            <i class="layui-icon"></i>
+                            <p>点击上传，或将文件拖拽到此处</p>
                         </div>
+                        <div class="productImage" id="productImage">
+                            <img src="~/Content/images/defaultProduct.png" />
+                        </div>
+                        <span style="color: #ccc; display: inline-block; position: relative; float: right">
+                            <span class="layui-badge-dot"></span>
+                            &nbsp;
+                            非必填项(留空则使用商品默认主图)
+                        </span>
                     </div>
+                </div>
 
-                    <div class="layui-form-item" pane="">
-                        <label class="layui-form-label">类型</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" name="type" lay-skin="primary" title="直充" checked="">
-                            <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>直充</span><i class="layui-icon layui-icon-ok"></i></div>
-                            <input type="checkbox" name="type" lay-skin="primary" title="非直充">
-                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>非直充</span><i class="layui-icon layui-icon-ok"></i></div>
-                        </div>
+                <div class="layui-form-item" pane="">
+                    <label class="layui-form-label">类型</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="type" lay-skin="primary" title="直充" checked="">
+                        <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>直充</span><i class="layui-icon layui-icon-ok"></i></div>
+                        <input type="checkbox" name="type" lay-skin="primary" title="非直充">
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>非直充</span><i class="layui-icon layui-icon-ok"></i></div>
                     </div>
+                </div>
 
-                    <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">商品描述</label>
-                        <div class="layui-input-block">
-                            <textarea placeholder="请输入商品描述" maxlength="255" name="description" lay-verify="description" class="layui-textarea"></textarea>
-                        </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">商品描述</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入商品描述" maxlength="255" name="description" lay-verify="description" class="layui-textarea"></textarea>
                     </div>
-                    <div class="layui-form-item">
-                        <div class="layui-input-block">
-                            <button class="layui-btn layui-btn-danger" lay-submit="" lay-filter="publish">发布商品</button>
-                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                        </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn layui-btn-danger" lay-submit="" lay-filter="publish">发布商品</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
-                </form>
-            </div>
-        }
-        else
-        { // 编辑商品
+                </div>
+            </form>
+        </div>
+            }
+            else
+            { // 编辑商品
             <div class="my-container-padding publish-panel">
                 <input type="hidden" id="pid" value="@Model.Pid" />
                 <h3 class="detail-module-title">编辑商品</h3>
                 <form id="publish" class="layui-form">
-                    <input type="hidden" id="mainImage" value="@Model.MainImage"/>
+                    <input type="hidden" id="mainImage" value="@Model.MainImage" />
                     <div class="layui-form-item">
                         <label class="layui-form-label">商品名称</label>
                         <div class="layui-input-block">
@@ -173,7 +175,7 @@
                                 <i class="layui-icon layui-icon-help tips[rate]" style="display: inline-block;position: absolute;top: 0px;left: 110px; color: #bebebe;cursor: pointer"></i>
                             </div>
                         </div>
-                         
+
                     </div>
 
                     <div class="layui-form-item">
@@ -197,15 +199,16 @@
                                                             {
                                                                 <option value="@item.Cid" selected="selected">@item.CategoryName</option>
                                                             }
-                                                            else {
+                                                            else
+                                                            {
                                                                 <option value="@item.Cid">@item.CategoryName</option>
                                                             }
                                                         }
                                                     }
                                                 }
                                             </optgroup>
-                                            }
-                                        }  
+                                        }
+                                    }
                                 }
                             </select>
                         </div>
@@ -219,7 +222,7 @@
                                 <p>点击上传，或将文件拖拽到此处</p>
                             </div>
                             <div class="productImage" id="productImage" style="display: block">
-                                <img src="@Model.MainImage"/>
+                                <img src="@Model.MainImage" />
                             </div>
                             <span style="color: #ccc; display: inline-block; position: relative; float: right">
                                 <span class="layui-badge-dot"></span>
@@ -278,7 +281,7 @@
                     </div>
                 </form>
             </div>
-        }
-        <!-- publish end -->
-    </div>
+            }
+            <!-- publish end -->
+        </div>
 </div>

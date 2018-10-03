@@ -40,5 +40,14 @@ namespace YunMall.Web.IDAL.finance {
         /// <param name="currentAccounts"></param>
         /// <param name="dictionary"></param>
         void BatchInsertAccounts(IList<Accounts> currentAccounts, ref IDictionary<string, DbParameter[]> dictionary);
+
+
+        /// <summary>
+        /// 批量插入流水-实时计算
+        /// </summary>
+        /// <param name="currentAccounts"></param>
+        /// <param name="dictionary"></param>
+        void BatchInsertSumAccounts(IList<Accounts> currentAccounts,
+            ref IDictionary<string, DbParameter[]> dictionary);
     }
 }

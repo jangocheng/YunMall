@@ -12,11 +12,11 @@ body {
 }
 
 .head {
-    width: 99%;
+    width: 100%;
     height: 100px;
     background-color: #fff;
     position: relative;
-    top: 10px;
+    /* top: 10px; */
     border-bottom: 1px solid #DADEE7;
     margin: 0 auto;
 }
@@ -41,7 +41,7 @@ body {
     background-color: #fff;
     margin: 0 auto;
     width: 1100px;
-    min-height: 780px; 
+    min-height: 780px;
     position: relative;
     top: 30px;
     border-radius: 5px;
@@ -176,17 +176,17 @@ a:hover {
     cursor: pointer;
 }
 
-    .payment li[data-type='wallet'] {
-        background-image: url(/content/images/wallet.png);
-        background-repeat: no-repeat;
-        background-size: 130px;
-    }
+.payment li[data-type='wallet'] {
+    background-image: url(/content/images/wallet.png);
+    background-repeat: no-repeat;
+    background-size: 130px;
+}
 
-    .payment li[data-type='alipay'] {
-        background-image: url(/content/images/alipay.png);
-        background-repeat: no-repeat;
-        background-size: 130px;
-    }
+.payment li[data-type='alipay'] {
+    background-image: url(/content/images/alipay.png);
+    background-repeat: no-repeat;
+    background-size: 130px;
+}
 
 
 .layui-layer-btn .layui-layer-btn0 {
@@ -225,4 +225,15 @@ a:hover {
 
 .button-disabled {
     background-color: #dddddd !important;
+}
+
+
+
+.layui-layer-title {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.layui-layer-prompt .layui-layer-input {
+    outline: none;
 }

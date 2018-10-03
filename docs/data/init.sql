@@ -398,12 +398,13 @@ INSERT INTO `wallets` (`userId`, `balance`, `updateTime`, `version`) VALUES ('1'
 /*订单表*/
 CREATE TABLE `orders` (
   `orderId` bigint(20) NOT NULL,
+  `parentId` bigint(20) DEFAULT NULL COMMENT '父订单id',
   `pid` int(11) NOT NULL COMMENT '商品id',
-  `pname` varchar(32) DEFAULT NULL COMMENT '商品名称',
+  `pname` varchar(255) DEFAULT NULL COMMENT '商品名称',
   `sid` int(11) NOT NULL COMMENT '商家id',
-  `sname` varchar(32) DEFAULT NULL COMMENT '商家名称',
+  `sname` varchar(16) DEFAULT NULL COMMENT '商家名称',
   `uid` int(11) NOT NULL COMMENT '用户id',
-  `uname` varchar(32) DEFAULT NULL COMMENT '用户名称',
+  `uname` varchar(16) DEFAULT NULL COMMENT '用户名称',
   `tradeType` int(11) NOT NULL DEFAULT '0' COMMENT '交易方式(0=站内,1=支付宝)',
   `amount` decimal(10,2) NOT NULL COMMENT '交易额',
   `payId` bigint(20) DEFAULT NULL COMMENT '流水id',
@@ -412,6 +413,5 @@ CREATE TABLE `orders` (
   `remark` varchar(255) DEFAULT NULL COMMENT '摘要',
   PRIMARY KEY (`orderId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';
-
 
 

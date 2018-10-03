@@ -138,6 +138,18 @@ namespace YunMall.Web.DAL
         }
         #endregion
 
+        #region IDictionary提交事务--支持设置隔离级别
+        /// <summary>
+        /// IDictionary
+        /// </summary>
+        /// <param name="DFTable">sql 哈希集合</param>
+        public void CommitTransaction(IDictionary<string, DbParameter[]> DFTable, IsolationLevel isolationLevel)
+        {
+            DBHelperMySql.ExecuteSqlTran(DFTable, isolationLevel);
+
+        }
+        #endregion
+
         #region 更新方法--
         /// <summary>
         /// 更新方法模版

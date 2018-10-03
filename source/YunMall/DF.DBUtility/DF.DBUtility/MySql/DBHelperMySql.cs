@@ -526,6 +526,44 @@ namespace DF.DBUtility.MySql
         }
         #endregion
 
+        #region 执行多条SQL语句，实现数据库事务--Dictionary--
+        /// <summary>
+        /// 执行多条SQL语句，实现数据库事务。yfx
+        /// </summary>
+        /// <param name="SQLStringList">SQL语句的字典序集合（key为sql语句，value是该语句的MySqlParameter[]）</param>
+        public static void ExecuteSqlTran(IDictionary<string, DbParameter[]> SQLStringList, IsolationLevel  isolationLevel)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlTransaction trans = conn.BeginTransaction(isolationLevel)) {
+                    MySqlCommand cmd = new MySqlCommand();
+                    try
+                    {
+                        //循环
+                        foreach (var myDE in SQLStringList)
+                        {
+                            string cmdText = myDE.Key.ToString();
+                            MySqlParameter[] cmdParms = (MySqlParameter[])myDE.Value;
+                            PrepareCommand(cmd, conn, trans, cmdText, cmdParms);
+                            int val = cmd.ExecuteNonQuery();
+                            MyLog.Info("shangjia--UpdatCheckPass_测试影响行数", val);
+                            cmd.Parameters.Clear();
+                        }
+
+                        trans.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        MyLog.Info("shangjia--UpdatCheckPass_错误", ex);
+                        trans.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+        #endregion
+
         #region 执行SELECT语句，返回查询结果中第一行第一列的数据--
         /// <summary>
         /// 执行SELECT语句，

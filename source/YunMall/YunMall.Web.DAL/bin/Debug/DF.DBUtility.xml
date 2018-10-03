@@ -250,6 +250,12 @@
             </summary>
             <param name="SQLStringList">SQL语句的字典序集合（key为sql语句，value是该语句的MySqlParameter[]）</param>
         </member>
+        <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteSqlTran(System.Collections.Generic.IDictionary{System.String,System.Data.Common.DbParameter[]},System.Data.IsolationLevel)">
+            <summary>
+            执行多条SQL语句，实现数据库事务。yfx
+            </summary>
+            <param name="SQLStringList">SQL语句的字典序集合（key为sql语句，value是该语句的MySqlParameter[]）</param>
+        </member>
         <member name="M:DF.DBUtility.MySql.DBHelperMySql.ExecuteScalar(System.String,System.Data.Common.DbParameter[])">
             <summary>
             执行SELECT语句，

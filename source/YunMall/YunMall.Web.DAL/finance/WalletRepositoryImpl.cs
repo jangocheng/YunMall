@@ -30,7 +30,7 @@ namespace YunMall.Web.DAL.finance {
             StringBuilder builder = new StringBuilder();
             builder.Append(
                 "UPDATE wallets SET balance = balance - ?" + random + "amount, updateTime = NOW(), version = version + 1 ");
-            builder.Append(" WHERE `userId`= ?" + random +  "uid AND balance > 0 AND (balance - ?" + random + "amount) > 0 AND version = ?" + random + "version ");
+            builder.Append(" WHERE `userId`= ?" + random +  "uid AND balance > 0 AND (balance - ?" + random + "amount) > 0 AND version = ?" + random + "version  ");
             var paras = new List<MySqlParameter>
             {
                 new MySqlParameter("?" + random + "amount", amount),

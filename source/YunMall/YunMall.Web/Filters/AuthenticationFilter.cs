@@ -21,8 +21,17 @@ namespace YunMall.Web.Filters
         /// 验证权限（action执行前会先执行这里） 
         /// </summary> 
         /// <param name="filterContext"></param> 
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
+        public override void OnActionExecuting(ActionExecutingContext filterContext) {
+            if (Role == "*") {
+                var session = SessionInfo.GetSession();
+                if (session == null) {
+                    RedirectResult redirectResult = new RedirectResult("/error?c=身份已过期, 请您重新登录");
+                    filterContext.Result = redirectResult;
+                    redirectResult.ExecuteResult(filterContext);
+                }
+                return;
+            }
+
             //如果存在身份信息 
             if (!SessionInfo.IsLogin)
             {

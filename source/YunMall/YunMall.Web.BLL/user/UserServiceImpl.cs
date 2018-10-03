@@ -145,6 +145,15 @@ namespace YunMall.Web.BLL.user {
             return list.First();
         }
 
+        /// <summary>
+        /// 查询用户财务信息
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        public UserFinanceDetail GetUserFinanceDetail(int uid) {
+            return userRepository.SelectFinanceDetail(uid);
+        }
+
         private Hashtable AddPermissionRelation(long pk, Hashtable hsTable) {
             permissionRelationRepository.Insert(new PermissionRelation() {
                 Uid = Convert.ToInt32(pk),

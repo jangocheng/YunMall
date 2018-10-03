@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using DF.Common;
@@ -67,17 +68,28 @@ namespace YunMall.Web.BLL.order {
             if (product.Count < orders.Count) throw new MsgException("清单中包含已下架的商品, 请您重新下单！");
 
             // 2.生成订单
-            var groupId = IdWorkTool.Instance().GetId();
+            var orderId = IdWorkTool.Instance().GetId();
 
-            orders.ForEach(order => {
-                order.OrderId = IdWorkTool.Instance().GetId();
-                order.GroupId = groupId;
-                order.AddTime = DateTime.Now;
-                order.EditTime = DateTime.Now;
-                order.Amount = product.First(item => item.Pid == order.Pid).Amount;
-                order.Sid = product.First(item => item.Pid == order.Pid).Sid;
-                orderRepository.CreateOrder(order, ref nDictionary);
-            });
+            orders[0].OrderId = orderId;
+            orders[0].AddTime = DateTime.Now;
+            orders[0].EditTime = DateTime.Now;
+            orders[0].Amount = product.First(item => item.Pid == orders[0].Pid).Amount;
+            orders[0].Sid = product.First(item => item.Pid == orders[0].Pid).Sid;
+            orderRepository.CreateOrder(orders[0], ref nDictionary);
+
+            if (orders.Count > 1) {
+                for (int i = 1; i < orders.Count; i++) {
+                    var order = orders[i];
+                    order.OrderId = IdWorkTool.Instance().GetId();
+                    order.ParentId = orderId;
+                    order.AddTime = DateTime.Now;
+                    order.EditTime = DateTime.Now;
+                    order.Amount = product.First(item => item.Pid == order.Pid).Amount;
+                    order.Sid = product.First(item => item.Pid == order.Pid).Sid;
+                    orderRepository.CreateOrder(order, ref nDictionary);
+                }
+            }
+
             dictionary = nDictionary;
         }
 

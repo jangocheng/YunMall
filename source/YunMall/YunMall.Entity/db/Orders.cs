@@ -7,7 +7,7 @@ namespace YunMall.Entity.db {
         /// <summary> 
         /// 订单分组id 
         /// </summary> 
-        public long GroupId { get; set; }
+        public long ParentId { get; set; }
 
         /// <summary> 
         /// 商品id 

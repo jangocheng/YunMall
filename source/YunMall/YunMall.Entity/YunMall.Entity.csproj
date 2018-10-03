@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="dbExt\AccountsDetail.cs" />
     <Compile Include="dbExt\CategoryDetail.cs" />
     <Compile Include="dbExt\PaysDetail.cs" />
     <Compile Include="dbExt\ProductDetail.cs" />

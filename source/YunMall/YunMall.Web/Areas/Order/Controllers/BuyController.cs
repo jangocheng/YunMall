@@ -13,6 +13,7 @@ using YunMall.Entity.ModelView;
 using YunMall.Utility.LoginUtils;
 using YunMall.Web.BLL.Facade;
 using YunMall.Web.Controllers;
+using YunMall.Web.Filters;
 using YunMall.Web.IBLL.finance;
 using YunMall.Web.IBLL.order;
 using YunMall.Web.IBLL.product;
@@ -23,6 +24,7 @@ namespace YunMall.Web.Areas.Order.Controllers
     /// <summary>
     /// 购买支付控制器
     /// </summary>
+    [AuthenticationFilter(Role = "*")]
     public class BuyController : BaseController
     {
         [Dependency]
@@ -43,8 +45,8 @@ namespace YunMall.Web.Areas.Order.Controllers
         // GET: Order/Buy
         public ActionResult Index(string products) {
             var session = SessionInfo.GetSession();
-            
-            var user = session.UserDetail;
+
+            var user = UserService.GetUserFinanceDetail(session.Uid);
 
             var productDetails = ProductService.GetShopProducts(products);
 

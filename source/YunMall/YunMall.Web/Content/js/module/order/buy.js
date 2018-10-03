@@ -144,13 +144,13 @@ layui.use(['laypage', 'layer'],
                 str += "</td>";
                 str += "<td>";
                 if (item.ProductName.length > 10) {
-                    str += '  <a href="javascript:void(0)" class="title " data-pid="' + item.Pid + '"  title="' +
+                    str += '  <a href="/shop/u/'+ item.Sid +'#' + item.Pid + '" class="title " target="_blank" data-pid="' + item.Pid + '"  title="' +
                         item.ProductName +
                         '">' +
                         item.ProductName.substr(0, 10).trim() +
                         '...</a>';
                 } else {
-                    str += '  <a href="javascript:void(0)" class="title "  data-pid="' + item.Pid + '"  title="' +
+                    str += '  <a href="/shop/u/' + item.Sid + '#' + item.Pid + '" class="title " target="_blank" data-pid="' + item.Pid + '"  title="' +
                         item.ProductName +
                         '">' +
                         item.ProductName +
